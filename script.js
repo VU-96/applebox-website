@@ -854,4 +854,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('cinBox:', cinBox, 'cinVideo:', cinVideo);
   }
 });
+// LOADING SCREEN
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 6000);
+});
 
