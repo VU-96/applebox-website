@@ -1,0 +1,352 @@
+/* ═══════════════════════════════════════════
+   APPLEBOX — RTL / ARABIC SUPPORT
+   Append to end of styles.css
+═══════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   ARABIC FONT — load Tajawal for body text
+   Noto Kufi Arabic for display headings
+───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap');
+
+/* ─────────────────────────────────────────
+   LANGUAGE SWITCHER BUTTON
+───────────────────────────────────────── */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 0.5px solid rgba(244, 241, 236, 0.22);
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-mute);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-family: 'DM Sans', sans-serif;
+  transition: color var(--dur-s), background var(--dur-s);
+  outline: none;
+}
+
+.lang-btn.active {
+  background: var(--white);
+  color: var(--black);
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--white);
+}
+
+/* RTL: mirror switcher margin */
+body.rtl .lang-switcher {
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+/* ─────────────────────────────────────────
+   BASE RTL — direction + font swap
+───────────────────────────────────────── */
+body.rtl {
+  direction: rtl;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 16px;
+}
+
+/* Bebas Neue → Noto Kufi Arabic for display text in RTL */
+body.rtl .hero-h1,
+body.rtl .section-heading,
+body.rtl .final-cta-h,
+body.rtl .stat-num,
+body.rtl .why-num,
+body.rtl .fleet-vehicle-name,
+body.rtl .service-block-num,
+body.rtl .service-num,
+body.rtl .process-node,
+body.rtl .fleet-thumb-label,
+body.rtl .fleet-placeholder-label,
+body.rtl .contact-left h1,
+body.rtl .page-hero h1,
+body.rtl .fleet-page-hero h1,
+body.rtl .about-story-text blockquote {
+  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
+  letter-spacing: 0;        /* Arabic doesn't use Latin letter-spacing */
+}
+
+/* Reset Latin letter-spacing on all text in RTL */
+body.rtl .eyebrow,
+body.rtl .fleet-vehicle-tag,
+body.rtl .fleet-use-case-label,
+body.rtl .contact-detail-label,
+body.rtl .contact-form-heading,
+body.rtl .footer-nav a,
+body.rtl .nav-links a,
+body.rtl .nav-cta,
+body.rtl .btn,
+body.rtl .phase-label,
+body.rtl .stat-label,
+body.rtl .hero-eyebrow {
+  letter-spacing: 0.04em;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* ─────────────────────────────────────────
+   NAVIGATION — RTL flip
+───────────────────────────────────────── */
+body.rtl #main-nav {
+  flex-direction: row-reverse;
+}
+
+body.rtl .nav-links {
+  flex-direction: row-reverse;
+}
+
+/* Dropdown aligns to right in RTL */
+body.rtl .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* Eyebrow line flips to right side */
+body.rtl .eyebrow::before,
+body.rtl .hero-eyebrow::before,
+body.rtl .fleet-vehicle-tag::before {
+  order: 1; /* moves line to right */
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+body.rtl .hero-content {
+  text-align: right;
+}
+
+body.rtl .hero-eyebrow {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+body.rtl .hero-scroll-indicator {
+  right: auto;
+  left: var(--pad-x);
+  flex-direction: row-reverse;
+}
+
+body.rtl .hero-scroll-indicator::after {
+  order: -1;
+}
+
+/* ─────────────────────────────────────────
+   STATS BAR
+───────────────────────────────────────── */
+body.rtl .stats-bar {
+  direction: rtl;
+}
+
+/* ─────────────────────────────────────────
+   EYEBROW — universal RTL
+───────────────────────────────────────── */
+body.rtl .eyebrow {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* ─────────────────────────────────────────
+   SERVICES PREVIEW (homepage)
+───────────────────────────────────────── */
+body.rtl .services-intro {
+  flex-direction: row-reverse;
+}
+
+/* ─────────────────────────────────────────
+   PROCESS TRACK — keep nodes aligned, flip text
+───────────────────────────────────────── */
+body.rtl .process-track::before {
+  transform: scaleX(-1);
+}
+
+/* ─────────────────────────────────────────
+   FLEET PAGE
+───────────────────────────────────────── */
+body.rtl .fleet-page-header {
+  direction: rtl;
+}
+
+body.rtl .fleet-layout {
+  direction: rtl;
+}
+
+/* Reverse layout preserves visual balance in RTL */
+body.rtl .fleet-layout.reverse {
+  direction: ltr; /* resets to normal — "reverse" in LTR = normal in RTL */
+}
+
+body.rtl .fleet-vehicle-tag {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+body.rtl .fleet-feature {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+body.rtl .fleet-feature::before {
+  content: none; /* hide LTR dash; icon (FA) still shows */
+}
+
+body.rtl .fleet-use-case {
+  border-left: none;
+  border-right: 2px solid var(--accent);
+}
+
+/* ─────────────────────────────────────────
+   ABOUT PAGE
+───────────────────────────────────────── */
+body.rtl .about-intro-grid {
+  direction: rtl;
+}
+
+body.rtl .about-story-grid {
+  direction: rtl;
+}
+
+body.rtl .about-story-text blockquote {
+  font-style: normal; /* Arabic doesn't italicize the same way */
+}
+
+/* ─────────────────────────────────────────
+   CONTACT PAGE
+───────────────────────────────────────── */
+body.rtl .contact-layout {
+  direction: rtl;
+}
+
+body.rtl .contact-left {
+  border-right: none;
+  border-left: 0.5px solid var(--white-line);
+}
+
+body.rtl #form-success {
+  border-left: none;
+  border-right: 2px solid var(--accent);
+}
+
+body.rtl #form-error {
+  border-left: none;
+  border-right: 2px solid #e05252;
+}
+
+body.rtl .form-group label {
+  text-align: right;
+}
+
+body.rtl .contact-detail-value a {
+  flex-direction: row-reverse;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+body.rtl .site-footer {
+  flex-direction: row-reverse;
+}
+
+body.rtl .footer-nav {
+  flex-direction: row-reverse;
+}
+
+/* ─────────────────────────────────────────
+   WHY GRID ITEMS
+───────────────────────────────────────── */
+body.rtl .why-item {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────
+   SERVICE BLOCKS (services page)
+───────────────────────────────────────── */
+body.rtl .service-block {
+  direction: rtl;
+}
+
+body.rtl .service-block-num .phase-label {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────
+   LOGO MARQUEE — pause animation in RTL
+   (animation direction stays consistent since it's purely CSS)
+───────────────────────────────────────── */
+body.rtl .logo-marquee::before {
+  background: linear-gradient(to left, var(--surface-1), transparent);
+}
+body.rtl .logo-marquee::after {
+  background: linear-gradient(to right, var(--surface-1), transparent);
+}
+
+/* ─────────────────────────────────────────
+   GALLERY MODAL — swap nav sides in RTL
+───────────────────────────────────────── */
+body.rtl .gallery-nav.left  { left: auto;  right: 16px; }
+body.rtl .gallery-nav.right { right: auto; left: 16px; }
+body.rtl .gallery-nav.left:hover  { transform: translateY(-50%) translateX(3px); }
+body.rtl .gallery-nav.right:hover { transform: translateY(-50%) translateX(-3px); }
+
+/* ─────────────────────────────────────────
+   HERO SCROLL INDICATOR LINE
+───────────────────────────────────────── */
+body.rtl .hero-scroll-indicator::after {
+  background: linear-gradient(to bottom, var(--white-mute), transparent);
+}
+
+/* ─────────────────────────────────────────
+   PILLAR CARDS
+───────────────────────────────────────── */
+body.rtl .pillar-card {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────
+   AUDIENCE CARDS
+───────────────────────────────────────── */
+body.rtl .audience-card {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────
+   PROJECTS PAGE
+───────────────────────────────────────── */
+body.rtl .project-info {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────
+   PAGE-LEVEL TRANSITION (no flicker)
+───────────────────────────────────────── */
+
+body {
+  transition: font-family 0s; /* instant font swap, no FOUT */
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE RTL ADJUSTMENTS
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  body.rtl .lang-switcher {
+    margin-right: 12px;
+    margin-left: 0;
+  }
+
+  body.rtl .fleet-layout,
+  body.rtl .fleet-layout.reverse {
+    direction: rtl;
+  }
+}

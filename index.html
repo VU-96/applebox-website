@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppleBox — Production Services Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-rtl.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav id="main-nav">
+
+  <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+    <img src="pages/brandimage/logo.png"
+         data-logo-en="images/brandimage/logo.png"
+         data-logo-ar="images/brandimage/logo-ar.png"
+         alt="AppleBox">
+  </div>
+
+ <div class="nav-links">
+      <a href="javascript:void(0)" onclick="showPage('home')"     data-page="home"     data-i18n="navHome">Home</a>
+      <a href="javascript:void(0)" onclick="showPage('about')"    data-page="about"    data-i18n="navAbout">About</a>
+      <div class="nav-item">
+        <a href="javascript:void(0)" onclick="showPage('services')" data-page="services" data-i18n="navServices">Services</a>
+        <div class="dropdown-menu">
+          <a href="javascript:void(0)" onclick="goToService('full-production')"  data-i18n="navDropFull">Full Production Service</a>
+          <a href="javascript:void(0)" onclick="goToService('unit-production')"  data-i18n="navDropUnit">Unit Production Service</a>
+          <a href="javascript:void(0)" onclick="goToService('rentals')"          data-i18n="navDropRent">Rentals</a>
+          <a href="javascript:void(0)" onclick="goToService('catering')"         data-i18n="navDropCater">Catering</a>
+        </div>
+      </div>
+      <a href="javascript:void(0)" onclick="showPage('fleet')"    data-page="fleet"    data-i18n="navFleet">Fleet</a>
+      <a href="javascript:void(0)" onclick="showPage('projects')" data-page="projects" data-i18n="navProjects">Projects</a>
+    </div>
+<div class="nav-right">
+
+  <div class="lang-switcher" role="group" aria-label="Language selector">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+
+  <a class="nav-cta"
+     href="javascript:void(0)"
+     onclick="showPage('contact')">
+     Start a Project
+  </a>
+
+</div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <video autoplay muted loop playsinline class="hero-video" poster="images/hero-fallback.jpg">
+      <source src="pages/homepage/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow anim">Film & TVC Production Services · Saudi Arabia</div>
+      <h1 class="hero-h1 anim anim-d1">
+        YOU BRING<br>THE VISION.<br>
+        <span class="line-accent">WE RUN THE SET.</span>
+      </h1>
+      <div class="hero-foot anim anim-d2">
+        <p class="hero-desc">
+          Built for production houses, agencies, and international crews.
+          AppleBox delivers the fleet, crew, and execution — from planning to final wrap.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+<div class="stats-bar-wrapper">
+
+  <!-- 🎬 ONE CONTINUOUS VIDEO -->
+  <video class="stats-video" autoplay muted loop playsinline>
+    <source src="pages/brandimage/stats-bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- STATS GRID -->
+  <div class="stats-bar">
+
+    <div class="stat-item">
+      <div class="stat-content">
+        <div class="stat-num">7<sup>+</sup></div>
+        <div class="stat-label">Years in Production</div>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-content">
+        <div class="stat-num">10<sup>+</sup></div>
+        <div class="stat-label">Fleet Vehicles</div>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-content">
+        <div class="stat-num">600<sup>+</sup></div>
+        <div class="stat-label">Productions Supported</div>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-content">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Integrated Ecosystem</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="eyebrow">What We Do</div>
+<h2 class="section-heading">
+  OUR
+  <span class="accent-text">SERVICES</span>
+</h2>
+    <div class="services-intro">
+  <div class="services-text">
+<P>AppleBox delivers complete production infrastructure — from pre-production planning and on-ground execution to fleet, rentals, and catering.</P>
+<br>
+<P>Built in Saudi Arabia and operating across the Kingdom, we support everything from independent shoots to large-scale international productions, providing the systems, logistics, and crew support required to keep every production moving without friction.</P>
+<br>
+<P>We don’t just support productions — we operate as the backbone behind them, ensuring every detail is handled with precision from first call to final wrap.</P>
+</div>
+<div class="services-visual">
+  <div class="services-cinematic">
+    <video class="services-cin-video" muted loop playsinline preload="auto">
+  <source src="pages/homepage/services-video.mp4" type="video/mp4">
+</video>
+    <div class="services-cin-overlay"></div>
+    <div class="services-cin-label">ON SET · JEDDAH</div>
+  </div>
+</div>
+</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Full Production Service</div>
+        <div class="service-desc">
+          Complete end-to-end production management covering pre-production, crew coordination, logistics, fleet deployment, and full on-set execution handled by one integrated team from start to final wrap.
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Unit Production Service</div>
+        <div class="service-desc">
+          Dedicated on-ground production support for projects shooting in Saudi Arabia, including local crew, permits, logistics, and fleet ensuring smooth execution for international and regional teams.
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-title">Rentals</div>
+        <div class="service-desc">
+          A full range of production-ready vehicles and equipment including production vans, generators, DIT stations, and crew support units available as standalone rentals or integrated into your production setup.
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-title">Catering</div>
+        <div class="service-desc">
+          Professional on-set catering solutions including hot meals, craft services, and barista coffee stations — designed to keep cast and crew energized, comfortable, and performing throughout the day.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section">
+    <div class="eyebrow">Why AppleBox</div>
+    <h2 class="section-heading">WHAT SETS US<br><span class="accent-text">APART</span></h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-title">One Call, Everything Handled</div>
+        <div class="why-desc">
+          From prep to wrap, AppleBox manages the entire production workflow — fleet, crew, and logistics under one contract and one point of contact.
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-title">Purpose-Built Fleet</div>
+        <div class="why-desc">
+          Our vehicles are designed for production — equipped with generators, DIT stations, coffee setups, and essential on-set infrastructure.
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-title">International Standards</div>
+        <div class="why-desc">
+          We support international productions with workflows, expectations, and execution aligned to global production standards.
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-title">Local Expertise</div>
+        <div class="why-desc">
+          Years of on-ground experience in Saudi Arabia — from permits and locations to logistics and production challenges, fully handled.
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-title">Crew-Focused Approach</div>
+        <div class="why-desc">
+          We build systems that support every department — keeping crews efficient, comfortable, and focused throughout the shoot.
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">06</div>
+        <div class="why-title">Built for What's Next</div>
+        <div class="why-desc">
+          Positioned within Saudi Arabia's growing film industry, AppleBox is built to scale with the future of production in the region.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section border-top" style="background: var(--surface-1);">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-heading">FROM BRIEF<br><span class="accent-text">TO SCREEN</span></h2>
+    <div class="process-track">
+      <div class="process-step">
+        <div class="process-node">01</div>
+        <div class="process-title">Brief & Scope</div>
+        <div class="process-desc">Tell us your project — dates, locations, crew size.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-node">02</div>
+        <div class="process-title">Custom Proposal</div>
+        <div class="process-desc">We build a tailored package with fleet and crew requirements.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-node">03</div>
+        <div class="process-title">Production Planning</div>
+        <div class="process-desc">Permits, logistics, crew scheduling, equipment lock.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-node">04</div>
+        <div class="process-title">On-Set Execution</div>
+        <div class="process-desc">Fleet deployed. Crew on standby. Full support call to wrap.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-node">05</div>
+        <div class="process-title">Wrap & Debrief</div>
+        <div class="process-desc">Clean breakdown, DIT handoff, readiness for next shoot.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK WITH -->
+  <section class="section border-top" style="background: var(--surface-1);">
+    <div class="eyebrow">Who We Work With</div>
+    <h2 class="section-heading">PRODUCTION<br><span class="accent-text">TEAMS WE SUPPORT</span></h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-title">Production Houses (Local & International)</div>
+        <div class="audience-desc">
+          We operate as your execution arm on the ground — deploying fleet, crew, and infrastructure on demand.
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-title">Agencies</div>
+        <div class="audience-desc">
+          Seamless support for TVCs, campaigns, and branded content from brief to final wrap.
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-title">Freelancers</div>
+        <div class="audience-desc">
+          Flexible production support tailored for independent professionals and small teams.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section class="section">
+    <div class="eyebrow">Trusted By</div>
+    <h2 class="section-heading">BRANDS & PRODUCTIONS<br><span class="accent-text">WE'VE WORKED WITH</span></h2>
+
+    <div class="logo-marquee">
+
+      <!-- ROW 1 -->
+      <div class="logo-track track-right">
+        <a href="#"><img src="pages/Client logos/Purplebrain.png" alt="Purplebrain"></a>
+        <a href="#"><img src="images/Client logos/whizz.png" alt="Whizz"></a>
+        <a href="#"><img src="pages/Client logos/lettergrey.png" alt="Letter Grey"></a>
+        <a href="#"><img src="images/Client logos/filmpudding.png" alt="Film Pudding"></a>
+        <a href="#"><img src="images/Client logos/nutjust.png" alt="Nutjust"></a>
+        <a href="#"><img src="images/Client logos/digect.png" alt="Digect"></a>
+        <a href="#"><img src="images/logos/7.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/8.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/9.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/10.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/11.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/12.png" alt="Client"></a>
+        <!-- duplicate for seamless loop -->
+        <a href="#"><img src="pages/Client logos/Purplebrain.png" alt="Purplebrain"></a>
+        <a href="#"><img src="images/Client logos/whizz.png" alt="Whizz"></a>
+        <a href="#"><img src="pages/Client logos/lettergrey.png" alt="Letter Grey"></a>
+        <a href="#"><img src="images/Client logos/filmpudding.png" alt="Film Pudding"></a>
+        <a href="#"><img src="images/Client logos/nutjust.png" alt="Nutjust"></a>
+        <a href="#"><img src="images/Client logos/digect.png" alt="Digect"></a>
+        <a href="#"><img src="images/logos/7.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/8.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/9.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/10.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/11.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/12.png" alt="Client"></a>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="logo-track track-left">
+        <a href="#"><img src="images/logos/13.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/14.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/15.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/16.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/17.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/18.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/19.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/20.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/21.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/22.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/23.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/24.png" alt="Client"></a>
+        <!-- duplicate for seamless loop -->
+        <a href="#"><img src="images/logos/13.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/14.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/15.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/16.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/17.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/18.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/19.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/20.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/21.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/22.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/23.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/24.png" alt="Client"></a>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="logo-track track-right">
+        <a href="#"><img src="images/logos/25.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/26.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/27.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/28.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/29.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/30.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/31.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/32.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/33.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/34.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/35.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/36.png" alt="Client"></a>
+        <!-- duplicate for seamless loop -->
+        <a href="#"><img src="images/logos/25.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/26.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/27.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/28.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/29.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/30.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/31.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/32.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/33.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/34.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/35.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/36.png" alt="Client"></a>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="logo-track track-left">
+        <a href="#"><img src="images/logos/37.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/38.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/39.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/40.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/41.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/42.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/43.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/44.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/45.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/46.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/47.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/48.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/49.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/50.png" alt="Client"></a>
+        <!-- duplicate for seamless loop -->
+        <a href="#"><img src="images/logos/37.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/38.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/39.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/40.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/41.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/42.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/43.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/44.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/45.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/46.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/47.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/48.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/49.png" alt="Client"></a>
+        <a href="#"><img src="images/logos/50.png" alt="Client"></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="final-cta-glow"></div>
+    <h2 class="final-cta-h">PLAN YOUR<br><span class="accent-text">PRODUCTION</span></h2>
+    <p class="final-cta-sub">Tell us what you're shooting — we'll handle the execution from start to wrap.</p>
+    <div class="final-cta-actions">
+      <button class="btn btn-primary" onclick="showPage('contact')">Start a Project</button>
+      <button class="btn btn-ghost" onclick="openModal()">Download Company Profile</button>
+    </div>
+  </div>
+
+  <!-- EMAIL MODAL -->
+  <div id="emailModal" class="email-modal">
+    <div class="email-modal-content">
+      <h3>Download Company Profile</h3>
+      <p>Enter your email to continue</p>
+      <input type="email" id="userEmail" placeholder="Enter your email">
+      <div class="modal-actions">
+        <button onclick="submitEmail()">Download</button>
+        <button onclick="closeModal()" class="cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END page-home -->
+
+<!-- ═══════════════════════════════════════════
+     PAGE: SERVICES
+═══════════════════════════════════════════ -->
+<div id="page-services" class="page">
+
+  <div class="page-hero">
+    <div class="eyebrow">Our Services</div>
+    <h1>WHAT WE<br><span class="accent-text">OFFER.</span></h1>
+    <p>
+      Four ways to work with AppleBox — from complete production management
+      to standalone equipment rentals. Every service is available independently
+      or combined into a full production setup.
+    </p>
+  </div>
+
+<div class="section" style="padding-top: 0; padding-bottom: 0;">
+<!-- 01 FULL PRODUCTION -->
+<div class="service-block" id="full-production" style="position: relative; overflow: hidden;">
+  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+    <source src="pages/servicepage/fullproductionbg.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
+  <div class="service-block-num">FULL<br>PRODUCTION<br>SERVICE</div>
+<div class="service-block-content" style="padding-top: 60px; padding-left: 60px;">
+  <p>AppleBox manages the entire production from first brief to final wrap. We plan every step before cameras roll — budgeting, scheduling, crew setup, art direction, and logistics — then run every shoot day with precision and clarity. One partner, one system, zero gaps. Built for production houses and international crews who need a complete, reliable setup in Saudi Arabia.</p>
+  <div style="margin-top: 36px; position: relative; z-index: 2;" class="process-track">
+  <div class="process-step">
+    <div class="process-node">01</div>
+    <div class="process-title">Prep</div>
+    <div class="process-tooltip">Script breakdown, budgeting, crew hiring, department setup and scheduling.</div>
+  </div>
+  <div class="process-step">
+    <div class="process-node">02</div>
+    <div class="process-title">Pre-Production</div>
+    <div class="process-tooltip">Permits secured, locations locked, fleet booked, call sheets prepared.</div>
+  </div>
+  <div class="process-step">
+    <div class="process-node">03</div>
+    <div class="process-title">Recce</div>
+    <div class="process-tooltip">HODs visit locations to assess power, access, space and on-ground logistics.</div>
+  </div>
+  <div class="process-step">
+    <div class="process-node">04</div>
+    <div class="process-title">Shoot</div>
+    <div class="process-tooltip">Fleet deployed, crew on standby, catering running, full on-set support all day.</div>
+  </div>
+  <div class="process-step">
+    <div class="process-node">05</div>
+    <div class="process-title">Wrap</div>
+    <div class="process-tooltip">Set breakdown, DIT handoff, equipment returned, production closed cleanly.</div>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- 02 UNIT PRODUCTION -->
+<div class="service-block" id="unit-production" style="position: relative; overflow: hidden;">
+  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+    <source src="pages/servicepage/unitproductionbg.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
+  <div class="service-block-num">UNIT<br>PRODUCTION<br>SERVICE</div>
+  <div class="service-block-content">
+    <p>Local execution support for international and regional productions working in Saudi Arabia. AppleBox integrates directly into your existing structure, providing crew, permits, fleet, and logistics while keeping your workflow intact. Ideal for teams that lead their own creative and technical direction but need a strong and experienced local unit on the ground.</p>
+  </div>
+</div>
+
+<!-- 03 RENTALS -->
+<div class="service-block" id="rentals" style="position: relative; overflow: hidden;">
+  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.20; z-index: 0;">
+    <source src="pages/servicepage/rentalsbg.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
+  <div class="service-block-num">RENTALS<br>Service</div>
+  <div class="service-block-content">
+<p>Production vehicles, equipment, and technical units available on demand, either standalone or as part of a full setup. The fleet includes production vans, unit trucks, DIT stations, generators, wardrobe trucks, crew transport, and catering units. Every asset is production ready, well maintained, and operated by experienced on set drivers and crew.</p>  
+</div>
+</div>
+
+<!-- 04 CATERING -->
+<div class="service-block" id="catering" style="position: relative; overflow: hidden;">
+  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+    <source src="pages/servicepage/cateringbg.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
+  <div class="service-block-num">CATERING<br>Service</div>
+  <div class="service-block-content">
+<p>On set catering, craft services, and coffee stations designed to keep cast and crew running efficiently throughout the day. AppleBox delivers hot meals, dietary aware menus, craft service setups, and professional barista stations. Available as a standalone service or part of a full production setup, with a dedicated team handling service from setup to breakdown.</p>  
+</div>
+</div>
+</div>
+</div>
+<!-- END page-services -->
+
+<!-- ═══════════════════════════════════════════
+     PAGE: FLEET
+═══════════════════════════════════════════ -->
+<div id="page-fleet" class="page">
+
+  <!-- FLEET HERO -->
+  <div class="fleet-page-hero">
+    <div class="fleet-page-header">
+      <div>
+        <div class="eyebrow">The Fleet</div>
+        <h1>BUILT FOR<br><span class="accent-text">PRODUCTION.</span><br>READY TO DEPLOY.</h1>
+      </div>
+      <div class="fleet-page-intro">
+        <p>AppleBox operates a purpose-built fleet of 9 production vehicles — covering unit support, wardrobe, hygiene, talent facilities, and crew transport. Every vehicle is production-ready, fully insured, and staffed by experienced on-set crew.</p>
+        <p style="margin-top: 18px;">Unit Van · Unit Truck · Support Van · Wardrobe Trucks · Toilet Unit · Honeywagon · VIP Caravan · Crew Transport</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 — FULLY EQUIPPED UNIT PRODUCTION VAN -->
+  <div class="fleet-section" style="background: var(--surface-1);">
+    <div class="fleet-layout reverse">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Unit Production Support</div>
+        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION VAN</span></div>
+        <div class="fleet-vehicle-desc">The primary mobile production hub. Keeps departments coordinated, powered, and connected across any location or shoot day.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-bolt"></i> On-board generator &amp; charging stations</div>
+          <div class="fleet-feature"><i class="fas fa-wifi"></i> Wi-Fi &amp; department connectivity</div>
+          <div class="fleet-feature"><i class="fas fa-desktop"></i> Dedicated DIT workspace</div>
+          <div class="fleet-feature"><i class="fas fa-boxes-stacked"></i> Integrated equipment storage</div>
+          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Coffee &amp; refreshment station</div>
+          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>Core unit support on any size production — from single-day commercials to multi-week features.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-media-grid">
+          <div class="fleet-left-stack">
+            <div class="fleet-img-hero">
+              <img src="pages/fleets/unit-van/hero.png" class="gallery-item" alt="Unit Production Van">
+              <div class="fleet-thumb-label">UNIT VAN</div>
+            </div>
+            <div class="fleet-thumbs-row">
+              <div class="fleet-thumb"><img src="pages/fleets/unit-van/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-van/interior.png" class="gallery-item" alt="Setup"></div>
+            </div>
+          </div>
+          <div class="fleet-video-col">
+            <video autoplay muted loop playsinline class="gallery-item">
+              <source src="images/fleets/unit-van/video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 — FULLY EQUIPPED UNIT PRODUCTION TRUCK -->
+  <div class="fleet-section">
+    <div class="fleet-layout">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Production Support &amp; Operations</div>
+        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION TRUCK</span></div>
+        <div class="fleet-vehicle-desc">The on-set command center. Delivers centralized power, catering, and crew infrastructure from a single mobile unit.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-bolt"></i> 25KW silent generator</div>
+          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Built-in catering &amp; coffee station</div>
+          <div class="fleet-feature"><i class="fas fa-snowflake"></i> Fridge, ice &amp; cold food storage</div>
+          <div class="fleet-feature"><i class="fas fa-chair"></i> Crew tables, chairs &amp; furniture</div>
+          <div class="fleet-feature"><i class="fas fa-wifi"></i> Charging stations &amp; WiFi</div>
+          <div class="fleet-feature"><i class="fas fa-kit-medical"></i> Safety &amp; first aid kit</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>Remote shoots and long days requiring reliable power, catering, and centralized crew support.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-media-grid">
+          <div class="fleet-left-stack">
+            <div class="fleet-img-hero">
+              <img src="pages/fleets/unit-truck/hero.png" class="gallery-item" alt="Unit Production Truck">
+              <div class="fleet-thumb-label">UNIT TRUCK</div>
+            </div>
+            <div class="fleet-thumbs-row">
+              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/interior.png" class="gallery-item" alt="Side view"></div>
+            </div>
+          </div>
+          <div class="fleet-video-col">
+            <video autoplay muted loop playsinline class="gallery-item">
+              <source src="pages/fleets/unit-truck/video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 — SUPPORT VAN -->
+  <div class="fleet-section" style="background: var(--surface-1);">
+    <div class="fleet-layout reverse">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Crafties &amp; Equipment Support</div>
+        <div class="fleet-vehicle-name">SUPPORT <span>VAN</span></div>
+        <div class="fleet-vehicle-desc">A compact, versatile van for craft services, equipment overflow, and on-set logistics. An essential companion to the main unit trucks.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-box-open"></i> Flexible cargo space</div>
+          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Crafties &amp; catering ready</div>
+          <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Partitioned driver's cabin</div>
+          <div class="fleet-feature"><i class="fas fa-layer-group"></i> Durable wooden flooring</div>
+          <div class="fleet-feature"><i class="fas fa-cubes"></i> Multi-department cargo use</div>
+          <div class="fleet-feature"><i class="fas fa-truck-fast"></i> Fast, reliable on-set mobility</div>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-media-grid">
+          <div class="fleet-left-stack">
+            <div class="fleet-img-hero">
+              <img src="pages/fleets/support-van/hero.png" class="gallery-item" alt="Support Van">
+              <div class="fleet-thumb-label">SUPPORT VAN</div>
+            </div>
+            <div class="fleet-thumbs-row">
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/interior.png" class="gallery-item" alt="Cargo View"></div>
+            </div>
+          </div>
+          <div class="fleet-video-col">
+            <video autoplay muted loop playsinline class="gallery-item">
+              <source src="pages/fleets/support-van/video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 — WARDROBE TRUCK 1 -->
+  <div class="fleet-section">
+    <div class="fleet-layout">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling Department</div>
+        <div class="fleet-vehicle-name">WARDROBE <span>TRUCK 1</span></div>
+        <div class="fleet-vehicle-desc">A fully operational mobile wardrobe department. Keeps costumes organized, talent comfortable, and the styling workflow uninterrupted from prep to wrap.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
+          <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
+          <div class="fleet-feature"><i class="fas fa-user"></i> Private fitting &amp; changing area</div>
+          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
+          <div class="fleet-feature"><i class="fas fa-lightbulb"></i> Integrated lighting for color work</div>
+          <div class="fleet-feature"><i class="fas fa-lock"></i> Secure overnight storage</div>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-media-grid">
+          <div class="fleet-left-stack">
+            <div class="fleet-img-hero">
+              <img src="pages/fleets/wardrobe-truck1/hero.png" class="gallery-item" alt="Wardrobe Truck 1">
+              <div class="fleet-thumb-label">WARDROBE 1</div>
+            </div>
+            <div class="fleet-thumbs-row">
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/interior.png" class="gallery-item" alt="Side"></div>
+            </div>
+          </div>
+          <div class="fleet-video-col">
+            <video autoplay muted loop playsinline class="gallery-item">
+              <source src="pages/fleets/wardrobe-truck1/video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- 03 — SUPPORT VAN -->
+  <div class="fleet-section" style="background: var(--surface-1);">
+    <div class="fleet-layout reverse">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Crafties &amp; Equipment Support</div>
+        <div class="fleet-vehicle-name">SUPPORT <span>VAN</span></div>
+        <div class="fleet-vehicle-desc">A compact, versatile van for craft services, equipment overflow, and on-set logistics. An essential companion to the main unit trucks.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-box-open"></i> Flexible cargo space</div>
+          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Crafties &amp; catering ready</div>
+          <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Partitioned driver's cabin</div>
+          <div class="fleet-feature"><i class="fas fa-layer-group"></i> Durable wooden flooring</div>
+          <div class="fleet-feature"><i class="fas fa-cubes"></i> Multi-department cargo use</div>
+          <div class="fleet-feature"><i class="fas fa-truck-fast"></i> Fast, reliable on-set mobility</div>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-media-grid">
+          <div class="fleet-left-stack">
+            <div class="fleet-img-hero">
+              <img src="pages/fleets/support-van/hero.png" class="gallery-item" alt="Support Van">
+              <div class="fleet-thumb-label">SUPPORT VAN</div>
+            </div>
+            <div class="fleet-thumbs-row">
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/interior.png" class="gallery-item" alt="Cargo View"></div>
+            </div>
+          </div>
+          <div class="fleet-video-col">
+            <video autoplay muted loop playsinline class="gallery-item">
+              <source src="pages/fleets/support-van/video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 06 — 4 CABIN TOILET UNIT -->
+  <div class="fleet-section">
+    <div class="fleet-layout">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Hygiene Solutions</div>
+        <div class="fleet-vehicle-name">4 CABIN <span>TOILET UNIT</span></div>
+        <div class="fleet-vehicle-desc">Four-cabin hygiene facility for mid-size productions on exterior or remote locations. Meets international crew welfare standards.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-venus-mars"></i> Separate male &amp; female cabins</div>
+          <div class="fleet-feature"><i class="fas fa-droplet"></i> Flushing toilets &amp; fresh water supply</div>
+          <div class="fleet-feature"><i class="fas fa-hands-bubbles"></i> Hot water handwashing stations</div>
+          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned interior</div>
+          <div class="fleet-feature"><i class="fas fa-rotate"></i> Daily servicing &amp; restocking</div>
+          <div class="fleet-feature"><i class="fas fa-wheelchair"></i> Accessible configuration available</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>Exterior shoots with 20–60 crew. Essential where permanent facilities are unavailable.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-placeholder">
+          <i class="fas fa-building-columns fleet-placeholder-svg"></i>
+          <div class="fleet-placeholder-label">4 CABIN TOILET UNIT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 — HONEYWAGON -->
+  <div class="fleet-section" style="background: var(--surface-1);">
+    <div class="fleet-layout reverse">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Hygiene Solutions</div>
+        <div class="fleet-vehicle-name">HONEY<span>WAGON</span></div>
+        <div class="fleet-vehicle-desc">A multi-cabin mobile hygiene unit designed for large productions. Provides premium facilities for high crew counts on any location.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-venus-mars"></i> Multiple segregated cabin sections</div>
+          <div class="fleet-feature"><i class="fas fa-droplet"></i> Full plumbing &amp; fresh water supply</div>
+          <div class="fleet-feature"><i class="fas fa-hands-bubbles"></i> Hot water wash stations throughout</div>
+          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned throughout</div>
+          <div class="fleet-feature"><i class="fas fa-rotate"></i> Scheduled daily servicing</div>
+          <div class="fleet-feature"><i class="fas fa-star"></i> Talent-grade finish &amp; fittings</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>Large productions with 60+ crew, multi-day exterior shoots, and high-profile talent requirements.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-placeholder">
+          <i class="fas fa-droplet fleet-placeholder-svg"></i>
+          <div class="fleet-placeholder-label">HONEYWAGON</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 — VIP CARAVAN -->
+  <div class="fleet-section">
+    <div class="fleet-layout">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Talent &amp; Client</div>
+        <div class="fleet-vehicle-name">VIP <span>CARAVAN</span></div>
+        <div class="fleet-vehicle-desc">An expandable luxury mobile suite. The standard for talent and client hospitality on location — private, premium, and fully equipped.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-expand"></i> Expandable slide-out rooms</div>
+          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned lounge &amp; private areas</div>
+          <div class="fleet-feature"><i class="fas fa-couch"></i> Premium furnishing &amp; lighting</div>
+          <div class="fleet-feature"><i class="fas fa-shower"></i> Private bathroom facilities</div>
+          <div class="fleet-feature"><i class="fas fa-tv"></i> Entertainment system &amp; connectivity</div>
+          <div class="fleet-feature"><i class="fas fa-user-tie"></i> Configurable for talent, directors, or clients</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>High-profile talent green rooms, client hospitality, and director's base on extended shoots.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-placeholder">
+          <i class="fas fa-star fleet-placeholder-svg"></i>
+          <div class="fleet-placeholder-label">VIP CARAVAN</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 — CREW & CLIENT TRANSPORT -->
+  <div class="fleet-section" style="background: var(--surface-1);">
+    <div class="fleet-layout reverse">
+      <div class="fleet-text-col">
+        <div class="fleet-vehicle-tag">Transport</div>
+        <div class="fleet-vehicle-name">CREW &amp; CLIENT <span>TRANSPORT</span></div>
+        <div class="fleet-vehicle-desc">Professional chauffeur-driven vehicles for crew, talent, and client movement — from airport arrivals to daily location runs.</div>
+        <div class="fleet-features">
+          <div class="fleet-feature"><i class="fas fa-id-badge"></i> Licensed chauffeur drivers</div>
+          <div class="fleet-feature"><i class="fas fa-car-side"></i> SUVs, vans &amp; luxury vehicles</div>
+          <div class="fleet-feature"><i class="fas fa-plane-arrival"></i> Airport &amp; hotel transfers</div>
+          <div class="fleet-feature"><i class="fas fa-video"></i> Camera car &amp; vehicle mount support</div>
+          <div class="fleet-feature"><i class="fas fa-headset"></i> 24/7 dispatch coordination</div>
+          <div class="fleet-feature"><i class="fas fa-location-dot"></i> GPS-tracked fleet management</div>
+        </div>
+        <div class="fleet-use-case">
+          <div class="fleet-use-case-label">Best For</div>
+          <p>International productions needing full transportation coordination from day one.</p>
+        </div>
+      </div>
+      <div class="fleet-media-col">
+        <div class="fleet-placeholder">
+          <i class="fas fa-van-shuttle fleet-placeholder-svg"></i>
+          <div class="fleet-placeholder-label">CREW &amp; CLIENT TRANSPORT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLEET CTA -->
+  <div class="final-cta border-top">
+    <div class="final-cta-glow"></div>
+    <h2 class="final-cta-h">DEPLOY THE FLEET<br><span class="accent-text">ON YOUR NEXT SHOOT</span></h2>
+    <p class="final-cta-sub">Tell us your production dates and locations. We'll build the right fleet package.</p>
+    <div class="final-cta-actions">
+      <button class="btn btn-primary" onclick="showPage('contact')">Request a Quote</button>
+    </div>
+  </div>
+
+</div>
+<!-- END page-fleet -->
+
+<!-- ═══════════════════════════════════════════
+     PAGE: ABOUT
+═══════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <!-- INTRO HERO -->
+<div class="page-hero" style="padding-bottom: 0;">
+    <div class="about-intro-grid">
+      <div>
+        <div class="eyebrow">About AppleBox</div>
+        <h1>THE<br><span class="accent-text">PRODUCTION</span><br>PARTNER</h1>
+      </div>
+      <div>
+        <p class="t-body-lg">For 7+ years, AppleBox has been the production partner behind some of the most demanding shoots in Saudi Arabia. We shape imagination into cinematic experiences.</p>
+        <p style="font-size:14px; font-weight:300; line-height:1.8; color:var(--white-mute); margin-top:18px;">We go beyond managing projects. We build experiences. Every shoot, every campaign, every story we deliver blends creativity, precision, and innovation. From pre-production planning to on-set execution, our expert team handles every detail so you can focus on your vision.</p>
+      </div>
+    </div>
+
+<div class="about-portrait-gallery" style="margin-top: 0;">
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg1.png" alt=""></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg2.png" alt=""></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg3.png" alt=""></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg4.png" alt=""></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg5.png" alt=""></div>
+    </div>
+  </div>
+
+  <!-- OUR STORY -->
+<div class="section" style="padding-top: 0; padding-bottom: 0;">
+  <div class="about-story-grid">
+      <div class="about-story-label">Our Story</div>
+      <div class="about-story-text">
+        <blockquote>"We didn't set out to be a production company. We set out to be the reason productions don't fail."</blockquote>
+        <p>It started with a single production van and a belief that Saudi Arabia deserved world-class production infrastructure. From those early shoots, AppleBox grew year after year, adding vehicles, crew, capabilities, and clients who trusted us to deliver.</p>
+        <p style="margin-top: 18px;">Today we operate one of the largest dedicated production fleets in Saudi Arabia. We support international and regional productions across the Kingdom, providing everything from pre-production and crew coordination to fleet deployment and on-set catering. Our team of line producers, production managers, coordinators, drivers, and on-set specialists handles the full production workflow under one roof.</p>
+        <p style="margin-top: 18px;">As Saudi Arabia's creative economy grows under Vision 2030, AppleBox is not catching up. We were already here, building the infrastructure that makes great productions possible.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="pillars-video-section">
+    <video class="pillars-bg-video" autoplay muted loop playsinline>
+      <source src="pages/aboutpage/aboutbg.mp4" type="video/mp4">
+    </video>
+    <div class="pillars-video-overlay"></div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-crosshairs"></i></div>
+        <div class="pillar-title">Precision</div>
+        <div class="pillar-desc">Every van stocked the same way. Every call time met. Every piece of equipment checked before it leaves the yard. Precision is not a value. It is how we operate.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-handshake"></i></div>
+        <div class="pillar-title">Accountability</div>
+        <div class="pillar-desc">One point of contact. Fast answers. Problems solved before you notice them. From first brief to final wrap, we take full ownership of the production so you never have to chase anyone.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+        <div class="pillar-title">Scale</div>
+        <div class="pillar-desc">From a single crew van for a one-day shoot to a full fleet deployment for a 60-day feature, we scale up or down without compromising quality, speed, or crew experience.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END page-about -->
+<!-- ═══════════════════════════════════════════
+     PAGE: PROJECTS
+═══════════════════════════════════════════ -->
+<div id="page-projects" class="page">
+
+  <div class="page-hero">
+    <div class="eyebrow">Selected Work</div>
+    <h1>PROJECTS</h1>
+    <p>From international feature films to local TVCs — a selection of productions AppleBox has powered across Saudi Arabia.</p>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">Feature Film</div>
+        <div class="project-title">International Feature — 60-Day Shoot</div>
+        <div class="project-meta">Riyadh · 60 Days · 120+ Crew</div>
+        <div class="project-details">Full fleet deployment, multi-unit coordination, long-form production support</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">Automotive TVC</div>
+        <div class="project-title">Desert Performance Campaign</div>
+        <div class="project-meta">AlUla · 5 Days · 45 Crew</div>
+        <div class="project-details">3 Production Vans · 2 Crew Vans · 1 VIP Caravan</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">TVC Campaign</div>
+        <div class="project-title">Multi-city Brand Campaign</div>
+        <div class="project-meta">Jeddah · Riyadh · 8 Days</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">Drama Series</div>
+        <div class="project-title">KSA Drama Production — Full Service</div>
+        <div class="project-meta">Riyadh · 45 Days</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">Music Video</div>
+        <div class="project-title">Regional Artist — Location Shoot</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-bg"></div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">Brand Content</div>
+        <div class="project-title">Social Campaign — 3-Day Shoot</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-sm border-top" style="background: var(--surface-1); text-align: center;">
+    <p class="t-caption" style="margin-bottom: 28px;">Ready to add your production to this list?</p>
+    <button class="btn btn-primary" onclick="showPage('contact')">Start Your Project</button>
+  </div>
+
+</div>
+<!-- END page-projects -->
+
+<!-- ═══════════════════════════════════════════
+     PAGE: CONTACT
+═══════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+
+  <div class="contact-layout">
+
+    <!-- LEFT — DETAILS & QUICK CONTACT -->
+    <div class="contact-left">
+      <div>
+        <div class="eyebrow">Get in Touch</div>
+        <h1>LET'S<br>BUILD<br><span class="accent-text">SOMETHING.</span></h1>
+        <p>Tell us about your production. A brief overview is enough. We'll respond within 24 hours with an initial proposal.</p>
+        <p style="font-size:12px; font-weight:300; color:var(--accent); margin-top:14px; letter-spacing:0.04em;">Need only rentals or transport? Just mention it — we'll respond fast.</p>
+      </div>
+
+      <div class="contact-details">
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-value">Riyadh, Saudi Arabia</div>
+          <div class="contact-detail-value">Jeddah, Saudi Arabia</div>
+        </div>
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-label">Operations</div>
+          <div class="contact-detail-value">Kingdom-wide deployment</div>
+        </div>
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-detail-value">
+            <a href="tel:+966570804181"><i class="fas fa-phone"></i> +966 57 080 4181</a><br>
+            <a href="tel:+966507828256" style="margin-top:4px; display:inline-flex;"><i class="fas fa-phone"></i> +966 50 782 8256</a>
+          </div>
+        </div>
+
+        <!-- DUAL WHATSAPP BUTTONS -->
+        <div class="contact-detail-item" style="border-bottom: none; padding-bottom: 0;">
+          <div class="contact-detail-label">WhatsApp</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <a
+              href="https://wa.me/966570804181?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
+              target="_blank"
+              class="btn btn-whatsapp"
+              style="margin-top: 0;"
+            >
+              <i class="fab fa-whatsapp"></i> +966 57 080 4181
+            </a>
+            <a
+              href="https://wa.me/966507828256?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
+              target="_blank"
+              class="btn btn-whatsapp"
+              style="margin-top: 0;"
+            >
+              <i class="fab fa-whatsapp"></i> +966 50 782 8256
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT — INQUIRY FORM -->
+    <div class="contact-right">
+      <div class="contact-form-heading">Start a Project</div>
+
+      <!-- SUCCESS / ERROR MESSAGES -->
+      <div id="form-success" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid var(--accent); background:var(--accent-dim); font-size:13px; color:var(--white);">
+        <i class="fas fa-circle-check" style="color:var(--accent); margin-right:8px;"></i>
+        Request sent successfully. We'll be in touch within 24 hours.
+      </div>
+      <div id="form-error" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid #e05252; background:rgba(224,82,82,0.1); font-size:13px; color:var(--white);">
+        <i class="fas fa-circle-exclamation" style="color:#e05252; margin-right:8px;"></i>
+        <span id="form-error-text">Something went wrong. Please try again or reach us via WhatsApp.</span>
+      </div>
+
+      <form id="contactForm" novalidate>
+
+        <div class="form-row" id="cf-crew-row">
+          <div class="form-group" id="cf-type-group">
+            <label for="cf-name">Your Name <span style="color:var(--accent);">*</span></label>
+            <input
+              id="cf-name"
+              type="text"
+              name="name"
+              placeholder="Full name"
+              required
+            >
+          </div>
+          <div class="form-group" id="cf-type-group">
+            <label for="cf-company">Company</label>
+            <input
+              id="cf-company"
+              type="text"
+              name="company"
+              placeholder="Production company or agency"
+            >
+          </div>
+        </div>
+
+        <div class="form-group" id="cf-type-group">
+          <label for="cf-email">Email <span style="color:var(--accent);">*</span></label>
+          <input
+            id="cf-email"
+            type="email"
+            name="email"
+            placeholder="you@company.com"
+            required
+          >
+        </div>
+
+        <div class="form-group" id="cf-type-group">
+          <label for="cf-support">Support Type <span style="color:var(--accent);">*</span></label>
+          <select id="cf-support" name="supportType" required>
+            <option value="" disabled selected>What do you need?</option>
+            <option value="Full Production Support">Full Production Support</option>
+            <option value="Unit Production">Unit Production</option>
+            <option value="Fleet / Equipment Rental">Fleet / Equipment Rental</option>
+            <option value="Transport Only">Transport Only</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="cf-type-group">
+          <label for="cf-type">Project Type</label>
+          <select id="cf-type" name="projectType">
+            <option value="" disabled selected>Select project type</option>
+            <option value="Feature Film">Feature Film</option>
+            <option value="TVC / Commercial">TVC / Commercial</option>
+            <option value="Drama Series">Drama Series</option>
+            <option value="Music Video">Music Video</option>
+            <option value="Branded Content">Branded Content</option>
+            <option value="International Production">International Production</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row" id="cf-crew-row">
+          <div class="form-group" id="cf-type-group">
+            <label for="cf-dates">Shoot Dates</label>
+            <input
+              id="cf-dates"
+              type="text"
+              name="shootDates"
+              placeholder="Approx. dates or period"
+            >
+          </div>
+          <div class="form-group" id="cf-type-group">
+            <label for="cf-crew">Crew Size</label>
+            <input
+              id="cf-crew"
+              type="text"
+              name="crewSize"
+              placeholder="Estimated crew count"
+            >
+          </div>
+        </div>
+
+        <div class="form-group" id="cf-type-group">
+          <label for="cf-brief">Project Brief</label>
+          <textarea
+            id="cf-brief"
+            name="projectBrief"
+            placeholder="Tell us about your production, location, key requirements, and anything else that helps us understand the scope."
+          ></textarea>
+        </div>
+
+        <button type="submit" id="cf-submit" class="btn btn-submit">Send Request →</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
+<!-- END page-contact -->
+
+<!-- ═══════════════════════════════════════════
+     GALLERY MODAL (GLOBAL)
+═══════════════════════════════════════════ -->
+<div id="galleryModal" class="gallery-modal">
+  <span class="gallery-close">&times;</span>
+  <img id="galleryModalImg" class="gallery-modal-img" alt="Gallery image">
+  <video id="galleryModalVideo" class="gallery-modal-video" controls></video>
+  <div class="gallery-nav left">&#10094;</div>
+  <div class="gallery-nav right">&#10095;</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER (GLOBAL — OUTSIDE ALL PAGES)
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+
+  <div class="footer-left">
+    <img src="images/brandimage/footerlogo.png"
+         data-logo-en="images/brandimage/logo.png"
+         data-logo-ar="images/brandimage/logo-ar.png"
+         alt="AppleBox">
+  </div>
+
+  <div class="footer-center">
+    <div class="footer-copy">
+      © 2026 AppleBox Production Services · Saudi Arabia
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <a href="https://www.instagram.com/appleboxksa/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/appleboxproductionservices" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
