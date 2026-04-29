@@ -860,4 +860,50 @@ window.addEventListener('load', () => {
     document.getElementById('loader').classList.add('hidden');
   }, 6000);
 });
+function openYT(videoId) {
+  if (!videoId || videoId.startsWith('YOUTUBE_ID')) {
+    alert('YouTube link not set yet.');
+    return;
+  }
+  window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+}
 
+function closeYT() {
+  document.getElementById('yt-iframe').src = '';
+  document.getElementById('yt-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('yt-modal');
+  if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeYT(); });
+});
+/* ── BTS CAROUSEL HOVER PLAY ── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.bts-card').forEach(function(card) {
+    var video = card.querySelector('.bts-video');
+    if (!video) return;
+    card.addEventListener('mouseenter', function() { video.play().catch(function(){}); });
+    card.addEventListener('mouseleave', function() { video.pause(); video.currentTime = 0; });
+  });
+});
+/* ── BTS FULLSCREEN MODAL ── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.bts-card').forEach(function(card) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() {
+      var video = card.querySelector('.bts-video');
+      if (!video) return;
+      var src = video.querySelector('source').src;
+      var modal = document.getElementById('galleryModal');
+      var modalVid = document.getElementById('galleryModalVideo');
+      if (!modal || !modalVid) return;
+      modalVid.src = src;
+      modalVid.style.display = 'block';
+      document.getElementById('galleryModalImg').style.display = 'none';
+      modal.classList.add('active');
+      modalVid.play().catch(function(){});
+      document.body.style.overflow = 'hidden';
+    });
+  });
+});

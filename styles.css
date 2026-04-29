@@ -540,7 +540,7 @@ button { font-family: inherit; }
   grid-template-columns: repeat(4, 1fr);
   border-top: 0.5px solid var(--white-line);
   border-bottom: 0.5px solid var(--white-line);
-  min-height: 140px;
+  min-height: 160px;
 }
 
 /* EACH BOX */
@@ -550,7 +550,7 @@ button { font-family: inherit; }
   border-right: 0.5px solid var(--white-line);
 
   /* subtle glass effect */
-  background: rgba(0, 0, 0, 0.45); /* 👈 lighter glass */
+background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px);
 }
 
@@ -569,6 +569,7 @@ button { font-family: inherit; }
   letter-spacing: 0.02em;
   line-height: 1;
   color: var(--white);
+  text-shadow: 0 0 20px rgba(106,191,46,0.4);
 }
 
 .stat-num sup {
@@ -1312,13 +1313,13 @@ button { font-family: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.35;
+  opacity: 0.6;
   z-index: 0;
 }
 .pillars-video-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 8, 8, 0.72);
+  background: rgba(8, 8, 8, 0.45);
   z-index: 1;
 }
 .pillars-video-section .pillars-grid {
@@ -2567,4 +2568,176 @@ margin-top: 8px; /* 👈 clean spacing */
   inset: 0;
   background: rgba(8,8,8,0.3);
   z-index: 1;
+}
+/* ═══════════════════════════════════════════
+   PROJECTS — HORIZONTAL ROWS
+═══════════════════════════════════════════ */
+.projects-list { 
+  border-top: 0.5px solid var(--white-line); 
+}
+
+.project-row {
+  position: relative;
+   height: calc(100vw / 3);
+  overflow: hidden;
+  border-bottom: 0.5px solid var(--white-line);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  gap: 40px;
+}
+
+.project-row-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+object-position: center center;  
+filter: grayscale(30%) brightness(0.45);
+  transition: filter var(--dur-l) var(--ease), transform var(--dur-l) var(--ease);
+  z-index: 0;
+}
+.project-row:hover .project-row-bg {
+  filter: grayscale(0%) brightness(0.6);
+  transform: scale(1.03);
+}
+
+.project-row-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8,8,8,0.75) 0%, rgba(8,8,8,0.25) 60%, rgba(8,8,8,0.55) 100%);
+  z-index: 1;
+}
+
+
+.project-row-info { position: relative; z-index: 2; flex: 1; }
+.project-row-cat { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.project-row-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(22px, 2.8vw, 38px); letter-spacing: 0.02em; line-height: 1; color: var(--white); margin-bottom: 8px; }
+.project-row-meta { font-size: 12px; color: var(--white-mute); letter-spacing: 0.06em; margin-bottom: 8px; }
+.project-row-desc { font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--white-dim); max-width: 560px; }
+
+.project-row-arrow { position: relative; z-index: 2; font-size: 20px; color: var(--white-ghost); flex-shrink: 0; transition: color var(--dur-m), transform var(--dur-m); }
+.project-row:hover .project-row-arrow { color: var(--accent); transform: translateX(6px); }
+
+@media (max-width: 900px) {
+  .project-row { height: 160px; padding: 0 24px; gap: 20px; }
+  .project-row-arrow { display: none; }
+  .project-row-desc { display: none; }
+}
+/* ═══════════════════════════════════════════
+   BTS VIDEO CAROUSEL
+═══════════════════════════════════════════ */
+.bts-section {
+  padding-bottom: var(--sp-xl);
+  overflow: hidden;
+}
+
+.bts-track-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 0 var(--pad-x);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.bts-track-wrapper::-webkit-scrollbar { display: none; }
+.bts-track-wrapper.dragging { cursor: grabbing; }
+
+.bts-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding-bottom: 8px;
+  animation: btScrollLeft 20s linear infinite;
+}
+
+.bts-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes btScrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 9:16 CARD */
+.bts-card {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.bts-thumb {
+  position: relative;
+  width: 220px;
+  height: 390px;
+  overflow: hidden;
+  background: var(--surface-1);
+  border: 0.5px solid var(--white-line);
+}
+
+.bts-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity var(--dur-m), transform var(--dur-l) var(--ease);
+}
+
+.bts-card:hover .bts-video {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.bts-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.bts-label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  background: rgba(8,8,8,0.65);
+  padding: 4px 10px;
+  border-left: 2px solid var(--accent);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.bts-info {
+  padding: 12px 4px 0;
+}
+
+.bts-client {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.bts-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+/* Hover play video */
+.bts-card:hover .bts-video {
+  /* autoplay on hover via JS */
+}
+
+@media (max-width: 900px) {
+  .bts-track-wrapper { padding: 0 24px; }
+  .bts-card { width: 180px; }
+  .bts-thumb { width: 180px; height: 320px; }
 }
