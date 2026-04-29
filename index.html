@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preload" as="video" href="pages/homepage/hero.mp4">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-rtl.css">
 </head>
@@ -70,7 +71,7 @@
 
   <!-- HERO -->
   <div class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
+    <video autoplay muted loop playsinline class="hero-video" preload="metadata">
       <source src="pages/homepage/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -92,7 +93,7 @@
 <div class="stats-bar-wrapper">
 
   <!-- 🎬 ONE CONTINUOUS VIDEO -->
-  <video class="stats-video" autoplay muted loop playsinline>
+  <video class="stats-video" autoplay muted loop playsinline preload="none">
     <source src="pages/brandimage/stats-bg.mp4" type="video/mp4">
   </video>
 
@@ -147,7 +148,7 @@
 </div>
 <div class="services-visual">
   <div class="services-cinematic">
-    <video class="services-cin-video" muted loop playsinline preload="auto">
+    <video class="services-cin-video" muted loop playsinline preload="none">
   <source src="pages/homepage/services-video.mp4" type="video/mp4">
 </video>
     <div class="services-cin-overlay"></div>
@@ -472,7 +473,7 @@
 
 <!-- 01 FULL PRODUCTION -->
 <div class="service-block" id="full-production" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
     <source src="pages/servicepage/fullproductionbg.mp4" type="video/mp4">
   </video>
   <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
@@ -511,7 +512,7 @@
 
 <!-- 02 UNIT PRODUCTION -->
 <div class="service-block" id="unit-production" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
     <source src="pages/servicepage/unitproductionbg.mp4" type="video/mp4">
   </video>
   <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
@@ -550,7 +551,7 @@
 
 <!-- 03 RENTALS -->
 <div class="service-block" id="rentals" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.20; z-index: 0;">
+  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
     <source src="pages/servicepage/rentalsbg.mp4" type="video/mp4">
   </video>
   <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
@@ -589,7 +590,7 @@
 
 <!-- 04 CATERING -->
 <div class="service-block" id="catering" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
+  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
     <source src="pages/servicepage/cateringbg.mp4" type="video/mp4">
   </video>
   <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
@@ -682,7 +683,7 @@
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item">
               <source src="images/fleets/unit-van/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -724,7 +725,7 @@
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item">
               <source src="pages/fleets/unit-truck/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -762,7 +763,7 @@
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item">
               <source src="pages/fleets/support-van/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -800,7 +801,7 @@
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item">
               <source src="pages/fleets/wardrobe-truck1/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -838,7 +839,7 @@
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item">
               <source src="pages/fleets/support-van/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -1017,7 +1018,7 @@
 
   <!-- PILLARS -->
   <div class="pillars-video-section">
-    <video class="pillars-bg-video" autoplay muted loop playsinline>
+    <video class="pillars-bg-video" autoplay muted loop playsinline preload="none">
       <source src="pages/aboutpage/aboutbg.mp4" type="video/mp4">
     </video>
     <div class="pillars-video-overlay"></div>
