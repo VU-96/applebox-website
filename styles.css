@@ -693,21 +693,27 @@ button { font-family: inherit; }
   position: relative;
   margin-top: var(--sp-lg);
 }
+
 #full-production .process-track,
 #unit-production .process-track,
 #rentals .process-track,
 #catering .process-track {
   margin-top: 36px;
   text-align: left;
+  margin-left: -30;
 }
 
 #full-production .process-track::before,
 #unit-production .process-track::before,
 #rentals .process-track::before,
 #catering .process-track::before {
+  content: '';
+  position: absolute;
+  top: 19px;
   left: 0%;
   right: 0%;
-  background: linear-gradient(to right, var(--white-ghost), var(--white-ghost));
+  height: 0.5px;
+  background: var(--white-ghost);
 }
 
 #full-production .process-step,
@@ -2523,4 +2529,10 @@ margin-top: 8px; /* 👈 clean spacing */
 .process-step:hover .process-tooltip {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+#full-production .service-block-content > p,
+#unit-production .service-block-content > p,
+#rentals .service-block-content > p,
+#catering .service-block-content > p {
+  max-width: 95%;
 }
