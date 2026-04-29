@@ -2578,7 +2578,8 @@ margin-top: 8px; /* 👈 clean spacing */
 
 .project-row {
   position: relative;
-   height: calc(100vw / 3);
+  height: calc(100vw / 3);
+  isolation: isolate;   /* ADD THIS LINE */
   overflow: hidden;
   border-bottom: 0.5px solid var(--white-line);
   cursor: pointer;
