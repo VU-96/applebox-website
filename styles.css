@@ -2032,7 +2032,7 @@ margin-top: 8px; /* 👈 clean spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 48px var(--pad-x);
+  padding: 60px var(--pad-x);
   border-top: 1px solid #222;
   background: #0b0b0b;
 }
@@ -2072,7 +2072,7 @@ margin-top: 8px; /* 👈 clean spacing */
 /* RIGHT */
 .footer-right {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   justify-content: flex-end; /* pushes to exact right edge */
 }
 
@@ -2741,4 +2741,63 @@ filter: grayscale(30%) brightness(0.45);
   .bts-track-wrapper { padding: 0 24px; }
   .bts-card { width: 180px; }
   .bts-thumb { width: 180px; height: 320px; }
+}
+.transport-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+.transport-photo {
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.transport-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.transport-photo:hover img {
+  transform: scale(1.04);
+}
+.caravan-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.caravan-unit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.caravan-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.caravan-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.caravan-cell {
+  aspect-ratio: 16/14;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--surface-2);
+}
+
+.caravan-cell img,
+.caravan-cell video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
