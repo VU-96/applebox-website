@@ -12,6 +12,13 @@
 <link rel="preload" as="video" href="pages/homepage/hero.mp4">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-rtl.css">
+<!-- PERFORMANCE -->
+<link rel="preload" as="video" href="pages/brandimage/loader.mp4">
+<link rel="preload" as="video" href="pages/homepage/hero.mp4">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 </head>
 <body>
 <!-- LOADING SCREEN -->
@@ -92,7 +99,7 @@
 
   <!-- HERO -->
   <div class="hero">
-    <video autoplay muted loop playsinline class="hero-video" preload="metadata">
+    <video autoplay muted loop playsinline class="hero-video" preload="auto" fetchpriority="high">
       <source src="pages/homepage/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1068,12 +1075,8 @@
   </div>
 
   <!-- PILLARS -->
-  <div class="pillars-video-section">
-    <video class="pillars-bg-video" autoplay muted loop playsinline preload="none">
-      <source src="pages/aboutpage/aboutbg.mp4" type="video/mp4">
-    </video>
-    <div class="pillars-video-overlay"></div>
-    <div class="pillars-grid">
+ <div class="pillars-video-section">
+  <div class="pillars-grid">
       <div class="pillar-card">
         <div class="pillar-icon"><i class="fas fa-crosshairs"></i></div>
         <div class="pillar-title">Precision</div>

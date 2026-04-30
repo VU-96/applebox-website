@@ -982,3 +982,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (hamburger) hamburger.addEventListener('click', openMobileNav);
   if (closeBtn)  closeBtn.addEventListener('click', closeMobileNav);
 });
+// LAZY LOAD VIDEOS
+document.addEventListener('DOMContentLoaded', function() {
+  const lazyVideos = document.querySelectorAll('video[preload="none"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        video.load();
+        observer.unobserve(video);
+      }
+    });
+  }, { rootMargin: '200px' });
+  lazyVideos.forEach(v => observer.observe(v));
+});
