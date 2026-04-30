@@ -49,6 +49,9 @@
       <a href="javascript:void(0)" onclick="showPage('projects')" data-page="projects" data-i18n="navProjects">Projects</a>
     </div>
 <div class="nav-right">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="open menu">
+    <span></span><span></span><span></span>
+  </button>
 
   <div class="lang-switcher" role="group" aria-label="Language selector">
     <button class="lang-btn active" data-lang="en">EN</button>
@@ -63,7 +66,26 @@
 
 </div>
 </nav>
-
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+    <i class="fas fa-times"></i>
+  </button>
+  <nav class="mobile-nav-links">
+    <a href="javascript:void(0)" onclick="showPage('home'); closeMobileNav()">Home</a>
+    <a href="javascript:void(0)" onclick="showPage('about'); closeMobileNav()">About</a>
+    <a href="javascript:void(0)" onclick="showPage('services'); closeMobileNav()">Services</a>
+    <a href="javascript:void(0)" onclick="showPage('fleet'); closeMobileNav()">Fleet</a>
+    <a href="javascript:void(0)" onclick="showPage('projects'); closeMobileNav()">Projects</a>
+    <a href="javascript:void(0)" onclick="showPage('contact'); closeMobileNav()" class="mobile-nav-cta">Start a Project</a>
+  </nav>
+  <div class="mobile-nav-footer">
+    <a href="https://www.instagram.com/appleboxksa/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/appleboxproductionservices" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/@abalienksa" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://vimeo.com/appleboxksa" target="_blank"><i class="fab fa-vimeo"></i></a>
+  </div>
+</div>
 <!-- ═══════════════════════════════════════════
      PAGE: HOME
 ═══════════════════════════════════════════ -->
@@ -92,10 +114,7 @@
   </div>
 <div class="stats-bar-wrapper">
 
-  <!-- 🎬 ONE CONTINUOUS VIDEO -->
-  <video class="stats-video" autoplay muted loop playsinline preload="none">
-    <source src="pages/brandimage/stats-bg.mp4" type="video/mp4">
-  </video>
+<!-- Background Image --> <div class="stats-bg"></div>
 
   <!-- STATS GRID -->
   <div class="stats-bar">
@@ -132,8 +151,8 @@
 </div>
 
   <!-- SERVICES PREVIEW -->
-  <section class="section">
-    <div class="eyebrow">What We Do</div>
+  <section class="section border-bottom">
+  <div class="eyebrow">What We Do</div>
 <h2 class="section-heading">
   OUR
   <span class="accent-text">SERVICES</span>
@@ -189,7 +208,7 @@
   </section>
 
   <!-- WHY US -->
-  <section class="section">
+  <section class="section border-top" style="background: var(--surface-1);">
     <div class="eyebrow">Why AppleBox</div>
     <h2 class="section-heading">WHAT SETS US<br><span class="accent-text">APART</span></h2>
     <div class="why-grid">
@@ -239,7 +258,7 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="section border-top" style="background: var(--surface-1);">
+  <section class="section border-top">
     <div class="eyebrow">How It Works</div>
     <h2 class="section-heading">FROM BRIEF<br><span class="accent-text">TO SCREEN</span></h2>
     <div class="process-track">
@@ -272,7 +291,7 @@
   </section>
 
   <!-- WHO WE WORK WITH -->
-  <section class="section border-top" style="background: var(--surface-1);">
+ <section class="section border-top" style="background: var(--surface-1);">
     <div class="eyebrow">Who We Work With</div>
     <h2 class="section-heading">PRODUCTION<br><span class="accent-text">TEAMS WE SUPPORT</span></h2>
     <div class="audience-grid">
@@ -298,8 +317,8 @@
   </section>
 
   <!-- TRUSTED BY -->
-  <section class="section">
-    <div class="eyebrow">Trusted By</div>
+  <section class="section border-bottom">
+  <div class="eyebrow">Trusted By</div>
     <h2 class="section-heading">BRANDS & PRODUCTIONS<br><span class="accent-text">WE'VE WORKED WITH</span></h2>
 
     <div class="logo-marquee">
@@ -427,8 +446,8 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <div class="final-cta">
+ <!-- FINAL CTA -->
+  <div class="final-cta border-top" style="background: var(--surface-1);">
     <div class="final-cta-glow"></div>
     <h2 class="final-cta-h">PLAN YOUR<br><span class="accent-text">PRODUCTION</span></h2>
     <p class="final-cta-sub">Tell us what you're shooting — we'll handle the execution from start to wrap.</p>
@@ -631,7 +650,7 @@
 </div>
 <!-- END page-services -->
 
-<<!-- ═══════════════════════════════════════════
+<!-- ═══════════════════════════════════════════
      PAGE: FLEET
 ═══════════════════════════════════════════ -->
 <div id="page-fleet" class="page">
@@ -644,8 +663,16 @@
         <h1>BUILT FOR<br><span class="accent-text">PRODUCTION.</span><br>READY TO DEPLOY.</h1>
       </div>
       <div class="fleet-page-intro">
-        <p>AppleBox operates a purpose-built fleet of production vehicles covering unit support, wardrobe, hygiene, talent facilities, and crew transport. Every vehicle is production-ready, fully insured, and staffed by experienced on-set crew.</p>
-        <p style="margin-top: 18px;">Unit Van · Unit Truck · Support Van · Wardrobe Trucks · Toilet Truck · VIP Caravan · Crew Transport</p>
+  <p>AppleBox operates a purpose-built fleet engineered for real production demands. From unit support and wardrobe to hygiene, talent facilities, and crew transport, every vehicle is fully equipped, production-ready, and backed by experienced on-set teams to ensure seamless execution at every stage.</p>
+        <div class="fleet-tags">
+  <span class="fleet-tag">Unit Van</span>
+  <span class="fleet-tag">Unit Truck</span>
+  <span class="fleet-tag">Support Van</span>
+  <span class="fleet-tag">Wardrobe Trucks</span>
+  <span class="fleet-tag">Toilet Truck</span>
+  <span class="fleet-tag">VIP Caravan</span>
+  <span class="fleet-tag">Crew Transport</span>
+</div>
       </div>
     </div>
   </div>
@@ -656,8 +683,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Unit Production Support</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION VAN</span></div>
-        <div class="fleet-vehicle-desc">The primary mobile production hub on any shoot. Built around comfort, reliability, and on-set efficiency, the Apple Box Unit Production Van keeps every department coordinated, powered, and connected from first call to final wrap. Fully self-sufficient with its own generator, built-in Wi-Fi, cold storage, and crew essentials, it operates independently no matter the location.</div>
-        <div class="fleet-features">
+<div class="fleet-vehicle-desc">A self-contained mobile production hub designed to keep every department connected and operational. Built for reliability and efficiency, it delivers power, connectivity, and essential crew support from first call to final wrap, regardless of location.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-bolt"></i> 25KW generator &amp; portable backup power</div>
           <div class="fleet-feature"><i class="fas fa-wifi"></i> Built-in Wi-Fi &amp; on-set mesh connectivity</div>
           <div class="fleet-feature"><i class="fas fa-desktop"></i> Air-conditioned DIT workspace</div>
@@ -702,8 +728,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Production Support &amp; Operations</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION TRUCK</span></div>
-        <div class="fleet-vehicle-desc">The on-set command center for your entire production. The Apple Box Unit Truck delivers centralized power, catering, cold storage, and crew infrastructure from a single self-sufficient mobile unit. Uniquely designed for external access to all equipment without entering the vehicle, it operates independently across any location and supports crews of up to 200.</div>
-        <div class="fleet-features">
+<div class="fleet-vehicle-desc">A centralized on-set operations unit that brings power, catering, and infrastructure together in one system. Designed for large-scale productions, it supports high crew volumes while maintaining smooth and efficient workflow across departments.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-bolt"></i> Inbuilt 27KVA generator &amp; portable backup</div>
           <div class="fleet-feature"><i class="fas fa-mug-hot"></i> External catering &amp; coffee station</div>
           <div class="fleet-feature"><i class="fas fa-snowflake"></i> Fridge, ice cooler &amp; cold food storage</div>
@@ -748,8 +773,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Crafties &amp; Equipment Support</div>
         <div class="fleet-vehicle-name">SUPPORT <span>VAN</span></div>
-        <div class="fleet-vehicle-desc">The essential companion to every unit truck on set. A compact, versatile vehicle built to handle craft services, equipment overflow, and on-set logistics, keeping departments supplied and moving without disrupting the main unit. With a partitioned cabin, durable wooden flooring, and flexible cargo space, it adapts quickly to whatever the production needs.</div>
-        <div class="fleet-features">
+<div class="fleet-vehicle-desc">A flexible support vehicle built to keep production moving. From craft services to equipment overflow, it adapts to changing on-set needs and ensures every department stays supplied without interrupting the main unit.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-box-open"></i> Flexible cargo space for any department</div>
           <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Crafties &amp; catering supply ready</div>
           <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Partitioned driver's cabin</div>
@@ -786,8 +810,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Wardrobe &amp; Styling Department</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 5M</span></div>
-        <div class="fleet-vehicle-desc">A fully operational mobile wardrobe department built to keep costumes organized, talent comfortable, and the styling workflow uninterrupted from prep to wrap. Designed as a calm, functional on-set sanctuary where wardrobe changes happen seamlessly and efficiently throughout even the longest shoot days.</div>
-        <div class="fleet-features">
+<div class="fleet-vehicle-desc">A fully equipped mobile wardrobe space designed for comfort, organization, and efficiency. It provides a controlled environment where styling teams can operate seamlessly throughout long shoot days.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
           <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
           <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
@@ -795,7 +818,7 @@
           <div class="fleet-feature"><i class="fas fa-soap"></i> On-set washer &amp; dryer units</div>
           <div class="fleet-feature"><i class="fas fa-lock"></i> Secure overnight storage</div>
         </div>
-        <a href="pages/fleets/wardrobe-truck1/brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
+        <a href="pages/fleets/wardrobe-truck1/Wardrobe Truck brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
           <i class="fas fa-download"></i> Download Brochure
         </a>
       </div>
@@ -827,7 +850,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Wardrobe &amp; Styling Department</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 3M</span></div>
-        <div class="fleet-vehicle-desc">A compact 3-metre mobile wardrobe unit built for productions that need a dedicated wardrobe space without the full footprint. Same core functionality as the 5-metre truck, tighter profile, easier to deploy on confined locations and smaller shoots. Keeps costumes organized and the styling workflow running smoothly from prep to wrap.</div>
+<div class="fleet-vehicle-desc">A compact wardrobe solution designed for smaller productions and tighter locations. It delivers the same core functionality in a more agile footprint while maintaining smooth styling workflow from prep to wrap.</div>
         <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
           <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
@@ -865,8 +888,8 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Hygiene Solutions</div>
         <div class="fleet-vehicle-name">4 CABIN <span>TOILET TRUCK</span></div>
-        <div class="fleet-vehicle-desc">A premium VIP restroom truck built to elevate the on-set hygiene experience for cast and crew. Fitted with four private cabins, running water, well-lit mirrors, and climate control, it operates fully self-sufficiently with its own generator and large-capacity water tanks, keeping your crew comfortable throughout long shoot days.</div>
-        <div class="fleet-features">
+<div class="fleet-vehicle-desc">A premium hygiene solution designed to maintain comfort and cleanliness on set. Fully self-sufficient and equipped for long production days, it ensures a reliable and elevated experience for cast and crew.</div>        
+<div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-venus-mars"></i> 4 private cabins — 2 male &amp; 2 female</div>
           <div class="fleet-feature"><i class="fas fa-droplet"></i> Vacuum-compressed toilets &amp; running water</div>
           <div class="fleet-feature"><i class="fas fa-hands-bubbles"></i> In-cabin sink &amp; well-lit mirrors</div>
@@ -874,7 +897,7 @@
           <div class="fleet-feature"><i class="fas fa-bolt"></i> 15KW silent generator</div>
           <div class="fleet-feature"><i class="fas fa-droplet"></i> 3,000L fresh water &amp; waste tank</div>
         </div>
-        <a href="pages/fleets/toilet-truck/brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
+        <a href="pages/fleets/toilet-truck/Toilet Truck Brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
           <i class="fas fa-download"></i> Download Brochure
         </a>
       </div>
@@ -886,8 +909,8 @@
               <div class="fleet-thumb-label">TOILET TRUCK</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/interior.png" class="gallery-item" alt="Exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/exterior.png" class="gallery-item" alt="Interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
@@ -906,7 +929,7 @@
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Talent &amp; Client</div>
         <div class="fleet-vehicle-name">VIP <span>CARAVAN</span></div>
-        <div class="fleet-vehicle-desc">The standard for talent and client hospitality on location, private, premium, and fully equipped. Apple Box operates two VIP caravans: the North Trail Ultra Lite, a premium expandable unit with slide-out rooms and full facilities, and the Jayco, a versatile caravan ideal for talent on extended shoots. Need a different unit or a larger luxury caravan? We source it based on your production requirements.</div>
+<div class="fleet-vehicle-desc">A private and fully equipped space designed for talent and client comfort on set. Built to support long shooting days, it offers a calm, controlled environment for rest, preparation, wardrobe adjustments, and downtime between takes, ensuring talent remains focused and production runs smoothly.</div>
         <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-expand"></i> Expandable slide-out rooms</div>
           <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned lounge &amp; private areas</div>
@@ -949,34 +972,50 @@
     </div>
   </div>
 
-  <!-- 08 — CREW & CLIENT TRANSPORT -->
-  <div class="fleet-section">
-    <div class="fleet-layout">
-      <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Transport</div>
-        <div class="fleet-vehicle-name">CREW &amp; CLIENT <span>TRANSPORT</span></div>
-        <div class="fleet-vehicle-desc">A full fleet of professional chauffeur-driven vehicles covering every transport need on production, from airport arrivals and hotel transfers to daily location runs and VIP talent movement. Apple Box operates the F150 Raptor, Toyota Yaris runner cars, Staria vans, Coaster buses, and 30-seater buses. Need a Yukon, Tahoe, or luxury vehicle? We source it based on what your production requires.</div>
-        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-truck-pickup"></i> F150 Raptor &amp; Yaris runner cars</div>
-          <div class="fleet-feature"><i class="fas fa-van-shuttle"></i> Staria passenger vans</div>
-          <div class="fleet-feature"><i class="fas fa-bus"></i> 17-seater Coaster &amp; 30-seater bus</div>
-          <div class="fleet-feature"><i class="fas fa-star"></i> SUVs &amp; luxury vehicles on request</div>
-          <div class="fleet-feature"><i class="fas fa-id-badge"></i> Licensed professional chauffeur drivers</div>
-          <div class="fleet-feature"><i class="fas fa-headset"></i> 24/7 dispatch coordination</div>
-        </div>
+<!-- 08 — CREW & CLIENT TRANSPORT -->
+<div class="fleet-section">
+  <div class="fleet-layout">
+
+    <div class="fleet-text-col">
+      
+      <div class="fleet-vehicle-tag">Transport</div>
+
+      <div class="fleet-vehicle-name">
+        CREW &amp; CLIENT <span>TRANSPORT</span>
       </div>
-      <div class="fleet-media-col">
-        <div class="transport-photo-grid">
-          <div class="transport-photo"><img src="pages/fleets/transport/luxury.png" alt="Luxury Vehicle"></div>
-          <div class="transport-photo"><img src="pages/fleets/transport/yukon.png" alt="Yukon SUV"></div>
-          <div class="transport-photo"><img src="pages/fleets/transport/f150.png" alt="F150 Raptor"></div>
-          <div class="transport-photo"><img src="pages/fleets/transport/staria.png" alt="Staria Van"></div>
-          <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" alt="Coaster Bus"></div>
-          <div class="transport-photo"><img src="pages/fleets/transport/yaris.png" alt="Yaris Runner"></div>
-        </div>
+
+      <div class="fleet-vehicle-desc">
+        Seamless and reliable transport across every stage of production. From VIP talent movements to full crew logistics, our fleet ensures comfort, efficiency, and precise coordination on set, in transit, and across cities.
       </div>
+
+      <div class="fleet-features">
+        <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Luxury SUVs for clients and talent</div>
+        <div class="fleet-feature"><i class="fas fa-van-shuttle"></i> Passenger vans for crew mobility</div>
+        <div class="fleet-feature"><i class="fas fa-car"></i> Dedicated sedans for unit transport</div>
+        <div class="fleet-feature"><i class="fas fa-bus"></i> Coasters and buses for large scale movement</div>
+        <div class="fleet-feature"><i class="fas fa-location-dot"></i> Inter-city and remote location coverage</div>
+        <div class="fleet-feature"><i class="fas fa-plus"></i> Additional vehicle sourcing on request</div>
+      </div>
+
+      <a href="pages/fleets/transport/Transportation.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
+        <i class="fas fa-download"></i> Transport Brochure
+      </a>
+
     </div>
+
+    <div class="fleet-media-col">
+      <div class="transport-photo-grid">
+  <div class="transport-photo"><img src="pages/fleets/transport/yukon.png" class="gallery-item" alt="GMC Yukon"></div>
+  <div class="transport-photo"><img src="pages/fleets/transport/staria.png" class="gallery-item" alt="Hyundai Staria"></div>
+  <div class="transport-photo"><img src="pages/fleets/transport/hiace.png" class="gallery-item" alt="Toyota Hiace"></div>
+  <div class="transport-photo"><img src="pages/fleets/transport/camry.png" class="gallery-item" alt="Toyota Camry"></div>
+  <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" class="gallery-item" alt="Coaster Bus"></div>
+  <div class="transport-photo"><img src="pages/fleets/transport/bus.png" class="gallery-item" alt="32-Seater Bus"></div>
+</div>
+    </div>
+
   </div>
+</div>
 
   <!-- FLEET CTA -->
   <div class="final-cta border-top">
@@ -1381,23 +1420,29 @@
 
 </div>
 <!-- END page-projects -->
-<!-- ═══════════════════════════════════════════
-     PAGE: CONTACT
-═══════════════════════════════════════════ -->
+
+<!-- Start page-contact -->
 <div id="page-contact" class="page">
 
   <div class="contact-layout">
 
     <!-- LEFT — DETAILS & QUICK CONTACT -->
     <div class="contact-left">
-      <div>
+
+      <!-- BG VIDEO -->
+      <video autoplay muted loop playsinline preload="none" class="contact-left-video">
+        <source src="pages/brandimage/footer-bg.mp4" type="video/mp4">
+      </video>
+      <div class="contact-left-overlay"></div>
+
+      <div style="position:relative; z-index:2;">
         <div class="eyebrow">Get in Touch</div>
         <h1>LET'S<br>BUILD<br><span class="accent-text">SOMETHING.</span></h1>
         <p>Tell us about your production. A brief overview is enough. We'll respond within 24 hours with an initial proposal.</p>
         <p style="font-size:12px; font-weight:300; color:var(--accent); margin-top:14px; letter-spacing:0.04em;">Need only rentals or transport? Just mention it — we'll respond fast.</p>
       </div>
 
-      <div class="contact-details">
+      <div class="contact-details" style="position:relative; z-index:2;">
 
         <div class="contact-detail-item">
           <div class="contact-detail-label">Location</div>
@@ -1418,24 +1463,23 @@
           </div>
         </div>
 
+        <div class="contact-detail-item">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">
+            <a href="mailto:hello@applebox.sa"><i class="fas fa-envelope"></i> hello@applebox.sa</a>
+          </div>
+        </div>
+
         <!-- DUAL WHATSAPP BUTTONS -->
         <div class="contact-detail-item" style="border-bottom: none; padding-bottom: 0;">
           <div class="contact-detail-label">WhatsApp</div>
           <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
-            <a
-              href="https://wa.me/966570804181?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
-              target="_blank"
-              class="btn btn-whatsapp"
-              style="margin-top: 0;"
-            >
+            <a href="https://wa.me/966570804181?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
+              target="_blank" class="btn btn-whatsapp" style="margin-top: 0;">
               <i class="fab fa-whatsapp"></i> +966 57 080 4181
             </a>
-            <a
-              href="https://wa.me/966507828256?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
-              target="_blank"
-              class="btn btn-whatsapp"
-              style="margin-top: 0;"
-            >
+            <a href="https://wa.me/966507828256?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
+              target="_blank" class="btn btn-whatsapp" style="margin-top: 0;">
               <i class="fab fa-whatsapp"></i> +966 50 782 8256
             </a>
           </div>
@@ -1446,7 +1490,11 @@
 
     <!-- RIGHT — INQUIRY FORM -->
     <div class="contact-right">
-      <div class="contact-form-heading">Start a Project</div>
+
+      <div class="contact-form-title">
+        <div class="eyebrow">Start a Project</div>
+        <h2>TELL US ABOUT<br><span class="accent-text">YOUR SHOOT.</span></h2>
+      </div>
 
       <!-- SUCCESS / ERROR MESSAGES -->
       <div id="form-success" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid var(--accent); background:var(--accent-dim); font-size:13px; color:var(--white);">
@@ -1463,42 +1511,25 @@
         <div class="form-row" id="cf-crew-row">
           <div class="form-group" id="cf-type-group">
             <label for="cf-name">Your Name <span style="color:var(--accent);">*</span></label>
-            <input
-              id="cf-name"
-              type="text"
-              name="name"
-              placeholder="Full name"
-              required
-            >
+            <input id="cf-name" type="text" name="name" placeholder="Full name" required>
           </div>
           <div class="form-group" id="cf-type-group">
             <label for="cf-company">Company</label>
-            <input
-              id="cf-company"
-              type="text"
-              name="company"
-              placeholder="Production company or agency"
-            >
+            <input id="cf-company" type="text" name="company" placeholder="Production company or agency">
           </div>
         </div>
 
         <div class="form-group" id="cf-type-group">
           <label for="cf-email">Email <span style="color:var(--accent);">*</span></label>
-          <input
-            id="cf-email"
-            type="email"
-            name="email"
-            placeholder="you@company.com"
-            required
-          >
+          <input id="cf-email" type="email" name="email" placeholder="you@company.com" required>
         </div>
 
         <div class="form-group" id="cf-type-group">
           <label for="cf-support">Support Type <span style="color:var(--accent);">*</span></label>
           <select id="cf-support" name="supportType" required>
             <option value="" disabled selected>What do you need?</option>
-            <option value="Full Production Support">Full Production Support</option>
-            <option value="Unit Production">Unit Production</option>
+            <option value="Full Production Support">Full Production Service</option>
+            <option value="Unit Production">Unit Production Service</option>
             <option value="Fleet / Equipment Rental">Fleet / Equipment Rental</option>
             <option value="Transport Only">Transport Only</option>
           </select>
@@ -1521,36 +1552,42 @@
         <div class="form-row" id="cf-crew-row">
           <div class="form-group" id="cf-type-group">
             <label for="cf-dates">Shoot Dates</label>
-            <input
-              id="cf-dates"
-              type="text"
-              name="shootDates"
-              placeholder="Approx. dates or period"
-            >
+            <input id="cf-dates" type="text" name="shootDates" placeholder="Approx. dates or period">
           </div>
           <div class="form-group" id="cf-type-group">
             <label for="cf-crew">Crew Size</label>
-            <input
-              id="cf-crew"
-              type="text"
-              name="crewSize"
-              placeholder="Estimated crew count"
-            >
+            <input id="cf-crew" type="text" name="crewSize" placeholder="Estimated crew count">
           </div>
         </div>
 
         <div class="form-group" id="cf-type-group">
           <label for="cf-brief">Project Brief</label>
-          <textarea
-            id="cf-brief"
-            name="projectBrief"
-            placeholder="Tell us about your production, location, key requirements, and anything else that helps us understand the scope."
-          ></textarea>
+          <textarea id="cf-brief" name="projectBrief" placeholder="Tell us about your production, location, key requirements, and anything else that helps us understand the scope."></textarea>
         </div>
 
         <button type="submit" id="cf-submit" class="btn btn-submit">Send Request →</button>
 
       </form>
+
+      <!-- WHAT HAPPENS NEXT -->
+      <div class="contact-next-steps">
+        <div class="contact-next-label">What happens next</div>
+        <div class="contact-next-track">
+          <div class="contact-next-step">
+            <div class="contact-next-num">01</div>
+            <div class="contact-next-text">We review your brief and assess requirements</div>
+          </div>
+          <div class="contact-next-step">
+            <div class="contact-next-num">02</div>
+            <div class="contact-next-text">We send a tailored proposal within 24 hours</div>
+          </div>
+          <div class="contact-next-step">
+            <div class="contact-next-num">03</div>
+            <div class="contact-next-text">We get on a call to align on scope and timeline</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>

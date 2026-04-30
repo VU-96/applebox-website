@@ -708,12 +708,32 @@ document.addEventListener('DOMContentLoaded', function () {
     var closeBtn = modal.querySelector('.gallery-close');
     var nextBtn  = modal.querySelector('.gallery-nav.right');
     var prevBtn  = modal.querySelector('.gallery-nav.left');
-    var items    = Array.from(document.querySelectorAll('.gallery-item'));
-    if (!items.length) return;
-    var current = 0;
+   var items = [];
+var current = 0;
 
-    function openGallery()  { modal.classList.add('active'); document.body.style.overflow = 'hidden'; modal.setAttribute('aria-modal','true'); if (closeBtn) closeBtn.focus(); }
-    function closeGallery() { modal.classList.remove('active'); document.body.style.overflow = ''; modal.removeAttribute('aria-modal'); if (modalVid) { modalVid.pause(); modalVid.src=''; modalVid.style.display='none'; } if (modalImg) { modalImg.style.display='none'; modalImg.src=''; } }
+function refreshItems() {
+  var activePage = document.querySelector('.page.active');
+  items = activePage ? Array.from(activePage.querySelectorAll('.gallery-item')) : [];
+}
+
+refreshItems();
+
+function openGallery() {
+  refreshItems();
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  modal.setAttribute('aria-modal','true');
+  if (closeBtn) closeBtn.focus();
+}
+    function closeGallery() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  modal.removeAttribute('aria-modal');
+  if (modalVid) { modalVid.pause(); modalVid.src=''; modalVid.style.display='none'; }
+  if (modalImg) { modalImg.style.display='none'; modalImg.src=''; }
+  if (nextBtn) nextBtn.onclick = null;
+  if (prevBtn) prevBtn.onclick = null;
+}
 
     function showItem(index) {
       var el = items[index];
@@ -724,14 +744,28 @@ document.addEventListener('DOMContentLoaded', function () {
       else if (el.tagName === 'VIDEO') { var s = el.querySelector('source'); var src = (s&&s.src)?s.src:el.src; if (modalVid) { modalVid.src=src; modalVid.style.display='block'; modalVid.play().catch(function(){}); } }
     }
 
-    items.forEach(function (el, i) {
+    document.querySelectorAll('.gallery-item').forEach(function(el) {
       el.style.cursor = 'pointer';
       el.setAttribute('tabindex', '0');
       el.setAttribute('role', 'button');
       el.setAttribute('aria-label', 'View in gallery');
-      function activate() { current=i; openGallery(); showItem(current); }
-      el.addEventListener('click', activate);
-      el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
+      el.addEventListener('click', function() {
+        refreshItems();
+        current = items.indexOf(el);
+        if (current === -1) return;
+        openGallery();
+        showItem(current);
+      });
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          refreshItems();
+          current = items.indexOf(el);
+          if (current === -1) return;
+          openGallery();
+          showItem(current);
+        }
+      });
     });
 
     if (closeBtn) closeBtn.addEventListener('click', closeGallery);
@@ -889,21 +923,62 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 /* ── BTS FULLSCREEN MODAL ── */
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.bts-card').forEach(function(card) {
+  var btsCards = Array.from(document.querySelectorAll('.bts-card'));
+  var btsVideos = btsCards.map(function(card) {
+    var video = card.querySelector('.bts-video source');
+    return video ? video.src : null;
+  }).filter(Boolean);
+
+  var currentBTS = 0;
+
+  function openBTS(index) {
+    currentBTS = index;
+    var modal = document.getElementById('galleryModal');
+    var modalVid = document.getElementById('galleryModalVideo');
+    var modalImg = document.getElementById('galleryModalImg');
+    if (!modal || !modalVid) return;
+    modalVid.src = btsVideos[currentBTS];
+    modalVid.style.display = 'block';
+    modalImg.style.display = 'none';
+    modal.classList.add('active');
+    modalVid.play().catch(function(){});
+    document.body.style.overflow = 'hidden';
+
+    // Override next/prev to cycle only BTS videos
+    var nextBtn = modal.querySelector('.gallery-nav.right');
+    var prevBtn = modal.querySelector('.gallery-nav.left');
+
+    nextBtn.onclick = function() {
+      currentBTS = (currentBTS + 1) % btsVideos.length;
+      modalVid.src = btsVideos[currentBTS];
+      modalVid.play().catch(function(){});
+    };
+    prevBtn.onclick = function() {
+      currentBTS = (currentBTS - 1 + btsVideos.length) % btsVideos.length;
+      modalVid.src = btsVideos[currentBTS];
+      modalVid.play().catch(function(){});
+    };
+  }
+
+  btsCards.forEach(function(card, i) {
     card.style.cursor = 'pointer';
     card.addEventListener('click', function() {
-      var video = card.querySelector('.bts-video');
-      if (!video) return;
-      var src = video.querySelector('source').src;
-      var modal = document.getElementById('galleryModal');
-      var modalVid = document.getElementById('galleryModalVideo');
-      if (!modal || !modalVid) return;
-      modalVid.src = src;
-      modalVid.style.display = 'block';
-      document.getElementById('galleryModalImg').style.display = 'none';
-      modal.classList.add('active');
-      modalVid.play().catch(function(){});
-      document.body.style.overflow = 'hidden';
+      openBTS(i % (btsVideos.length / 2)); // account for duplicates
     });
   });
+});
+/* ── MOBILE NAV ── */
+function openMobileNav() {
+  document.getElementById('mobile-nav-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileNav() {
+  document.getElementById('mobile-nav-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var hamburger = document.getElementById('nav-hamburger');
+  var closeBtn  = document.getElementById('mobile-nav-close');
+  if (hamburger) hamburger.addEventListener('click', openMobileNav);
+  if (closeBtn)  closeBtn.addEventListener('click', closeMobileNav);
 });
