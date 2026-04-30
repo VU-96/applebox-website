@@ -2358,8 +2358,7 @@ margin-top: 8px; /* 👈 clean spacing */
   transform: scale(1.02);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .about-image         { height: 200px; }
   .about-divider-image { height: 280px; }
 }
@@ -2544,21 +2543,7 @@ margin-top: 8px; /* 👈 clean spacing */
 /* ─────────────────────────────────────────
    MOBILE IMPROVEMENTS
 ───────────────────────────────────────── */
-@media (max-width: 900px) {
-  /* About page images */
-  .about-image         { height: 200px; }
-  .about-divider-image { height: 280px; }
 
-  /* Logo marquee */
-  .logo-track   { gap: 40px; }
-  .logo-track a { width: 100px; height: 50px; }
-
-  /* Fleet icon labels */
-  .fleet-placeholder-svg { font-size: 34px; }
-
-  /* Contact left/right stack vertically already — just tighten spacing */
-  .contact-left { padding-bottom: var(--sp-md); }
-}
 
 @media (max-width: 480px) {
   .stats-bar { grid-template-columns: 1fr 1fr; }
@@ -2822,11 +2807,6 @@ filter: grayscale(30%) brightness(0.45);
 .project-row-arrow { position: relative; z-index: 2; font-size: 20px; color: var(--white-ghost); flex-shrink: 0; transition: color var(--dur-m), transform var(--dur-m); }
 .project-row:hover .project-row-arrow { color: var(--accent); transform: translateX(6px); }
 
-@media (max-width: 900px) {
-  .project-row { height: 160px; padding: 0 24px; gap: 20px; }
-  .project-row-arrow { display: none; }
-  .project-row-desc { display: none; }
-}
 /* ═══════════════════════════════════════════
    BTS VIDEO CAROUSEL
 ═══════════════════════════════════════════ */
@@ -2937,11 +2917,7 @@ filter: grayscale(30%) brightness(0.45);
   /* autoplay on hover via JS */
 }
 
-@media (max-width: 900px) {
-  .bts-track-wrapper { padding: 0 24px; }
-  .bts-card { width: 180px; }
-  .bts-thumb { width: 180px; height: 320px; }
-}
+
 .transport-photo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
