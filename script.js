@@ -850,32 +850,12 @@ function openGallery() {
   })();
 
 });
-function setLanguage(lang) {
-  const isArabic = lang === 'ar';
-
-  document.body.classList.toggle('rtl', isArabic);
-
-  document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-  document.documentElement.setAttribute('lang', lang);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  applyTranslations(lang);
-}
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    setLanguage(btn.dataset.lang);
-  });
-});
 
 // LOADING SCREEN
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
-  }, 2500);
+  }, 5000);
 });
 function openYT(videoId) {
   if (!videoId || videoId.startsWith('YOUTUBE_ID')) {

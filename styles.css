@@ -2914,7 +2914,7 @@ filter: grayscale(30%) brightness(0.45);
 
 /* Hover play video */
 .bts-card:hover .bts-video {
-  /* autoplay on hover via JS */
+  opacity: 1;
 }
 
 

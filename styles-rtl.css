@@ -339,7 +339,7 @@ body {
 /* ─────────────────────────────────────────
    RESPONSIVE RTL ADJUSTMENTS
 ───────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   body.rtl .lang-switcher {
     margin-right: 12px;
     margin-left: 0;
