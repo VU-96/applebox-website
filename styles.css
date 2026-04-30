@@ -3137,3 +3137,132 @@ filter: grayscale(30%) brightness(0.45);
   .dropdown-menu { display: none !important; }
   .nav-hamburger { display: flex !important; }
 }
+/* ═══════════════════════════════════════════
+   ELITE POLISH — FINAL 5%
+═══════════════════════════════════════════ */
+
+@media (max-width: 1280px) {
+  .nav-logo img { height: 88px; }
+  #main-nav { height: 70px; }
+}
+
+@media (max-width: 768px) {
+  /* NAV */
+  #main-nav { height: 64px; }
+  .nav-logo img { height: 56px; }
+
+  /* HERO */
+  .hero { padding: 0 20px 36px; min-height: 92vh; }
+  .hero-actions .btn { padding: 14px; font-size: 10px; letter-spacing: 0.12em; }
+
+  /* STATS */
+  .stat-item { padding: 18px 12px; }
+  .stat-num { font-size: 30px; }
+  .stat-label { font-size: 9px; letter-spacing: 0.08em; }
+
+  /* SERVICES */
+  .services-visual,
+  .services-cinematic { height: 240px; }
+  .services-text { font-size: 13px; line-height: 1.7; }
+
+  /* TYPOGRAPHY RHYTHM */
+  body { font-size: 14px; line-height: 1.65; }
+  .t-body-lg { font-size: 14px; }
+  .t-body { font-size: 13px; }
+  .t-caption { font-size: 11px; }
+
+  /* SECTION SPACING */
+  .section { padding: 48px 20px; }
+  .section-sm { padding: 40px 20px; }
+  .final-cta { padding: 48px 20px; }
+
+  /* EYEBROW */
+  .eyebrow { font-size: 9px; letter-spacing: 0.18em; margin-bottom: 16px; }
+  .eyebrow::before { width: 24px; }
+
+  /* SECTION HEADINGS */
+  .section-heading { font-size: clamp(26px, 7.5vw, 42px); line-height: 0.95; }
+  .final-cta-h { font-size: clamp(30px, 9vw, 46px); line-height: 0.93; }
+  .final-cta-sub { font-size: 12px; margin-top: 14px; }
+
+  /* WHY GRID */
+  .why-item { padding-top: 20px; }
+  .why-num { font-size: 10px; margin-bottom: 12px; }
+  .why-title { font-size: 14px; margin-bottom: 8px; }
+  .why-desc { font-size: 12px; line-height: 1.65; }
+
+  /* SERVICE CARDS */
+  .service-num { font-size: 40px; }
+  .service-title { font-size: 15px; margin-bottom: 10px; }
+  .service-desc { font-size: 12px; line-height: 1.65; }
+  .service-arrow { margin-top: 20px; font-size: 16px; }
+
+  /* FLEET */
+  .fleet-vehicle-tag { font-size: 9px; }
+  .fleet-vehicle-name { font-size: clamp(22px, 6vw, 34px); margin-bottom: 16px; }
+  .fleet-vehicle-desc { font-size: 12px; line-height: 1.7; margin-bottom: 20px; }
+  .fleet-feature { font-size: 12px; padding: 7px 0; gap: 10px; }
+  .fleet-use-case p { font-size: 11px; }
+  .fleet-use-case-label { font-size: 9px; }
+  .fleet-tags { gap: 6px; margin-top: 14px; }
+  .fleet-tag { font-size: 9px; padding: 5px 10px; }
+
+  /* ABOUT */
+  .about-story-text blockquote { font-size: 18px; line-height: 1.45; }
+  .about-story-text p { font-size: 12px; line-height: 1.75; }
+  .pillar-card { padding: 32px 24px; }
+  .pillar-title { font-size: 14px; margin-bottom: 10px; }
+  .pillar-desc { font-size: 12px; line-height: 1.65; }
+  .pillar-icon { font-size: 18px; margin-bottom: 16px; }
+
+  /* CONTACT */
+  .contact-detail-label { font-size: 9px; }
+  .contact-detail-value { font-size: 13px; }
+  .contact-next-label { font-size: 9px; }
+  .contact-next-num { font-size: 11px; }
+  .contact-next-text { font-size: 11px; line-height: 1.55; }
+  .contact-form-title h2 { font-size: clamp(24px, 7vw, 34px); }
+
+  /* BUTTONS */
+  .btn-primary, .btn-ghost { padding: 13px 28px; font-size: 10px; }
+  .btn-submit { padding: 15px; font-size: 10px; }
+  .btn-whatsapp { padding: 11px 18px; font-size: 10px; }
+
+  /* FOOTER */
+  .footer-left img { height: 52px; }
+  .footer-copy { font-size: 10px; }
+  .footer-right { gap: 14px; }
+  .footer-right i { font-size: 15px; }
+
+  /* MOBILE NAV */
+  .mobile-nav-links a { font-size: clamp(30px, 8.5vw, 46px); line-height: 1.15; }
+  .mobile-nav-links { gap: 4px; }
+  .mobile-nav-links .mobile-nav-cta { padding: 12px 28px; font-size: 11px; margin-top: 12px; }
+  .mobile-nav-footer { gap: 20px; bottom: 28px; }
+  .mobile-nav-footer a { font-size: 16px; }
+
+  /* PROJECTS */
+  .project-row { height: 160px; }
+  .project-row-cat { font-size: 9px; }
+  .project-row-title { font-size: 16px; }
+  .project-row-meta { font-size: 10px; }
+
+  /* BTS */
+  .bts-client { font-size: 9px; }
+  .bts-name { font-size: 12px; }
+}
+
+@media (max-width: 400px) {
+  .hero-h1 { font-size: clamp(28px, 11vw, 38px); }
+  .section-heading { font-size: clamp(24px, 9.5vw, 34px); }
+  .final-cta-h { font-size: clamp(26px, 10vw, 36px); }
+  .stat-num { font-size: 26px; }
+  .stat-label { font-size: 8px; }
+  .process-track { grid-template-columns: 1fr; gap: 14px; }
+  .fleet-media-grid { grid-template-columns: 1fr; }
+  .fleet-video-col { height: 160px; }
+  .service-card { padding: 24px 16px 20px; }
+  .audience-card { padding: 28px 16px; }
+  .pillar-card { padding: 28px 16px; }
+  .mobile-nav-links a { font-size: clamp(26px, 9vw, 38px); }
+}
