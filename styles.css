@@ -3131,3 +3131,9 @@ filter: grayscale(30%) brightness(0.45);
   line-height: 1.6;
   color: var(--white-mute);
 }
+/* FORCE MOBILE NAV */
+@media (max-width: 1400px) {
+  .nav-links { display: none !important; }
+  .dropdown-menu { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+}
