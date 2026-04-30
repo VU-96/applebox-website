@@ -2077,7 +2077,7 @@ margin-top: 8px; /* 👈 clean spacing */
 /* Each row */
 .logo-track {
   display: flex;
-  gap: 80px;
+  gap: 40px;
   width: max-content;
 }
 
@@ -2086,17 +2086,16 @@ margin-top: 8px; /* 👈 clean spacing */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 140px;
-  height: 70px;
+  width: 180px;
+  height: 140px;
 
   flex-shrink: 0;
 }
 
 /* Logo inside container */
 .logo-track img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
   object-fit: contain;
 
   opacity: 0.8;
