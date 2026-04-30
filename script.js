@@ -851,11 +851,30 @@ function openGallery() {
 
 });
 
-// LOADING SCREEN
+// LOADING SCREEN 
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 5000);
+
+  if (window.innerWidth > 768) {
+    // 💻 DESKTOP
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 5000);
+
+  } else {
+    // 📱 MOBILE
+    const loader = document.getElementById("loader-mobile");
+
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.transition = "opacity 0.5s ease";
+
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+
+    }, 5000);
+  }
+
 });
 function openYT(videoId) {
   if (!videoId || videoId.startsWith('YOUTUBE_ID')) {
