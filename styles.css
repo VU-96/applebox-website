@@ -3141,15 +3141,11 @@ filter: grayscale(30%) brightness(0.45);
    ELITE POLISH — FINAL 5%
 ═══════════════════════════════════════════ */
 
-@media (max-width: 1280px) {
-  .nav-logo img { height: 88px; }
-  #main-nav { height: 70px; }
-}
 
 @media (max-width: 768px) {
   /* NAV */
   #main-nav { height: 64px; }
-  .nav-logo img { height: 56px; }
+  .nav-logo img { height: 72px; }
 
   /* HERO */
   .hero { padding: 0 20px 36px; min-height: 92vh; }
@@ -3229,7 +3225,7 @@ filter: grayscale(30%) brightness(0.45);
   .btn-whatsapp { padding: 11px 18px; font-size: 10px; }
 
   /* FOOTER */
-  .footer-left img { height: 52px; }
+  .footer-left img { height: 80px; }
   .footer-copy { font-size: 10px; }
   .footer-right { gap: 14px; }
   .footer-right i { font-size: 15px; }
@@ -3265,4 +3261,27 @@ filter: grayscale(30%) brightness(0.45);
   .audience-card { padding: 28px 16px; }
   .pillar-card { padding: 28px 16px; }
   .mobile-nav-links a { font-size: clamp(26px, 9vw, 38px); }
+}
+@media (max-width: 768px) {
+  #full-production .service-block-num,
+  #unit-production .service-block-num,
+  #rentals .service-block-num,
+  #catering .service-block-num {
+    margin-top: 0 !important;
+    font-size: 36px !important;
+    position: relative !important;
+  }
+
+  #full-production .service-block-content,
+  #unit-production .service-block-content,
+  #rentals .service-block-content,
+  #catering .service-block-content {
+    padding-top: 20px !important;
+    padding-left: 0 !important;
+  }
+}
+@media (max-width: 1280px) {
+  .nav-logo img { height: 88px; }
+  #main-nav { height: 70px; }
+  .nav-right { flex-direction: row-reverse; }
 }
