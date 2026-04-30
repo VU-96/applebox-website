@@ -3285,3 +3285,12 @@ filter: grayscale(30%) brightness(0.45);
   #main-nav { height: 70px; }
   .nav-right { flex-direction: row-reverse; }
 }
+@media (max-width: 768px) {
+  #loader-video {
+    width: auto;
+    height: 50vh;
+    object-fit: contain;
+    position: relative;
+    inset: unset;
+  }
+}
