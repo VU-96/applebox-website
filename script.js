@@ -871,28 +871,11 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
 
-// ── SERVICES CINEMATIC HOVER VIDEO ──
-document.addEventListener('DOMContentLoaded', function () {
-  var cinVideo = document.querySelector('.services-cin-video');
-  var cinBox   = document.querySelector('.services-cinematic');
-
-  if (cinBox && cinVideo) {
-    cinBox.addEventListener('mouseenter', function () {
-      cinVideo.play().catch(function(e){ console.log('play error:', e); });
-    });
-    cinBox.addEventListener('mouseleave', function () {
-      cinVideo.pause();
-      cinVideo.currentTime = 0;
-    });
-  } else {
-    console.log('cinBox:', cinBox, 'cinVideo:', cinVideo);
-  }
-});
 // LOADING SCREEN
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
-  }, 6000);
+  }, 2500);
 });
 function openYT(videoId) {
   if (!videoId || videoId.startsWith('YOUTUBE_ID')) {
