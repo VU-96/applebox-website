@@ -1037,13 +1037,6 @@ background: rgba(0, 0, 0, 0.25);
   transition: color var(--dur-s);
 }
 .fleet-feature:first-child { border-top: 0.5px solid rgba(244,241,236,0.04); }
-.fleet-feature::before {
-  content: '—';
-  color: var(--accent);
-  font-size: 11px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
 .fleet-feature:hover { color: var(--white); }
 
 .fleet-use-case {
@@ -1683,8 +1676,8 @@ background: rgba(0, 0, 0, 0.25);
   .project-row-arrow { display: none; }
   .project-row-title { font-size: 20px; }
   .bts-track-wrapper { padding: 0 20px; }
-  .bts-card { width: 160px; }
-  .bts-thumb { width: 160px; height: 285px; }
+.bts-card { width: 180px; }
+.bts-thumb { width: 180px; height: 320px; }
 
   /* CONTACT */
   .contact-layout { grid-template-columns: 1fr; }
@@ -2168,12 +2161,16 @@ margin-top: 8px; /* 👈 clean spacing */
 /* Responsive */
 @media (max-width: 768px) {
   .logo-track {
-    gap: 40px;
+    gap: 24px;
   }
 
   .logo-track a {
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
+  }
+
+  .logo-marquee {
+    gap: 20px;
   }
 }
 .email-modal {
@@ -3145,8 +3142,8 @@ filter: grayscale(30%) brightness(0.45);
   .stat-label { font-size: 9px; letter-spacing: 0.08em; }
 
   /* SERVICES */
-  .services-visual,
-  .services-cinematic { height: 240px; }
+.services-visual { height: 260px; }
+.services-cinematic { height: 260px; }
   .services-text { font-size: 13px; line-height: 1.7; }
 
   /* TYPOGRAPHY RHYTHM */
@@ -3226,7 +3223,7 @@ filter: grayscale(30%) brightness(0.45);
   .mobile-nav-footer a { font-size: 16px; }
 
   /* PROJECTS */
-  .project-row { height: 160px; }
+  .project-row { height: 220px; }
   .project-row-cat { font-size: 9px; }
   .project-row-title { font-size: 16px; }
   .project-row-meta { font-size: 10px; }
