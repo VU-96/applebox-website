@@ -101,8 +101,11 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: 'applebox950@gmail.com',
-    pass: process.env.SMTP_PASS   // ✅ ADD THIS LINE
-  }
+    pass: process.env.SMTP_PASS
+  },
+  connectionTimeout: 10000, // 🔥 add this
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 /* Verify transporter on startup */
