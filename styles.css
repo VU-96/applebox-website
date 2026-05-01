@@ -1574,6 +1574,10 @@ background: rgba(0, 0, 0, 0.25);
     --pad-x: 40px;
   }
 
+  .nav-logo img { height: 88px; }
+  #main-nav { height: 70px; }
+  .nav-right { flex-direction: row-reverse; }
+
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 
@@ -1786,9 +1790,6 @@ background: rgba(0, 0, 0, 0.25);
   transition: all var(--dur-m);
 }
 
-@media (max-width: 1280px) {
-  .nav-hamburger { display: flex; }
-}
 
 .mobile-nav-overlay {
   position: fixed;

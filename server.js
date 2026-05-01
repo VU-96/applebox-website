@@ -11,7 +11,7 @@ const cors       = require('cors');
 const crypto     = require('crypto');
 
 const app  = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 /* ─────────────────────────────────────────
    LOGGING UTILITY
@@ -96,20 +96,13 @@ function isSpam(data) {
      npm start
 ───────────────────────────────────────── */
 const transporter = nodemailer.createTransport({
-  host:   'smtp.office365.com',
-  port:   587,
-  secure: false, /* STARTTLS */
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
-    user: 'info@applebox.sa',
-    pass: process.env.SMTP_PASS || '',
-  },
-  tls: {
-    ciphers: 'SSLv3',
-    rejectUnauthorized: false,
-  },
-  pool:           true,
-  maxConnections: 3,
-  maxMessages:    10,
+    user: 'applebox950@gmail.com',
+    pass: process.env.SMTP_PASS   // ✅ ADD THIS LINE
+  }
 });
 
 /* Verify transporter on startup */
@@ -280,14 +273,14 @@ app.post('/send-email', rateLimit, async function (req, res) {
 
   const subject = `[${d.priority || 'INQUIRY'}] ${d.supportType} — ${d.name}`;
 
-  const mailOptions = {
-    from:    '"AppleBox Website" <info@applebox.sa>',
-    to:      'info@applebox.sa',
-    replyTo: d.email,
-    subject: subject,
-    text:    buildPlainText(d),
-    html:    buildHtml(d),
-  };
+const mailOptions = {
+  from: '"AppleBox Website" <applebox950@gmail.com>',
+  to: 'hello@applebox.sa',   // 👈 THIS is where it goes
+  replyTo: d.email,
+  subject: subject,
+  text: buildPlainText(d),
+  html: buildHtml(d),
+};
 
   try {
     const info = await transporter.sendMail(mailOptions);
