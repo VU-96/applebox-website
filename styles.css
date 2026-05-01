@@ -1363,7 +1363,7 @@ body.loading { overflow: hidden; }
 
   /* Nav */
   #main-nav    { height: 64px; padding: 0 20px; }
-  .nav-logo img { height: 72px; }
+  .nav-logo img { height: 130px; }
   .nav-cta     { display: none !important; }
   .lang-switcher { display: flex !important; }
 

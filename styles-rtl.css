@@ -1,23 +1,23 @@
 /* ═══════════════════════════════════════════
-   APPLEBOX — RTL / ARABIC SUPPORT
-   Append to end of styles.css
+   APPLEBOX — RTL / ARABIC SUPPORT  v2.0
+   Full Arabic layout for all pages and
+   components when body.rtl is active.
 ═══════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────
-   ARABIC FONT — load Tajawal for body text
-   Noto Kufi Arabic for display headings
+   ARABIC FONTS
 ───────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap');
 
-/* ─────────────────────────────────────────
-   LANGUAGE SWITCHER BUTTON
-───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════
+   LANGUAGE SWITCHER
+═══════════════════════════════════════════ */
 .lang-switcher {
   display: flex;
   align-items: center;
   gap: 0;
   border: 0.5px solid rgba(244, 241, 236, 0.22);
-  margin-left: 20px;
   flex-shrink: 0;
 }
 
@@ -35,32 +35,31 @@
   transition: color var(--dur-s), background var(--dur-s);
   outline: none;
 }
-
 .lang-btn.active {
   background: var(--white);
   color: var(--black);
 }
-
 .lang-btn:hover:not(.active) {
   color: var(--white);
 }
 
-/* RTL: mirror switcher margin */
-body.rtl .lang-switcher {
-  margin-left: 0;
-  margin-right: 20px;
-}
 
-/* ─────────────────────────────────────────
-   BASE RTL — direction + font swap
-───────────────────────────────────────── */
+/* ═══════════════════════════════════════════
+   BASE RTL — direction + font
+═══════════════════════════════════════════ */
 body.rtl {
   direction: rtl;
   font-family: 'Tajawal', sans-serif;
   font-size: 16px;
+  line-height: 1.7;
 }
 
-/* Bebas Neue → Noto Kufi Arabic for display text in RTL */
+/* Reset Latin letter-spacing globally */
+body.rtl * {
+  letter-spacing: 0 !important;
+}
+
+/* Display / heading font: Noto Kufi Arabic */
 body.rtl .hero-h1,
 body.rtl .section-heading,
 body.rtl .final-cta-h,
@@ -75,64 +74,162 @@ body.rtl .fleet-placeholder-label,
 body.rtl .contact-left h1,
 body.rtl .page-hero h1,
 body.rtl .fleet-page-hero h1,
-body.rtl .about-story-text blockquote {
+body.rtl .about-story-grid h2,
+body.rtl .about-story-text blockquote,
+body.rtl .accent-text {
   font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
-  letter-spacing: 0;        /* Arabic doesn't use Latin letter-spacing */
 }
 
-/* Reset Latin letter-spacing on all text in RTL */
+/* Body / UI text: Tajawal */
 body.rtl .eyebrow,
+body.rtl .hero-eyebrow,
 body.rtl .fleet-vehicle-tag,
 body.rtl .fleet-use-case-label,
 body.rtl .contact-detail-label,
-body.rtl .contact-form-heading,
-body.rtl .footer-nav a,
 body.rtl .nav-links a,
 body.rtl .nav-cta,
 body.rtl .btn,
 body.rtl .phase-label,
 body.rtl .stat-label,
-body.rtl .hero-eyebrow {
-  letter-spacing: 0.04em;
+body.rtl .dropdown-menu a,
+body.rtl .mobile-nav-links a,
+body.rtl .footer-nav a,
+body.rtl input,
+body.rtl textarea,
+body.rtl select,
+body.rtl label {
   font-family: 'Tajawal', sans-serif;
 }
 
-/* ─────────────────────────────────────────
-   NAVIGATION — RTL flip
-───────────────────────────────────────── */
+/* Arabic doesn't italicise the same way */
+body.rtl em,
+body.rtl i.text,
+body.rtl blockquote {
+  font-style: normal;
+}
+
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+
+/* Nav grid: logo right, links center, controls left */
 body.rtl #main-nav {
+  direction: rtl;
+}
+
+body.rtl .nav-logo {
+  justify-self: end;
+}
+
+body.rtl .nav-right {
+  justify-self: start;
   flex-direction: row-reverse;
+}
+
+/* Flip link underline animation */
+body.rtl .nav-links a::after {
+  left: auto;
+  right: 0;
 }
 
 body.rtl .nav-links {
   flex-direction: row-reverse;
 }
 
-/* Dropdown aligns to right in RTL */
+/* Dropdown opens from right */
 body.rtl .dropdown-menu {
   left: auto;
   right: 0;
-}
-
-/* Eyebrow line flips to right side */
-body.rtl .eyebrow::before,
-body.rtl .hero-eyebrow::before,
-body.rtl .fleet-vehicle-tag::before {
-  order: 1; /* moves line to right */
-}
-
-/* ─────────────────────────────────────────
-   HERO
-───────────────────────────────────────── */
-body.rtl .hero-content {
   text-align: right;
 }
 
+/* Lang switcher spacing */
+body.rtl .lang-switcher {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* CTA right-to-left text */
+body.rtl .nav-cta {
+  letter-spacing: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV OVERLAY
+═══════════════════════════════════════════ */
+body.rtl .mobile-nav-overlay {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .mobile-nav-close {
+  left: 24px;
+  right: auto;
+}
+
+body.rtl .mobile-nav-links {
+  align-items: flex-end;
+}
+
+body.rtl .mobile-nav-links a {
+  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
+  font-size: clamp(28px, 7vw, 48px);
+}
+
+body.rtl .mobile-nav-footer {
+  flex-direction: row-reverse;
+}
+
+
+/* ═══════════════════════════════════════════
+   EYEBROW (universal)
+═══════════════════════════════════════════ */
+
+/* Flip the decorative line to appear after text (visually left in RTL) */
+body.rtl .eyebrow,
 body.rtl .hero-eyebrow {
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
 
+body.rtl .eyebrow::before,
+body.rtl .hero-eyebrow::before {
+  /* line stays the same size, just appears on the other side */
+  flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+body.rtl .hero {
+  direction: rtl;
+}
+
+body.rtl .hero-content {
+  text-align: right;
+}
+
+body.rtl .hero-h1 {
+  line-height: 1.05;
+  font-size: clamp(48px, 6.5vw, 78px);
+}
+
+body.rtl .hero-foot {
+  flex-direction: row-reverse;
+}
+
+body.rtl .hero-desc {
+  text-align: right;
+}
+
+body.rtl .hero-actions {
+  flex-direction: row-reverse;
+}
+
+/* Scroll indicator flips to left side */
 body.rtl .hero-scroll-indicator {
   right: auto;
   left: var(--pad-x);
@@ -140,151 +237,114 @@ body.rtl .hero-scroll-indicator {
 }
 
 body.rtl .hero-scroll-indicator::after {
-  order: -1;
+  background: linear-gradient(to bottom, var(--white-mute), transparent);
 }
 
-/* ─────────────────────────────────────────
+/* Service page label tag (bottom-left → bottom-right in RTL) */
+body.rtl .services-cin-label {
+  left: auto;
+  right: 14px;
+  border-left: none;
+  border-right: 2px solid var(--accent);
+}
+
+
+/* ═══════════════════════════════════════════
    STATS BAR
-───────────────────────────────────────── */
+═══════════════════════════════════════════ */
 body.rtl .stats-bar {
   direction: rtl;
 }
 
-/* ─────────────────────────────────────────
-   EYEBROW — universal RTL
-───────────────────────────────────────── */
-body.rtl .eyebrow {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+body.rtl .stat-item {
+  border-right: none;
+  border-left: 0.5px solid var(--white-line);
+  text-align: right;
 }
 
-/* ─────────────────────────────────────────
-   SERVICES PREVIEW (homepage)
-───────────────────────────────────────── */
+body.rtl .stat-item:last-child {
+  border-left: none;
+}
+
+body.rtl .stat-content {
+  text-align: right;
+}
+
+
+/* ═══════════════════════════════════════════
+   SERVICES SECTION (homepage)
+═══════════════════════════════════════════ */
 body.rtl .services-intro {
   flex-direction: row-reverse;
 }
 
-/* ─────────────────────────────────────────
-   PROCESS TRACK — keep nodes aligned, flip text
-───────────────────────────────────────── */
-body.rtl .process-track::before {
-  transform: scaleX(-1);
-}
-
-/* ─────────────────────────────────────────
-   FLEET PAGE
-───────────────────────────────────────── */
-body.rtl .fleet-page-header {
-  direction: rtl;
-}
-
-body.rtl .fleet-layout {
-  direction: rtl;
-}
-
-/* Reverse layout preserves visual balance in RTL */
-body.rtl .fleet-layout.reverse {
-  direction: ltr; /* resets to normal — "reverse" in LTR = normal in RTL */
-}
-
-body.rtl .fleet-vehicle-tag {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-body.rtl .fleet-feature {
-  flex-direction: row-reverse;
+body.rtl .services-text {
   text-align: right;
 }
 
-body.rtl .fleet-feature::before {
-  content: none; /* hide LTR dash; icon (FA) still shows */
-}
-
-body.rtl .fleet-use-case {
-  border-left: none;
-  border-right: 2px solid var(--accent);
-}
-
-/* ─────────────────────────────────────────
-   ABOUT PAGE
-───────────────────────────────────────── */
-body.rtl .about-intro-grid {
+body.rtl .services-grid {
   direction: rtl;
 }
 
-body.rtl .about-story-grid {
-  direction: rtl;
-}
-
-body.rtl .about-story-text blockquote {
-  font-style: normal; /* Arabic doesn't italicize the same way */
-}
-
-/* ─────────────────────────────────────────
-   CONTACT PAGE
-───────────────────────────────────────── */
-body.rtl .contact-layout {
-  direction: rtl;
-}
-
-body.rtl .contact-left {
-  border-right: none;
-  border-left: 0.5px solid var(--white-line);
-}
-
-body.rtl #form-success {
-  border-left: none;
-  border-right: 2px solid var(--accent);
-}
-
-body.rtl #form-error {
-  border-left: none;
-  border-right: 2px solid #e05252;
-}
-
-body.rtl .form-group label {
+body.rtl .service-card {
   text-align: right;
 }
 
-body.rtl .contact-detail-value a {
-  flex-direction: row-reverse;
+body.rtl .service-card:hover .service-arrow {
+  transform: translateX(-7px);
 }
 
-/* ─────────────────────────────────────────
-   FOOTER
-───────────────────────────────────────── */
-body.rtl .site-footer {
-  flex-direction: row-reverse;
+
+/* ═══════════════════════════════════════════
+   WHY US
+═══════════════════════════════════════════ */
+body.rtl .why-grid {
+  direction: rtl;
 }
 
-body.rtl .footer-nav {
-  flex-direction: row-reverse;
-}
-
-/* ─────────────────────────────────────────
-   WHY GRID ITEMS
-───────────────────────────────────────── */
 body.rtl .why-item {
   text-align: right;
 }
 
-/* ─────────────────────────────────────────
-   SERVICE BLOCKS (services page)
-───────────────────────────────────────── */
-body.rtl .service-block {
+
+/* ═══════════════════════════════════════════
+   PROCESS TRACK
+═══════════════════════════════════════════ */
+body.rtl .process-track {
   direction: rtl;
 }
 
-body.rtl .service-block-num .phase-label {
-  text-align: right;
+/* Flip the connecting line */
+body.rtl .process-track::before {
+  transform: scaleX(-1);
 }
 
-/* ─────────────────────────────────────────
-   LOGO MARQUEE — pause animation in RTL
-   (animation direction stays consistent since it's purely CSS)
-───────────────────────────────────────── */
+body.rtl .process-step {
+  text-align: center; /* nodes stay centred */
+}
+
+body.rtl .process-title,
+body.rtl .process-desc {
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════
+   AUDIENCE SECTION
+═══════════════════════════════════════════ */
+body.rtl .audience-grid {
+  direction: rtl;
+}
+
+body.rtl .audience-card {
+  text-align: right;
+  direction: rtl;
+}
+
+
+/* ═══════════════════════════════════════════
+   TRUSTED BY / LOGO MARQUEE
+═══════════════════════════════════════════ */
 body.rtl .logo-marquee::before {
   background: linear-gradient(to left, var(--surface-1), transparent);
 }
@@ -292,61 +352,595 @@ body.rtl .logo-marquee::after {
   background: linear-gradient(to right, var(--surface-1), transparent);
 }
 
-/* ─────────────────────────────────────────
-   GALLERY MODAL — swap nav sides in RTL
-───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+body.rtl .final-cta {
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl .final-cta-actions {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+
+/* ═══════════════════════════════════════════
+   EMAIL MODAL
+═══════════════════════════════════════════ */
+body.rtl #emailModal .modal-box {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl #emailModal input {
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl #emailModal .modal-actions {
+  flex-direction: row-reverse;
+}
+
+
+/* ═══════════════════════════════════════════
+   SERVICES PAGE — full page
+═══════════════════════════════════════════ */
+body.rtl #page-services {
+  direction: rtl;
+}
+
+body.rtl .page-hero {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .page-hero h1 {
+  text-align: right;
+}
+
+/* Service blocks (full-production, unit, rentals, catering) */
+body.rtl .service-block {
+  direction: rtl;
+}
+
+body.rtl .service-block-content {
+  text-align: right;
+}
+
+body.rtl .service-block-num {
+  text-align: right;
+}
+
+/* Phase label */
+body.rtl .phase-label {
+  text-align: right;
+}
+
+/* Feature list items inside service blocks */
+body.rtl .service-block .fleet-feature {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Use-case accent border flips */
+body.rtl .fleet-use-case {
+  border-left: none;
+  border-right: 2px solid var(--accent);
+  text-align: right;
+  padding-left: 0;
+  padding-right: 16px;
+}
+
+/* Service-block process tracks */
+body.rtl #full-production .process-track,
+body.rtl #unit-production .process-track,
+body.rtl #rentals .process-track,
+body.rtl #catering .process-track {
+  direction: rtl;
+  text-align: right;
+  margin-left: 0;
+  margin-right: -30px;
+}
+
+body.rtl #full-production .process-step,
+body.rtl #unit-production .process-step,
+body.rtl #rentals .process-step,
+body.rtl #catering .process-step {
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════
+   FLEET PAGE
+═══════════════════════════════════════════ */
+body.rtl #page-fleet {
+  direction: rtl;
+}
+
+body.rtl .fleet-page-hero {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .fleet-page-header {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .fleet-section {
+  direction: rtl;
+}
+
+/* Normal layout: image left, text right → in RTL becomes image right, text left */
+body.rtl .fleet-layout {
+  direction: rtl;
+}
+
+/* "Reverse" layout was image right, text left in LTR → becomes image left, text right in RTL
+   We use direction:ltr to neutralise the extra reverse so visual balance is maintained */
+body.rtl .fleet-layout.reverse {
+  direction: ltr;
+}
+
+/* But text columns inside reverse should still be RTL */
+body.rtl .fleet-layout.reverse .fleet-text-col {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .fleet-text-col {
+  text-align: right;
+}
+
+body.rtl .fleet-vehicle-tag {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+body.rtl .fleet-vehicle-tag::before {
+  order: 1;
+}
+
+body.rtl .fleet-vehicle-name {
+  text-align: right;
+}
+
+body.rtl .fleet-vehicle-desc {
+  text-align: right;
+}
+
+body.rtl .fleet-features {
+  direction: rtl;
+}
+
+body.rtl .fleet-feature {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Hide LTR dash; FA icon still renders */
+body.rtl .fleet-feature::before {
+  content: none;
+}
+
+body.rtl .fleet-tags {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+body.rtl .fleet-use-case-label {
+  text-align: right;
+}
+
+/* Fleet CTA section */
+body.rtl .fleet-cta-section {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .fleet-cta-section .final-cta-actions {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+/* Thumb labels */
+body.rtl .fleet-thumb-label,
+body.rtl .fleet-placeholder-label {
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════════════════ */
+body.rtl #page-about {
+  direction: rtl;
+}
+
+body.rtl .about-intro-grid {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .about-story-grid {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .about-story-text {
+  text-align: right;
+}
+
+body.rtl .about-story-text blockquote {
+  font-style: normal;
+  text-align: right;
+  border-left: none;
+  border-right: 3px solid var(--accent);
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+body.rtl .about-story-text p {
+  text-align: right;
+}
+
+/* Pillar cards */
+body.rtl .pillars-grid {
+  direction: rtl;
+}
+
+body.rtl .pillar-card {
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl .pillar-icon {
+  text-align: right;
+}
+
+body.rtl .pillar-title {
+  text-align: right;
+}
+
+body.rtl .pillar-desc {
+  text-align: right;
+}
+
+
+/* ═══════════════════════════════════════════
+   PROJECTS PAGE
+═══════════════════════════════════════════ */
+body.rtl #page-projects {
+  direction: rtl;
+}
+
+body.rtl .projects-list {
+  direction: rtl;
+}
+
+body.rtl .project-row {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+body.rtl .project-info {
+  text-align: right;
+}
+
+body.rtl .project-row-cat,
+body.rtl .project-row-title,
+body.rtl .project-row-meta,
+body.rtl .project-row-desc {
+  text-align: right;
+}
+
+/* BTS carousel — stays LTR scroll direction */
+body.rtl .bts-section {
+  direction: rtl;
+}
+
+body.rtl .bts-card {
+  text-align: right;
+}
+
+body.rtl .bts-client,
+body.rtl .bts-name {
+  text-align: right;
+}
+
+
+/* ═══════════════════════════════════════════
+   CONTACT PAGE
+═══════════════════════════════════════════ */
+body.rtl #page-contact {
+  direction: rtl;
+}
+
+body.rtl .contact-layout {
+  direction: rtl;
+}
+
+/* Left column becomes the right panel in RTL */
+body.rtl .contact-left {
+  border-right: none;
+  border-left: 0.5px solid var(--white-line);
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl .contact-left h1 {
+  text-align: right;
+}
+
+body.rtl .contact-desc {
+  text-align: right;
+}
+
+body.rtl .contact-rental-note {
+  text-align: right;
+}
+
+/* Contact details */
+body.rtl .contact-details {
+  direction: rtl;
+}
+
+body.rtl .contact-detail {
+  text-align: right;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+
+body.rtl .contact-detail-label {
+  text-align: right;
+}
+
+body.rtl .contact-detail-value {
+  text-align: right;
+}
+
+body.rtl .contact-detail-value a {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* WhatsApp buttons */
+body.rtl .btn-whatsapp {
+  flex-direction: row-reverse;
+}
+
+/* Right column (form) */
+body.rtl .contact-right {
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl .contact-form-title {
+  text-align: right;
+}
+
+body.rtl .contact-form-title h2 {
+  text-align: right;
+}
+
+/* Form */
+body.rtl #contactForm {
+  direction: rtl;
+}
+
+body.rtl .form-group {
+  text-align: right;
+}
+
+body.rtl .form-group label {
+  text-align: right;
+  display: block;
+}
+
+body.rtl .form-group input,
+body.rtl .form-group textarea,
+body.rtl .form-group select {
+  text-align: right;
+  direction: rtl;
+}
+
+body.rtl .form-row {
+  direction: rtl;
+}
+
+/* Flip form alert borders */
+body.rtl #form-success {
+  border-left: none;
+  border-right: 2px solid var(--accent);
+  text-align: right;
+}
+
+body.rtl #form-error {
+  border-left: none;
+  border-right: 2px solid #e05252;
+  text-align: right;
+}
+
+/* Next steps */
+body.rtl .contact-next-steps {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .contact-next-track {
+  direction: rtl;
+}
+
+body.rtl .contact-next-step {
+  text-align: right;
+}
+
+body.rtl .contact-next-num {
+  text-align: right;
+}
+
+body.rtl .contact-next-text {
+  text-align: right;
+}
+
+
+/* ═══════════════════════════════════════════
+   GALLERY MODAL
+═══════════════════════════════════════════ */
 body.rtl .gallery-nav.left  { left: auto;  right: 16px; }
 body.rtl .gallery-nav.right { right: auto; left: 16px; }
 body.rtl .gallery-nav.left:hover  { transform: translateY(-50%) translateX(3px); }
 body.rtl .gallery-nav.right:hover { transform: translateY(-50%) translateX(-3px); }
 
-/* ─────────────────────────────────────────
-   HERO SCROLL INDICATOR LINE
-───────────────────────────────────────── */
-body.rtl .hero-scroll-indicator::after {
-  background: linear-gradient(to bottom, var(--white-mute), transparent);
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+body.rtl .site-footer {
+  flex-direction: row-reverse;
+  direction: rtl;
 }
 
-/* ─────────────────────────────────────────
-   PILLAR CARDS
-───────────────────────────────────────── */
-body.rtl .pillar-card {
-  text-align: right;
+body.rtl .footer-center {
+  text-align: center;
+  direction: rtl;
 }
 
-/* ─────────────────────────────────────────
-   AUDIENCE CARDS
-───────────────────────────────────────── */
-body.rtl .audience-card {
-  text-align: right;
+body.rtl .footer-nav {
+  flex-direction: row-reverse;
 }
 
-/* ─────────────────────────────────────────
-   PROJECTS PAGE
-───────────────────────────────────────── */
-body.rtl .project-info {
-  text-align: right;
+body.rtl .footer-right {
+  flex-direction: row-reverse;
 }
 
-/* ─────────────────────────────────────────
-   PAGE-LEVEL TRANSITION (no flicker)
-───────────────────────────────────────── */
-
-body {
-  transition: font-family 0s; /* instant font swap, no FOUT */
+body.rtl .footer-copy {
+  text-align: center;
 }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE RTL ADJUSTMENTS
-───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════
+   BUTTON ARROW — flip direction in RTL
+═══════════════════════════════════════════ */
+body.rtl .btn-accent:hover {
+  gap: 14px;
+}
+
+/* Arrow character in submit button */
+body.rtl .btn-submit {
+  direction: rtl;
+}
+
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE RTL
+═══════════════════════════════════════════ */
 @media (max-width: 768px) {
+
   body.rtl .lang-switcher {
-    margin-right: 12px;
+    margin-right: 0;
     margin-left: 0;
+  }
+
+  body.rtl #main-nav {
+    direction: rtl;
+  }
+
+  body.rtl .nav-logo {
+    justify-self: end;
+  }
+
+  body.rtl .nav-right {
+    justify-self: start;
+  }
+
+  body.rtl .hero-content {
+    text-align: right;
+  }
+
+  body.rtl .hero-foot {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  body.rtl .hero-actions {
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: flex-end;
   }
 
   body.rtl .fleet-layout,
   body.rtl .fleet-layout.reverse {
     direction: rtl;
+  }
+
+  body.rtl .fleet-layout.reverse .fleet-text-col {
+    direction: rtl;
+    text-align: right;
+  }
+
+  body.rtl .contact-left {
+    border-left: none;
+    border-bottom: 0.5px solid var(--white-line);
+  }
+
+  body.rtl .final-cta {
+    text-align: right;
+  }
+
+  body.rtl .final-cta-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  body.rtl .final-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.rtl .services-intro {
+    flex-direction: column;
+  }
+
+  body.rtl .mobile-nav-links {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  body.rtl .site-footer {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  body.rtl .footer-right {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  body.rtl #full-production .process-track,
+  body.rtl #unit-production .process-track,
+  body.rtl #rentals .process-track,
+  body.rtl #catering .process-track {
+    margin-right: 0;
+  }
+
+  body.rtl .about-story-text blockquote {
+    padding-right: 16px;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body.rtl .stats-bar {
+    direction: rtl;
+  }
+
+  body.rtl .stat-item {
+    border-left: 0.5px solid var(--white-line);
+    border-right: none;
+    text-align: right;
   }
 }
