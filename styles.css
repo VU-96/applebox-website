@@ -3514,7 +3514,6 @@ body.loading {
   opacity: 0.6;
   display: block;
   object-fit: contain;
-  vertical-align: middle;
   margin-bottom: 0 !important;
 }
 
