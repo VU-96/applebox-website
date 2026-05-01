@@ -858,7 +858,7 @@ window.addEventListener('load', () => {
     // 💻 DESKTOP
     setTimeout(() => {
       document.getElementById('loader').classList.add('hidden');
-    }, 5000);
+    }, 2500); // ← was 5000
 
   } else {
     // 📱 MOBILE
@@ -872,7 +872,7 @@ window.addEventListener('load', () => {
         loader.style.display = "none";
       }, 500);
 
-    }, 5000);
+    }, 2500); // ← was 5000
   }
 
 });
@@ -977,4 +977,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, { rootMargin: '200px' });
   lazyVideos.forEach(v => observer.observe(v));
+});
+/* ── COUNTER ANIMATION ── */
+function animateCounter(el, target, duration) {
+  if (!el) return;
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(function() {
+    start += step;
+    if (start >= target) {
+      start = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(start);
+  }, 16);
+}
+
+function runCounters() {
+  animateCounter(document.querySelector('.stat-item:nth-child(1) .stat-count'), 7, 1500);
+  animateCounter(document.querySelector('.stat-item:nth-child(2) .stat-count'), 10, 1500);
+  animateCounter(document.querySelector('.stat-item:nth-child(3) .stat-count'), 600, 2000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const statsBar = document.querySelector('.stats-bar');
+  if (!statsBar) return;
+
+  let triggered = false;
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !triggered) {
+        triggered = true;
+        runCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px' });
+
+  observer.observe(statsBar);
 });

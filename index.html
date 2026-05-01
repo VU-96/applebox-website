@@ -44,8 +44,8 @@
 
   <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
     <img src="pages/brandimage/logo.png"
-         data-logo-en="images/brandimage/logo.png"
-         data-logo-ar="images/brandimage/logo.png"
+         data-logo-en="pages/brandimage/logo.png"
+         data-logo-ar="pages/brandimage/logo.png"
          alt="AppleBox">
   </div>
 
@@ -132,37 +132,37 @@
 <!-- Background Image --> <div class="stats-bg"></div>
 
   <!-- STATS GRID -->
-  <div class="stats-bar">
+<div class="stats-bar">
 
-    <div class="stat-item">
-      <div class="stat-content">
-        <div class="stat-num">7<sup>+</sup></div>
-        <div class="stat-label">Years in Production</div>
-      </div>
+  <div class="stat-item">
+    <div class="stat-content">
+      <div class="stat-num"><span class="stat-count">7</span><sup>+</sup></div>
+      <div class="stat-label">Years in Production</div>
     </div>
-
-    <div class="stat-item">
-      <div class="stat-content">
-        <div class="stat-num">10<sup>+</sup></div>
-        <div class="stat-label">Fleet Vehicles</div>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-content">
-        <div class="stat-num">600<sup>+</sup></div>
-        <div class="stat-label">Productions Supported</div>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-content">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Integrated Ecosystem</div>
-      </div>
-    </div>
-
   </div>
+
+  <div class="stat-item">
+    <div class="stat-content">
+      <div class="stat-num"><span class="stat-count">10</span><sup>+</sup></div>
+      <div class="stat-label">Fleet Vehicles</div>
+    </div>
+  </div>
+
+  <div class="stat-item">
+    <div class="stat-content">
+      <div class="stat-num"><span class="stat-count">600</span><sup>+</sup></div>
+      <div class="stat-label">Productions Supported</div>
+    </div>
+  </div>
+
+  <div class="stat-item">
+    <div class="stat-content">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Integrated Ecosystem</div>
+    </div>
+  </div>
+
+</div>
 </div>
 
   <!-- SERVICES PREVIEW -->
@@ -181,10 +181,11 @@
 <P>We don’t just support productions — we operate as the backbone behind them, ensuring every detail is handled with precision from first call to final wrap.</P>
 </div>
 <div class="services-visual">
-  <div class="services-cinematic">
-  <img src="pages/homepage/services.png" alt="On Set" style="width:100%; height:100%; object-fit:cover;">
-  <div class="services-cin-overlay"></div>
-  <div class="services-cin-label">ON SET · JEDDAH</div>
+  <div class="services-cinematic" style="pointer-events:none;">
+  <video autoplay muted loop playsinline preload="none"
+    style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:0;">
+    <source src="pages/homepage/services.mp4" type="video/mp4">
+  </video>
 </div>
 </div>
 </div>
@@ -330,11 +331,11 @@
   </section>
 
   <!-- TRUSTED BY -->
-  <section class="section border-bottom">
-  <div class="eyebrow">Trusted By</div>
+<section class="section border-bottom">
+    <div class="eyebrow">Trusted By</div>
     <h2 class="section-heading">BRANDS & PRODUCTIONS<br><span class="accent-text">WE'VE WORKED WITH</span></h2>
-
-    <div class="logo-marquee">
+    <div style="margin-left: calc(-1 * var(--pad-x)); margin-right: calc(-1 * var(--pad-x));">
+    <div class="logo-marquee" style="border-top: 0.5px solid var(--white-line); border-bottom: 0.5px solid var(--white-line);">
 
       <!-- ROW 1 -->
       <div class="logo-track track-right">
@@ -346,10 +347,11 @@
 <a href="https://neareast.pro" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg" alt="Neareast Production" loading="lazy"></a>
 <a href="https://www.whizzfilm.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg" alt="Whizz Production" loading="lazy"></a>
 <a href="https://www.musco.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg" alt="Musco Sports" loading="lazy"></a>
-<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy"></a>
+<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy" class="logo-lg"></a>
 <a href="https://filim.tv" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv" loading="lazy"></a>
 <a href="https://leapstudios.net/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio" loading="lazy"></a>
-<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy"></a>
+<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy" class="logo-lg"></a>
+
         <!-- duplicate for seamless loop -->
         <a href="http://hproduction.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/1.svg" alt="HiProduction" loading="lazy"></a>
 <a href="https://yellow-camel.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/2.svg" alt="Yellow Camel" loading="lazy"></a>
@@ -359,10 +361,10 @@
 <a href="https://neareast.pro" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg" alt="Neareast Production" loading="lazy"></a>
 <a href="https://www.whizzfilm.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg" alt="Whizz Production" loading="lazy"></a>
 <a href="https://www.musco.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg" alt="Musco Sports" loading="lazy"></a>
-<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy"></a>
+<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy" class="logo-lg"></a>
 <a href="https://filim.tv" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv" loading="lazy"></a>
 <a href="https://leapstudios.net/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio" loading="lazy"></a>
-<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy"></a>
+<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy" class="logo-lg"></a>
       </div>
 
       <!-- ROW 2 -->
@@ -370,26 +372,26 @@
         <a href="https://theindustryfilm.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films" loading="lazy"></a>
 <a href="https://vimeo.com/flyingcamel" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel" loading="lazy"></a>
 <a href="https://vimeo.com/hokufilms" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films" loading="lazy"></a>
-<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy"></a>
+<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy" class="logo-lg"></a>
 <a href="https://jaco.live" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live" loading="lazy"></a>
-<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy"></a>
-<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy"></a>
-<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy"></a>
+<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy" class="logo-lg"></a>
+<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy" class="logo-lg"></a>
+<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy" class="logo-lg"></a>
 <a href="https://www.daw-sa.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production" loading="lazy"></a>
-<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy"></a>
+<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy" class="logo-lg"></a>
 <a href="https://lettergray.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray" loading="lazy"></a>
 <a href="https://vimeo.com/scarstudios" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios" loading="lazy"></a>
         <!-- duplicate for seamless loop -->
                <a href="https://theindustryfilm.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films" loading="lazy"></a>
 <a href="https://vimeo.com/flyingcamel" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel" loading="lazy"></a>
 <a href="https://vimeo.com/hokufilms" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films" loading="lazy"></a>
-<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy"></a>
+<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy" class="logo-lg"></a>
 <a href="https://jaco.live" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live" loading="lazy"></a>
-<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy"></a>
-<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy"></a>
-<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy"></a>
+<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy" class="logo-lg"></a>
+<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy" class="logo-lg"></a>
+<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy" class="logo-lg"></a>
 <a href="https://www.daw-sa.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production" loading="lazy"></a>
-<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy"></a>
+<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy" class="logo-lg"></a>
 <a href="https://lettergray.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray" loading="lazy"></a>
 <a href="https://vimeo.com/scarstudios" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios" loading="lazy"></a>
       </div>
@@ -397,60 +399,60 @@
       <!-- ROW 3 -->
       <div class="logo-track track-right">
       <a href="https://vimeo.com/gazzazproductions" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production" loading="lazy"></a>
-<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy"></a>
-<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy"></a>
+<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy" class="logo-lg"></a>
+<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy" class="logo-lg"></a>
 <a href="https://80s.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production" loading="lazy"></a>
 <a href="https://www.melt.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio" loading="lazy"></a>
-<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy"></a>
-<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy"></a>
-<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy"></a>
+<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy" class="logo-lg"></a>
+<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy" class="logo-lg"></a>
+<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy" class="logo-lg"></a>
 <a href="https://napafilms.fi/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films" loading="lazy"></a>
 <a href="https://www.bgshah.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha" loading="lazy"></a>
-<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy"></a>
+<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy" class="logo-lg"></a>
 <a><img src="pages/homepage/clientlogos/36.svg" alt="Client logo 36" loading="lazy"></a>
         <!-- duplicate for seamless loop -->
        <a href="https://vimeo.com/gazzazproductions" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production" loading="lazy"></a>
-<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy"></a>
-<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy"></a>
+<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy" class="logo-lg"></a>
+<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy" class="logo-lg"></a>
 <a href="https://80s.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production" loading="lazy"></a>
 <a href="https://www.melt.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio" loading="lazy"></a>
-<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy"></a>
-<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy"></a>
-<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy"></a>
+<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy" class="logo-lg"></a>
+<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy" class="logo-lg"></a>
+<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy" class="logo-lg"></a>
 <a href="https://napafilms.fi/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films" loading="lazy"></a>
 <a href="https://www.bgshah.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha" loading="lazy"></a>
-<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy"></a>
+<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy" class="logo-lg"></a>
 <a><img src="pages/homepage/clientlogos/36.svg" alt="Client logo 36" loading="lazy"></a>
         <!-- duplicate for seamless loop -->
       </div>
 
       <!-- ROW 4 -->
       <div class="logo-track track-left">
-       <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy"></a>
-<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy"></a>
-<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy"></a>
-<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy"></a>
+       <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy" class="logo-lg"></a>
+<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy" class="logo-lg"></a>
+<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy" class="logo-lg"></a>
+<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy" class="logo-lg"></a>
 <a href="https://trescontent.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="tres Content" loading="lazy"></a>
 <a href="https://www.wprod.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
-<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy"></a>
-<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy"></a>
-<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy"></a>
-<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy"></a>
+<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy" class="logo-lg"></a>
+<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy" class="logo-lg"></a>
+<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy" class="logo-lg"></a>
+<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy" class="logo-lg"></a>
 <a><img src="pages/homepage/clientlogos/47.svg" alt="Client logo 47" loading="lazy"></a>
-<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy"></a>
+<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy" class="logo-lg"></a>
         <!-- duplicate for seamless loop -->
-     <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy"></a>
-<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy"></a>
-<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy"></a>
-<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy"></a>
+     <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy" class="logo-lg"></a>
+<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy" class="logo-lg"></a>
+<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy" class="logo-lg"></a>
+<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy" class="logo-lg"></a>
 <a href="https://trescontent.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="tres Content" loading="lazy"></a>
 <a href="https://www.wprod.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
-<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy"></a>
-<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy"></a>
-<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy"></a>
-<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy"></a>
+<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy" class="logo-lg"></a>
+<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy" class="logo-lg"></a>
+<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy" class="logo-lg"></a>
+<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy" class="logo-lg"></a>
 <a><img src="pages/homepage/clientlogos/47.svg" alt="Client logo 47" loading="lazy"></a>
-<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy"></a>
+<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy" class="logo-lg"></a>
       </div>
 
     </div>
@@ -556,8 +558,8 @@
       </div>
       <div class="process-step">
         <div class="process-node">02</div>
-        <div class="process-title">Permits</div>
-        <div class="process-tooltip">All local permits, approvals and location clearances handled on the ground.</div>
+        <div class="process-title">Logistics</div>
+        <div class="process-tooltip">Fleet coordination, location logistics, and on-ground movement managed end to end.</div>
       </div>
       <div class="process-step">
         <div class="process-node">03</div>
@@ -675,20 +677,20 @@
       <div class="fleet-page-intro">
   <p>AppleBox operates a purpose-built fleet engineered for real production demands. From unit support and wardrobe to hygiene, talent facilities, and crew transport, every vehicle is fully equipped, production-ready, and backed by experienced on-set teams to ensure seamless execution at every stage.</p>
         <div class="fleet-tags">
-  <span class="fleet-tag">Unit Van</span>
-  <span class="fleet-tag">Unit Truck</span>
-  <span class="fleet-tag">Support Van</span>
-  <span class="fleet-tag">Wardrobe Trucks</span>
-  <span class="fleet-tag">Toilet Truck</span>
-  <span class="fleet-tag">VIP Caravan</span>
-  <span class="fleet-tag">Crew Transport</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-unit-van').scrollIntoView({behavior:'smooth'})">Unit Van</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-unit-truck').scrollIntoView({behavior:'smooth'})">Unit Truck</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-support-van').scrollIntoView({behavior:'smooth'})">Support Van</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-wardrobe-5m').scrollIntoView({behavior:'smooth'})">Wardrobe Trucks</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-toilet-truck').scrollIntoView({behavior:'smooth'})">Toilet Truck</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-caravan').scrollIntoView({behavior:'smooth'})">VIP Caravan</span>
+<span class="fleet-tag" onclick="document.getElementById('fs-transport').scrollIntoView({behavior:'smooth'})">Crew Transport</span>
 </div>
       </div>
     </div>
   </div>
 
   <!-- 01 — FULLY EQUIPPED UNIT PRODUCTION VAN -->
-  <div class="fleet-section" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-unit-van" style="background: var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Unit Production Support</div>
@@ -733,10 +735,10 @@
   </div>
 
   <!-- 02 — FULLY EQUIPPED UNIT PRODUCTION TRUCK -->
-  <div class="fleet-section">
+  <div class="fleet-section" id="fs-unit-truck">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Production Support &amp; Operations</div>
+        <div class="fleet-vehicle-tag">Unit Production Truck</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION TRUCK</span></div>
 <div class="fleet-vehicle-desc">A centralized on-set operations unit that brings power, catering, and infrastructure together in one system. Designed for large-scale productions, it supports high crew volumes while maintaining smooth and efficient workflow across departments.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-bolt"></i> Inbuilt 27KVA generator &amp; portable backup</div>
@@ -778,7 +780,7 @@
   </div>
 
   <!-- 03 — SUPPORT VAN -->
-  <div class="fleet-section" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-support-van" style="background: var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
         <div class="fleet-vehicle-tag">Crafties &amp; Equipment Support</div>
@@ -815,16 +817,16 @@
   </div>
 
   <!-- 04 — WARDROBE TRUCK 5M -->
-  <div class="fleet-section">
+  <div class="fleet-section" id="fs-wardrobe-5m">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling Department</div>
+        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 5M</span></div>
 <div class="fleet-vehicle-desc">A fully equipped mobile wardrobe space designed for comfort, organization, and efficiency. It provides a controlled environment where styling teams can operate seamlessly throughout long shoot days.</div>        <div class="fleet-features">
           <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
           <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
           <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> 15KW silent generator</div>
+          <div class="fleet-feature"><i class="fas fa-bolt"></i> 7KW silent generator</div>
           <div class="fleet-feature"><i class="fas fa-soap"></i> On-set washer &amp; dryer units</div>
           <div class="fleet-feature"><i class="fas fa-lock"></i> Secure overnight storage</div>
         </div>
@@ -855,10 +857,10 @@
   </div>
 
   <!-- 05 — WARDROBE TRUCK 3M -->
-  <div class="fleet-section" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-wardrobe-3m" style="background: var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling Department</div>
+        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling</div>
         <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 3M</span></div>
 <div class="fleet-vehicle-desc">A compact wardrobe solution designed for smaller productions and tighter locations. It delivers the same core functionality in a more agile footprint while maintaining smooth styling workflow from prep to wrap.</div>
         <div class="fleet-features">
@@ -893,10 +895,10 @@
   </div>
 
   <!-- 06 — TOILET TRUCK -->
-  <div class="fleet-section">
+  <div class="fleet-section" id="fs-toilet-truck">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Hygiene Solutions</div>
+        <div class="fleet-vehicle-tag">Hygiene & Sanitation</div>
         <div class="fleet-vehicle-name">4 CABIN <span>TOILET TRUCK</span></div>
 <div class="fleet-vehicle-desc">A premium hygiene solution designed to maintain comfort and cleanliness on set. Fully self-sufficient and equipped for long production days, it ensures a reliable and elevated experience for cast and crew.</div>        
 <div class="fleet-features">
@@ -905,7 +907,7 @@
           <div class="fleet-feature"><i class="fas fa-hands-bubbles"></i> In-cabin sink &amp; well-lit mirrors</div>
           <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned interior</div>
           <div class="fleet-feature"><i class="fas fa-bolt"></i> 15KW silent generator</div>
-          <div class="fleet-feature"><i class="fas fa-droplet"></i> 3,000L fresh water &amp; waste tank</div>
+          <div class="fleet-feature"><i class="fas fa-droplet"></i> 3,000L fresh water &amp; 900L waste tank</div>
         </div>
         <a href="pages/fleets/toilet-truck/Toilet Truck Brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
           <i class="fas fa-download"></i> Download Brochure
@@ -934,10 +936,10 @@
   </div>
 
   <!-- 07 — VIP CARAVAN -->
-  <div class="fleet-section" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-caravan" style="background: var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Talent &amp; Client</div>
+        <div class="fleet-vehicle-tag">Talent &amp; Client Facilities</div>
         <div class="fleet-vehicle-name">VIP <span>CARAVAN</span></div>
 <div class="fleet-vehicle-desc">A private and fully equipped space designed for talent and client comfort on set. Built to support long shooting days, it offers a calm, controlled environment for rest, preparation, wardrobe adjustments, and downtime between takes, ensuring talent remains focused and production runs smoothly.</div>
         <div class="fleet-features">
@@ -983,21 +985,16 @@
   </div>
 
 <!-- 08 — CREW & CLIENT TRANSPORT -->
-<div class="fleet-section">
+<div class="fleet-section" id="fs-transport">
   <div class="fleet-layout">
-
     <div class="fleet-text-col">
-      
-      <div class="fleet-vehicle-tag">Transport</div>
-
+      <div class="fleet-vehicle-tag">Logistics &amp; Movement</div>
       <div class="fleet-vehicle-name">
         CREW &amp; CLIENT <span>TRANSPORT</span>
       </div>
-
       <div class="fleet-vehicle-desc">
         Seamless and reliable transport across every stage of production. From VIP talent movements to full crew logistics, our fleet ensures comfort, efficiency, and precise coordination on set, in transit, and across cities.
       </div>
-
       <div class="fleet-features">
         <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Luxury SUVs for clients and talent</div>
         <div class="fleet-feature"><i class="fas fa-van-shuttle"></i> Passenger vans for crew mobility</div>
@@ -1006,24 +1003,17 @@
         <div class="fleet-feature"><i class="fas fa-location-dot"></i> Inter-city and remote location coverage</div>
         <div class="fleet-feature"><i class="fas fa-plus"></i> Additional vehicle sourcing on request</div>
       </div>
-
-      <a href="pages/fleets/transport/Transportation.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
-        <i class="fas fa-download"></i> Transport Brochure
-      </a>
-
     </div>
-
     <div class="fleet-media-col">
       <div class="transport-photo-grid">
-  <div class="transport-photo"><img src="pages/fleets/transport/yukon.png" class="gallery-item" alt="GMC Yukon"></div>
-  <div class="transport-photo"><img src="pages/fleets/transport/staria.png" class="gallery-item" alt="Hyundai Staria"></div>
-  <div class="transport-photo"><img src="pages/fleets/transport/hiace.png" class="gallery-item" alt="Toyota Hiace"></div>
-  <div class="transport-photo"><img src="pages/fleets/transport/camry.png" class="gallery-item" alt="Toyota Camry"></div>
-  <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" class="gallery-item" alt="Coaster Bus"></div>
-  <div class="transport-photo"><img src="pages/fleets/transport/bus.png" class="gallery-item" alt="32-Seater Bus"></div>
-</div>
+        <div class="transport-photo"><img src="pages/fleets/transport/yukon.png" class="gallery-item" alt="GMC Yukon"></div>
+        <div class="transport-photo"><img src="pages/fleets/transport/staria.png" class="gallery-item" alt="Hyundai Staria"></div>
+        <div class="transport-photo"><img src="pages/fleets/transport/hiace.png" class="gallery-item" alt="Toyota Hiace"></div>
+        <div class="transport-photo"><img src="pages/fleets/transport/camry.png" class="gallery-item" alt="Toyota Camry"></div>
+        <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" class="gallery-item" alt="Coaster Bus"></div>
+        <div class="transport-photo"><img src="pages/fleets/transport/bus.png" class="gallery-item" alt="32-Seater Bus"></div>
+      </div>
     </div>
-
   </div>
 </div>
 
@@ -1070,7 +1060,10 @@
   <!-- OUR STORY -->
 <div class="section" style="padding-top: 0; padding-bottom: 0;">
   <div class="about-story-grid">
-      <div class="about-story-label">Our Story</div>
+      <div>
+  <div class="about-story-label">Our Story</div>
+  <h2 style="font-family:'Bebas Neue',sans-serif; font-size: clamp(32px,3.5vw,52px); line-height:0.93; letter-spacing:0.02em; margin-top:16px; color:var(--white);">BUILT<br>FROM<br>THE<br><span class="accent-text">GROUND<br>UP.</span></h2>
+</div>
       <div class="about-story-text">
         <blockquote>"We didn't set out to be a production company. We set out to be the reason productions don't fail."</blockquote>
         <p>It started with a single production van and a belief that Saudi Arabia deserved world-class production infrastructure. From those early shoots, AppleBox grew year after year, adding vehicles, crew, capabilities, and clients who trusted us to deliver.</p>
@@ -1210,7 +1203,6 @@
     </a>
   </div>
 
-  <!-- bts video carousel -->
   <!-- BTS VIDEO CAROUSEL -->
   <div class="bts-section">
     <div class="eyebrow" style="padding: 0 var(--pad-x); margin-top: 48px;">Behind The Scenes</div>
@@ -1225,11 +1217,11 @@
               <source src="pages/projectpage/bts/Adidas - Big Foot X Elephant Labs.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Elephant Labs</div>
-            <div class="bts-name">Adidas – Big Foot</div>
+            <div class="bts-client">Elephant Lab – Big Foots</div>
+            <div class="bts-name">Adidas</div>
           </div>
         </div>
 
@@ -1239,11 +1231,11 @@
               <source src="pages/projectpage/bts/Adidas - Two Plus One.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Adidas</div>
-            <div class="bts-name">Adidas – Two Plus One</div>
+            <div class="bts-client">Two Plus One</div>
+            <div class="bts-name">Adidas</div>
           </div>
         </div>
 
@@ -1253,11 +1245,11 @@
               <source src="pages/projectpage/bts/Asliyah - Alternative Everything.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · JEDDAH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Asliyah</div>
-            <div class="bts-name">Alternative Everything</div>
+            <div class="bts-client">Alternative Everything</div>
+            <div class="bts-name">Asliyah</div>
           </div>
         </div>
 
@@ -1267,7 +1259,7 @@
               <source src="pages/projectpage/bts/Flyadeal - Telfaz.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Telfaz</div>
@@ -1281,11 +1273,11 @@
               <source src="pages/projectpage/bts/Maadan Snd - Purple Brain.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">AppleBox</div>
-            <div class="bts-name">On Set BTS</div>
+            <div class="bts-client">PURPLE BRAIN</div>
+            <div class="bts-name">Maadan Saudi National Day</div>
           </div>
         </div>
 
@@ -1295,7 +1287,7 @@
               <source src="pages/projectpage/bts/Keeta - Digitech.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Digitech</div>
@@ -1309,11 +1301,95 @@
               <source src="pages/projectpage/bts/National Cybersecurity Authority - Salham.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Salham</div>
             <div class="bts-name">National Cybersecurity Authority</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Diriyah Gate Development Authrity - Two Tales.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TWO TALES</div>
+            <div class="bts-name">Diriyah Gate Development Authority</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Tres Content - Toyota Ad Shoot.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">JEDDAH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TRÈS CONTENT</div>
+            <div class="bts-name">TOYOTA AD SHOOT</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Two Tales - Toyota Ad.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">DAMMAM</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TWO TALES</div>
+            <div class="bts-name">TOYOTA AD SHOOT</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Dna Studio - Ministry Of National Guard.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">DNA STUDIO</div>
+            <div class="bts-name">MINISTRY OF NATIONAL GUARD</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Scar Studio - Nescafe.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">SCAR STUDIO</div>
+            <div class="bts-name">NESCAFE</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Clandestino - Goat Shoot , Riyadh.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">CLANDESTINO</div>
+            <div class="bts-name">VISIT SAUDI</div>
           </div>
         </div>
 
@@ -1324,11 +1400,11 @@
               <source src="pages/projectpage/bts/Adidas - Big Foot X Elephant Labs.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Elephant Labs</div>
-            <div class="bts-name">Adidas – Big Foot</div>
+            <div class="bts-client">Elephant Lab – Big Foots</div>
+            <div class="bts-name">Adidas</div>
           </div>
         </div>
 
@@ -1338,11 +1414,11 @@
               <source src="pages/projectpage/bts/Adidas - Two Plus One.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Adidas</div>
-            <div class="bts-name">Adidas – Two Plus One</div>
+            <div class="bts-client">Two Plus One</div>
+            <div class="bts-name">Adidas</div>
           </div>
         </div>
 
@@ -1352,11 +1428,11 @@
               <source src="pages/projectpage/bts/Asliyah - Alternative Everything.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · JEDDAH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">Asliyah</div>
-            <div class="bts-name">Alternative Everything</div>
+            <div class="bts-client">Alternative Everything</div>
+            <div class="bts-name">Asliyah</div>
           </div>
         </div>
 
@@ -1366,7 +1442,7 @@
               <source src="pages/projectpage/bts/Flyadeal - Telfaz.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Telfaz</div>
@@ -1380,11 +1456,11 @@
               <source src="pages/projectpage/bts/Maadan Snd - Purple Brain.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · SAUDI ARABIA</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
-            <div class="bts-client">AppleBox</div>
-            <div class="bts-name">On Set BTS</div>
+            <div class="bts-client">PURPLE BRAIN</div>
+            <div class="bts-name">Maadan Saudi National Day</div>
           </div>
         </div>
 
@@ -1394,7 +1470,7 @@
               <source src="pages/projectpage/bts/Keeta - Digitech.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">JEDDAH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Digitech</div>
@@ -1408,22 +1484,101 @@
               <source src="pages/projectpage/bts/National Cybersecurity Authority - Salham.mp4" type="video/mp4">
             </video>
             <div class="bts-overlay"></div>
-            <div class="bts-label">ON SET · RIYADH</div>
+            <div class="bts-label">RIYADH</div>
           </div>
           <div class="bts-info">
             <div class="bts-client">Salham</div>
             <div class="bts-name">National Cybersecurity Authority</div>
           </div>
         </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Diriyah Gate Development Authrity - Two Tales.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TWO TALES</div>
+            <div class="bts-name">Diriyah Gate Development Authority</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Tres Content - Toyota Ad Shoot.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">JEDDAH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TRÈS CONTENT</div>
+            <div class="bts-name">TOYOTA AD SHOOT</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Two Tales - Toyota Ad.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">DAMMAM</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">TWO TALES</div>
+            <div class="bts-name">TOYOTA AD SHOOT</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Dna Studio - Ministry Of National Guard.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">DNA STUDIO</div>
+            <div class="bts-name">MINISTRY OF NATIONAL GUARD</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Scar Studio - Nescafe.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">SCAR STUDIO</div>
+            <div class="bts-name">NESCAFE</div>
+          </div>
+        </div>
+
+        <div class="bts-card">
+          <div class="bts-thumb">
+            <video muted loop playsinline preload="metadata" class="bts-video">
+              <source src="pages/projectpage/bts/Clandestino - Goat Shoot , Riyadh.mp4" type="video/mp4">
+            </video>
+            <div class="bts-overlay"></div>
+            <div class="bts-label">RIYADH</div>
+          </div>
+          <div class="bts-info">
+            <div class="bts-client">CLANDESTINO</div>
+            <div class="bts-name">VISIT SAUDI</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-  <div class="section-sm border-top" style="background: var(--surface-1); text-align: center;">
-    <p class="t-caption" style="margin-bottom: 28px;">Ready to add your production to this list?</p>
-    <button class="btn btn-primary" onclick="showPage('contact')">Start Your Project</button>
-  </div>
-
 </div>
 <!-- END page-projects -->
 
@@ -1484,7 +1639,6 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
 
