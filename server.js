@@ -1,6 +1,13 @@
 /* ═══════════════════════════════════════════
-   APPLEBOX — CONTACT FORM BACKEND  v2.0
+   APPLEBOX — CONTACT FORM BACKEND  v3.0
    Node.js + Express + Nodemailer
+
+   Environment variables required:
+     SMTP_USER        — Gmail sender address
+     SMTP_PASS        — Gmail app password
+     RECIPIENT_EMAIL  — where inquiries are delivered (default: hello@applebox.sa)
+     ALLOWED_ORIGIN   — your frontend domain, e.g. https://applebox.sa
+     PORT             — HTTP port (set automatically by Render / Railway)
 ═══════════════════════════════════════════ */
 
 'use strict';
@@ -14,30 +21,52 @@ const app  = express();
 const PORT = process.env.PORT || 4000;
 
 /* ─────────────────────────────────────────
+   STARTUP ENV CHECKS
+   Warn loudly if required vars are missing
+───────────────────────────────────────── */
+const SMTP_USER       = process.env.SMTP_USER       || '';
+const SMTP_PASS       = process.env.SMTP_PASS        || '';
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL  || 'hello@applebox.sa';
+const ALLOWED_ORIGIN  = process.env.ALLOWED_ORIGIN   || '';
+
+if (!SMTP_USER) log.warn('SMTP_USER env var is not set — emails will fail to send.');
+if (!SMTP_PASS) log.warn('SMTP_PASS env var is not set — emails will fail to send.');
+if (!ALLOWED_ORIGIN) log.warn('ALLOWED_ORIGIN env var is not set — CORS is open to all origins.');
+
+/* ─────────────────────────────────────────
    LOGGING UTILITY
 ───────────────────────────────────────── */
-const log = {
-  info:  (...a) => console.log(`[${new Date().toISOString()}] [INFO]`, ...a),
-  warn:  (...a) => console.warn(`[${new Date().toISOString()}] [WARN]`, ...a),
-  error: (...a) => console.error(`[${new Date().toISOString()}] [ERROR]`, ...a),
-};
+function log() {}
+log.info  = (...a) => console.log( `[${new Date().toISOString()}] [INFO] `,  ...a);
+log.warn  = (...a) => console.warn( `[${new Date().toISOString()}] [WARN] `,  ...a);
+log.error = (...a) => console.error(`[${new Date().toISOString()}] [ERROR]`, ...a);
 
 /* ─────────────────────────────────────────
    MIDDLEWARE
 ───────────────────────────────────────── */
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN || '*', /* tighten in production */
+  origin:  ALLOWED_ORIGIN || '*',
   methods: ['GET', 'POST'],
 }));
+
 app.use(express.json({ limit: '50kb' }));
 app.use(express.urlencoded({ extended: true, limit: '50kb' }));
 
+/* Basic security headers without requiring helmet */
+app.use(function (_req, res, next) {
+  res.setHeader('X-Content-Type-Options',    'nosniff');
+  res.setHeader('X-Frame-Options',           'DENY');
+  res.setHeader('Referrer-Policy',           'no-referrer');
+  res.setHeader('X-Permitted-Cross-Domain-Policies', 'none');
+  next();
+});
+
 /* ─────────────────────────────────────────
-   BASIC RATE LIMITER (in-memory)
-   Allows max 5 requests per IP per 10 minutes.
-   For production, replace with express-rate-limit + Redis.
+   RATE LIMITER (in-memory)
+   Max 10 requests per IP per 10 minutes.
+   For production scale, use express-rate-limit + Redis.
 ───────────────────────────────────────── */
-const rateLimitMap = new Map();
+const rateLimitMap    = new Map();
 const RATE_WINDOW_MS  = 10 * 60 * 1000; /* 10 minutes */
 const RATE_MAX_HITS   = 10;
 
@@ -67,7 +96,7 @@ function rateLimit(req, res, next) {
   next();
 }
 
-/* Clean the map periodically to prevent memory leaks */
+/* Clean expired entries periodically to prevent memory leak */
 setInterval(function () {
   const now = Date.now();
   rateLimitMap.forEach(function (v, k) {
@@ -76,55 +105,79 @@ setInterval(function () {
 }, RATE_WINDOW_MS);
 
 /* ─────────────────────────────────────────
-   SPAM KEYWORDS (basic honeypot check)
+   SPAM KEYWORDS
 ───────────────────────────────────────── */
 const SPAM_KEYWORDS = ['casino', 'bitcoin', 'crypto', 'forex', 'click here', 'free money', 'make money'];
 
-function isSpam(data) {
-  const blob = [data.name, data.company, data.projectBrief].join(' ').toLowerCase();
+function isSpam(d) {
+  const blob = [d.name, d.company, d.projectBrief].join(' ').toLowerCase();
   return SPAM_KEYWORDS.some(function (kw) { return blob.includes(kw); });
 }
 
 /* ─────────────────────────────────────────
-   EMAIL TRANSPORTER
-   Configured for Microsoft 365 / Office 365.
-   Credentials come from environment variables —
-   never hardcode passwords in source code.
+   PRIORITY — server-side calculation only
+   Never trust the client-supplied value.
+───────────────────────────────────────── */
+const VALID_PRIORITIES = {
+  HIGH:  '🔴 HIGH PRIORITY',
+  STD:   '🟡 STANDARD',
+  QUICK: '🟢 QUICK RESPONSE',
+};
 
-   To run locally:
-     export SMTP_PASS="your-password-here"
-     npm start
+function calcPriority(d) {
+  const crew      = parseInt((d.crewSize || '').replace(/\D/g, ''), 10) || 0;
+  const bigTypes  = ['Feature Film', 'International Production', 'Drama Series'];
+  const isFullProd = d.supportType === 'Full Production Support' || d.supportType === 'Unit Production';
+  const isBigType  = bigTypes.indexOf(d.projectType) !== -1;
+  if (crew >= 50 || (isBigType && isFullProd)) return VALID_PRIORITIES.HIGH;
+  if (crew >= 20 || isBigType || isFullProd)   return VALID_PRIORITIES.STD;
+  return VALID_PRIORITIES.QUICK;
+}
+
+/* ─────────────────────────────────────────
+   EMAIL TRANSPORTER
+   Uses Gmail SMTP — requires an App Password
+   (not your regular Gmail password).
+   Guide: myaccount.google.com → Security → App Passwords
 ───────────────────────────────────────── */
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
+  host:   'smtp.gmail.com',
+  port:   587,
   secure: false,
   auth: {
-    user: 'applebox950@gmail.com',
-    pass: process.env.SMTP_PASS
+    user: SMTP_USER,
+    pass: SMTP_PASS,
   },
-  connectionTimeout: 10000, // 🔥 add this
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
+  connectionTimeout: 10_000,
+  greetingTimeout:   10_000,
+  socketTimeout:     10_000,
 });
 
-/* Verify transporter on startup */
 transporter.verify(function (err) {
   if (err) {
-    log.warn('SMTP verification failed — email may not send until credentials are set:', err.message);
+    log.warn('SMTP verification failed:', err.message);
   } else {
     log.info('SMTP transporter ready.');
   }
 });
 
 /* ─────────────────────────────────────────
-   INPUT SANITISER — strips HTML tags
+   INPUT SANITISER — strips HTML tags + encodes entities
 ───────────────────────────────────────── */
+const ENTITY_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
 function sanitise(str) {
   if (typeof str !== 'string') return '';
-  return str.replace(/<[^>]*>/g, '').replace(/[&<>"']/g, function (c) {
-    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
-  }).trim().slice(0, 2000);
+  return str
+    .replace(/<[^>]*>/g, '')
+    .replace(/[&<>"']/g, function (c) { return ENTITY_MAP[c]; })
+    .trim()
+    .slice(0, 2000);
+}
+
+/* Also strip newlines from single-line fields to prevent header injection */
+function sanitiseLine(str) {
+  return sanitise(str).replace(/[\r\n]+/g, ' ');
 }
 
 /* ─────────────────────────────────────────
@@ -135,7 +188,7 @@ function buildPlainText(d) {
     'New Inquiry — AppleBox Production Services',
     '═══════════════════════════════════════════',
     '',
-    `Priority:      ${d.priority      || '—'}`,
+    `Priority:      ${d.priority}`,
     `Name:          ${d.name          || '—'}`,
     `Company:       ${d.company       || '—'}`,
     `Email:         ${d.email         || '—'}`,
@@ -163,9 +216,9 @@ function buildHtml(d) {
   }
 
   const priorityColor = {
-    '🔴 HIGH PRIORITY': '#c0392b',
-    '🟡 STANDARD':      '#d4a017',
-    '🟢 QUICK RESPONSE':'#27ae60',
+    [VALID_PRIORITIES.HIGH]:  '#c0392b',
+    [VALID_PRIORITIES.STD]:   '#d4a017',
+    [VALID_PRIORITIES.QUICK]: '#27ae60',
   }[d.priority] || '#888';
 
   return `
@@ -188,7 +241,7 @@ function buildHtml(d) {
     <!-- PRIORITY BANNER -->
     <tr>
       <td style="background:${priorityColor};padding:8px 32px;">
-        <p style="margin:0;font-size:11px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;">${d.priority || 'NEW INQUIRY'}</p>
+        <p style="margin:0;font-size:11px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;">${d.priority}</p>
       </td>
     </tr>
 
@@ -223,7 +276,7 @@ function buildHtml(d) {
     <!-- FOOTER -->
     <tr>
       <td style="padding:14px 32px;background:#f7f7f7;border-top:1px solid #eee;">
-        <p style="margin:0;font-size:11px;color:#bbb;">Sent via applebox.sa contact form · ${new Date().toLocaleString('en-SA', { timeZone: 'Asia/Riyadh' })} KSA</p>
+        <p style="margin:0;font-size:11px;color:#bbb;">Sent via applebox.sa · ${new Date().toLocaleString('en-SA', { timeZone: 'Asia/Riyadh' })} KSA</p>
       </td>
     </tr>
 
@@ -235,71 +288,82 @@ function buildHtml(d) {
 }
 
 /* ─────────────────────────────────────────
+   VALIDATION
+───────────────────────────────────────── */
+const EMAIL_RX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validate(d) {
+  if (!d.name)                return { status: 400, message: 'Name is required.' };
+  if (!EMAIL_RX.test(d.email)) return { status: 400, message: 'A valid email address is required.' };
+  if (!d.supportType)          return { status: 400, message: 'Support type is required.' };
+  return null;
+}
+
+/* ─────────────────────────────────────────
    ROUTE — POST /send-email
 ───────────────────────────────────────── */
 app.post('/send-email', rateLimit, async function (req, res) {
+  try {
+    const raw = req.body || {};
 
-  /* Sanitise all incoming fields */
-  const raw = req.body || {};
-  const d   = {
-    name:         sanitise(raw.name),
-    company:      sanitise(raw.company),
-    email:        sanitise(raw.email),
-    supportType:  sanitise(raw.supportType),
-    projectType:  sanitise(raw.projectType),
-    shootDates:   sanitise(raw.shootDates),
-    crewSize:     sanitise(raw.crewSize),
-    projectBrief: sanitise(raw.projectBrief),
-    priority:     sanitise(raw.priority),
-  };
+    /* Sanitise all fields — single-line fields also strip newlines */
+    const d = {
+      name:         sanitiseLine(raw.name),
+      company:      sanitiseLine(raw.company),
+      email:        sanitiseLine(raw.email),
+      supportType:  sanitiseLine(raw.supportType),
+      projectType:  sanitiseLine(raw.projectType),
+      shootDates:   sanitiseLine(raw.shootDates),
+      crewSize:     sanitiseLine(raw.crewSize),
+      projectBrief: sanitise(raw.projectBrief),   /* multi-line — keep newlines */
+    };
 
-  log.info('Inquiry received', { name: d.name, supportType: d.supportType, priority: d.priority });
+    /* Priority is always calculated server-side — never trust client value */
+    d.priority = calcPriority(d);
 
-  /* Server-side validation */
-  if (!d.name) {
-    return res.status(400).json({ success: false, message: 'Name is required.' });
+    log.info('Inquiry received', { name: d.name, supportType: d.supportType, priority: d.priority });
+
+    /* Validate */
+    const validationError = validate(d);
+    if (validationError) {
+      return res.status(validationError.status).json({
+        success: false,
+        message: validationError.message,
+      });
+    }
+
+    /* Spam check — silent pass to avoid revealing detection */
+    if (isSpam(d)) {
+      log.warn('Spam blocked', { name: d.name, email: d.email });
+      return res.status(200).json({ success: true, message: 'Request sent successfully.' });
+    }
+
+    const subject = `[${d.priority}] ${d.supportType} — ${d.name}`;
+
+    const mailOptions = {
+      from:    `"AppleBox Website" <${SMTP_USER}>`,
+      to:      RECIPIENT_EMAIL,
+      replyTo: d.email,
+      subject: subject,
+      text:    buildPlainText(d),
+      html:    buildHtml(d),
+    };
+
+    /* Respond immediately — send email in background for instant UX */
+    res.status(200).json({ success: true, message: 'Request sent successfully.' });
+
+    transporter.sendMail(mailOptions)
+      .then(function (info) { log.info('Email sent', { messageId: info.messageId }); })
+      .catch(function (err) { log.error('Email send failed', { error: err.message }); });
+
+  } catch (err) {
+    log.error('Unexpected error in /send-email', { error: err.message });
+    /* Only send error response if headers haven't been sent yet */
+    if (!res.headersSent) {
+      res.status(500).json({ success: false, message: 'Internal server error.' });
+    }
   }
-  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRx.test(d.email)) {
-    return res.status(400).json({ success: false, message: 'A valid email address is required.' });
-  }
-  if (!d.supportType) {
-    return res.status(400).json({ success: false, message: 'Support type is required.' });
-  }
-
-  /* Spam check */
-  if (isSpam(d)) {
-    log.warn('Spam blocked', { name: d.name, email: d.email });
-    /* Return 200 to avoid revealing detection */
-    return res.status(200).json({ success: true, message: 'Request sent successfully.' });
-  }
-
-  const subject = `[${d.priority || 'INQUIRY'}] ${d.supportType} — ${d.name}`;
-
-const mailOptions = {
-  from: '"AppleBox Website" <applebox950@gmail.com>',
-  to: 'hello@applebox.sa',   // 👈 THIS is where it goes
-  replyTo: d.email,
-  subject: subject,
-  text: buildPlainText(d),
-  html: buildHtml(d),
-};
-
-// ✅ respond instantly
-res.status(200).json({
-  success: true,
-  message: 'Request sent successfully.'
 });
-
-// ✅ send email in background (no waiting)
-transporter.sendMail(mailOptions)
-  .then(info => {
-    log.info('Email sent', { messageId: info.messageId });
-  })
-  .catch(err => {
-    log.error('Email send failed', { error: err.message });
-  });
-  });
 
 /* ─────────────────────────────────────────
    ROUTE — GET /health
@@ -307,7 +371,7 @@ transporter.sendMail(mailOptions)
 app.get('/health', function (_req, res) {
   res.status(200).json({
     status:    'ok',
-    service:   'AppleBox Mailer v2.0',
+    service:   'AppleBox Mailer v3.0',
     timestamp: new Date().toISOString(),
   });
 });

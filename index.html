@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
+<!-- ═══════════════════════════════════════════
+     HEAD
+═══════════════════════════════════════════ -->
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AppleBox — Production Services Infrastructure</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="styles-rtl.css">
-<!-- PERFORMANCE -->
-<link rel="preload" as="video" href="pages/brandimage/loader.mp4">
-<link rel="preload" as="video" href="pages/homepage/hero.mp4">
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<meta name="description" content="AppleBox delivers complete production infrastructure for film, TVC, and content productions across Saudi Arabia. Fleet, crew, rentals, and catering.">
-<meta property="og:title" content="AppleBox — Production Services">
-<meta property="og:description" content="Built for production houses, agencies, and international crews shooting in Saudi Arabia.">
-<meta property="og:image" content="pages/brandimage/logo.png">
-<link rel="icon" type="image/png" sizes="64x64" href="pages/brandimage/icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppleBox — Production Services Infrastructure</title>
+
+  <!-- SEO -->
+  <meta name="description" content="AppleBox delivers complete production infrastructure for film, TVC, and content productions across Saudi Arabia. Fleet, crew, rentals, and catering.">
+  <meta property="og:title"       content="AppleBox — Production Services">
+  <meta property="og:description" content="Built for production houses, agencies, and international crews shooting in Saudi Arabia.">
+  <meta property="og:image"       content="pages/brandimage/logo.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="pages/brandimage/icon.png">
+
+  <!-- PERFORMANCE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preload" as="video" href="pages/brandimage/loader.mp4">
+  <link rel="preload" as="video" href="pages/homepage/hero.mp4">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICONS (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-rtl.css">
 </head>
+
 <body>
-<!-- LOADING SCREEN -->
+
+<!-- ═══════════════════════════════════════════
+     LOADERS
+═══════════════════════════════════════════ -->
 <div id="loader">
   <video autoplay muted loop playsinline id="loader-video">
     <source src="pages/brandimage/loader.mp4" type="video/mp4">
   </video>
   <div id="loader-overlay"></div>
 </div>
+
 <div id="loader-mobile">
   <video autoplay muted playsinline preload="none" id="mobile-loader-video">
     <source src="pages/brandimage/loader-mobile.mp4" type="video/mp4">
   </video>
   <div class="loader-overlay"></div>
 </div>
+
 <!-- ═══════════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════════ -->
-<nav id="main-nav">
+<nav id="main-nav" aria-label="Main navigation">
 
+  <!-- Logo -->
   <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
     <img src="pages/brandimage/logo.png"
          data-logo-en="pages/brandimage/logo.png"
@@ -49,72 +69,83 @@
          alt="AppleBox">
   </div>
 
- <div class="nav-links">
-      <a href="javascript:void(0)" onclick="showPage('home')"     data-page="home"     data-i18n="navHome">Home</a>
-      <a href="javascript:void(0)" onclick="showPage('about')"    data-page="about"    data-i18n="navAbout">About</a>
-      <div class="nav-item">
-        <a href="javascript:void(0)" onclick="showPage('services')" data-page="services" data-i18n="navServices">Services</a>
-        <div class="dropdown-menu">
-          <a href="javascript:void(0)" onclick="goToService('full-production')"  data-i18n="navDropFull">Full Production Service</a>
-          <a href="javascript:void(0)" onclick="goToService('unit-production')"  data-i18n="navDropUnit">Unit Production Service</a>
-          <a href="javascript:void(0)" onclick="goToService('rentals')"          data-i18n="navDropRent">Rentals</a>
-          <a href="javascript:void(0)" onclick="goToService('catering')"         data-i18n="navDropCater">Catering</a>
-        </div>
+  <!-- Desktop links -->
+  <div class="nav-links">
+    <a href="javascript:void(0)" onclick="showPage('home')"     data-page="home"     data-i18n="navHome">Home</a>
+    <a href="javascript:void(0)" onclick="showPage('about')"    data-page="about"    data-i18n="navAbout">About</a>
+
+    <div class="nav-item">
+      <a href="javascript:void(0)" onclick="showPage('services')" data-page="services" data-i18n="navServices">Services</a>
+      <div class="dropdown-menu">
+        <a href="javascript:void(0)" onclick="goToService('full-production')" data-i18n="navDropFull">Full Production Service</a>
+        <a href="javascript:void(0)" onclick="goToService('unit-production')" data-i18n="navDropUnit">Unit Production Service</a>
+        <a href="javascript:void(0)" onclick="goToService('rentals')"         data-i18n="navDropRent">Rentals</a>
+        <a href="javascript:void(0)" onclick="goToService('catering')"        data-i18n="navDropCater">Catering</a>
       </div>
-      <a href="javascript:void(0)" onclick="showPage('fleet')"    data-page="fleet"    data-i18n="navFleet">Fleet</a>
-      <a href="javascript:void(0)" onclick="showPage('projects')" data-page="projects" data-i18n="navProjects">Projects</a>
     </div>
-<div class="nav-right">
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="open menu">
-    <span></span><span></span><span></span>
-  </button>
 
-  <div class="lang-switcher" role="group" aria-label="Language selector">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="ar">AR</button>
+    <a href="javascript:void(0)" onclick="showPage('fleet')"    data-page="fleet"    data-i18n="navFleet">Fleet</a>
+    <a href="javascript:void(0)" onclick="showPage('projects')" data-page="projects" data-i18n="navProjects">Projects</a>
   </div>
 
-  <a class="nav-cta"
-     href="javascript:void(0)"
-     onclick="showPage('contact')">
-     Start a Project
-  </a>
-</div>
+  <!-- Right controls -->
+  <div class="nav-right">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn"        data-lang="ar">AR</button>
+    </div>
+
+    <a class="nav-cta" href="javascript:void(0)" onclick="showPage('contact')">Start a Project</a>
+  </div>
+
 </nav>
-<!-- MOBILE NAV OVERLAY -->
-<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+
+<!-- ═══════════════════════════════════════════
+     MOBILE NAV OVERLAY
+═══════════════════════════════════════════ -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-modal="true" role="dialog" aria-label="Mobile navigation">
+
   <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-    <i class="fas fa-times"></i>
+    <i class="fas fa-times" aria-hidden="true"></i>
   </button>
+
   <nav class="mobile-nav-links">
-    <a href="javascript:void(0)" onclick="showPage('home'); closeMobileNav()">Home</a>
-    <a href="javascript:void(0)" onclick="showPage('about'); closeMobileNav()">About</a>
+    <a href="javascript:void(0)" onclick="showPage('home');     closeMobileNav()">Home</a>
+    <a href="javascript:void(0)" onclick="showPage('about');    closeMobileNav()">About</a>
     <a href="javascript:void(0)" onclick="showPage('services'); closeMobileNav()">Services</a>
-    <a href="javascript:void(0)" onclick="showPage('fleet'); closeMobileNav()">Fleet</a>
+    <a href="javascript:void(0)" onclick="showPage('fleet');    closeMobileNav()">Fleet</a>
     <a href="javascript:void(0)" onclick="showPage('projects'); closeMobileNav()">Projects</a>
-    <a href="javascript:void(0)" onclick="showPage('contact'); closeMobileNav()" class="mobile-nav-cta">Start a Project</a>
+    <a href="javascript:void(0)" onclick="showPage('contact');  closeMobileNav()" class="mobile-nav-cta">Start a Project</a>
   </nav>
-<div class="mobile-nav-bottom">
-  <div class="mobile-nav-footer">
-    <a href="https://www.instagram.com/appleboxksa/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/966570804181" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:hello@applebox.sa" target="_blank"><i class="fas fa-envelope"></i></a>
+
+  <div class="mobile-nav-bottom">
+    <div class="mobile-nav-footer">
+      <a href="https://www.instagram.com/appleboxksa/"    target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://wa.me/966570804181"                target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"  aria-hidden="true"></i></a>
+      <a href="mailto:hello@applebox.sa"                  target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"  aria-hidden="true"></i></a>
+    </div>
   </div>
+
 </div>
-</div>
+
 <!-- ═══════════════════════════════════════════
      PAGE: HOME
 ═══════════════════════════════════════════ -->
-<div id="page-home" class="page active">
+<main id="page-home" class="page active">
 
   <!-- HERO -->
-  <div class="hero">
+  <section class="hero" aria-label="Hero">
     <video autoplay muted loop playsinline class="hero-video" preload="auto" fetchpriority="high">
       <source src="pages/homepage/hero.mp4" type="video/mp4">
     </video>
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
     <div class="hero-content">
-      <div class="hero-eyebrow anim">Film & TVC Production Services · Saudi Arabia</div>
+      <p class="hero-eyebrow anim">Film &amp; TVC Production Services · Saudi Arabia</p>
       <h1 class="hero-h1 anim anim-d1">
         YOU BRING<br>THE VISION.<br>
         <span class="line-accent">WE RUN THE SET.</span>
@@ -126,356 +157,341 @@
         </p>
       </div>
     </div>
-    
-  </div>
-<div class="stats-bar-wrapper">
+  </section>
 
-<!-- Background Image --> <div class="stats-bg"></div>
+  <!-- STATS BAR -->
+  <div class="stats-bar-wrapper">
+    <div class="stats-bg" aria-hidden="true"></div>
+    <div class="stats-bar" role="list">
 
-  <!-- STATS GRID -->
-<div class="stats-bar">
+      <div class="stat-item" role="listitem">
+        <div class="stat-content">
+          <div class="stat-num"><span class="stat-count">7</span><sup>+</sup></div>
+          <div class="stat-label">Years in Production</div>
+        </div>
+      </div>
 
-  <div class="stat-item">
-    <div class="stat-content">
-      <div class="stat-num"><span class="stat-count">7</span><sup>+</sup></div>
-      <div class="stat-label">Years in Production</div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-content">
+          <div class="stat-num"><span class="stat-count">10</span><sup>+</sup></div>
+          <div class="stat-label">Fleet Vehicles</div>
+        </div>
+      </div>
+
+      <div class="stat-item" role="listitem">
+        <div class="stat-content">
+          <div class="stat-num"><span class="stat-count">600</span><sup>+</sup></div>
+          <div class="stat-label">Productions Supported</div>
+        </div>
+      </div>
+
+      <div class="stat-item" role="listitem">
+        <div class="stat-content">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Integrated Ecosystem</div>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <div class="stat-item">
-    <div class="stat-content">
-      <div class="stat-num"><span class="stat-count">10</span><sup>+</sup></div>
-      <div class="stat-label">Fleet Vehicles</div>
-    </div>
-  </div>
-
-  <div class="stat-item">
-    <div class="stat-content">
-      <div class="stat-num"><span class="stat-count">600</span><sup>+</sup></div>
-      <div class="stat-label">Productions Supported</div>
-    </div>
-  </div>
-
-  <div class="stat-item">
-    <div class="stat-content">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Integrated Ecosystem</div>
-    </div>
-  </div>
-
-</div>
-</div>
 
   <!-- SERVICES PREVIEW -->
-  <section class="section border-bottom">
-  <div class="eyebrow">What We Do</div>
-<h2 class="section-heading">
-  OUR
-  <span class="accent-text">SERVICES</span>
-</h2>
+  <section class="section border-bottom" aria-labelledby="services-heading">
+    <p class="eyebrow">What We Do</p>
+    <h2 id="services-heading" class="section-heading">OUR <span class="accent-text">SERVICES</span></h2>
+
     <div class="services-intro">
-  <div class="services-text">
-<P>AppleBox delivers complete production infrastructure — from pre-production planning and on-ground execution to fleet, rentals, and catering.</P>
-<br>
-<P>Built in Saudi Arabia and operating across the Kingdom, we support everything from independent shoots to large-scale international productions, providing the systems, logistics, and crew support required to keep every production moving without friction.</P>
-<br>
-<P>We don’t just support productions — we operate as the backbone behind them, ensuring every detail is handled with precision from first call to final wrap.</P>
-</div>
-<div class="services-visual">
-  <div class="services-cinematic" style="pointer-events:none;">
-  <video autoplay muted loop playsinline preload="none"
-    style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:0;">
-    <source src="pages/homepage/services.mp4" type="video/mp4">
-  </video>
-</div>
-</div>
-</div>
+      <div class="services-text">
+        <p>AppleBox delivers complete production infrastructure — from pre-production planning and on-ground execution to fleet, rentals, and catering.</p>
+        <br>
+        <p>Built in Saudi Arabia and operating across the Kingdom, we support everything from independent shoots to large-scale international productions, providing the systems, logistics, and crew support required to keep every production moving without friction.</p>
+        <br>
+        <p>We don't just support productions — we operate as the backbone behind them, ensuring every detail is handled with precision from first call to final wrap.</p>
+      </div>
+
+      <div class="services-visual">
+        <div class="services-cinematic" style="pointer-events:none;">
+          <video autoplay muted loop playsinline preload="none"
+                 style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0;">
+            <source src="pages/homepage/services.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
     <div class="services-grid">
-      <div class="service-card">
+      <article class="service-card">
         <div class="service-num">01</div>
-        <div class="service-title">Full Production Service</div>
-        <div class="service-desc">
-          Complete end-to-end production management covering pre-production, crew coordination, logistics, fleet deployment, and full on-set execution handled by one integrated team from start to final wrap.
-        </div>
-      </div>
-      <div class="service-card">
+        <h3 class="service-title">Full Production Service</h3>
+        <p class="service-desc">Complete end-to-end production management covering pre-production, crew coordination, logistics, fleet deployment, and full on-set execution handled by one integrated team from start to final wrap.</p>
+      </article>
+
+      <article class="service-card">
         <div class="service-num">02</div>
-        <div class="service-title">Unit Production Service</div>
-        <div class="service-desc">
-          Dedicated on-ground production support for projects shooting in Saudi Arabia, including local crew, permits, logistics, and fleet ensuring smooth execution for international and regional teams.
-        </div>
-      </div>
-      <div class="service-card">
+        <h3 class="service-title">Unit Production Service</h3>
+        <p class="service-desc">Dedicated on-ground production support for projects shooting in Saudi Arabia, including local crew, permits, logistics, and fleet ensuring smooth execution for international and regional teams.</p>
+      </article>
+
+      <article class="service-card">
         <div class="service-num">03</div>
-        <div class="service-title">Rentals</div>
-        <div class="service-desc">
-          A full range of production-ready vehicles and equipment including production vans, generators, DIT stations, and crew support units available as standalone rentals or integrated into your production setup.
-        </div>
-      </div>
-      <div class="service-card">
+        <h3 class="service-title">Rentals</h3>
+        <p class="service-desc">A full range of production-ready vehicles and equipment including production vans, generators, DIT stations, and crew support units available as standalone rentals or integrated into your production setup.</p>
+      </article>
+
+      <article class="service-card">
         <div class="service-num">04</div>
-        <div class="service-title">Catering</div>
-        <div class="service-desc">
-          Professional on-set catering solutions including hot meals, craft services, and barista coffee stations — designed to keep cast and crew energized, comfortable, and performing throughout the day.
-        </div>
-      </div>
+        <h3 class="service-title">Catering</h3>
+        <p class="service-desc">Professional on-set catering solutions including hot meals, craft services, and barista coffee stations — designed to keep cast and crew energized, comfortable, and performing throughout the day.</p>
+      </article>
     </div>
   </section>
 
   <!-- WHY US -->
-  <section class="section border-top" style="background: var(--surface-1);">
-    <div class="eyebrow">Why AppleBox</div>
-    <h2 class="section-heading">WHAT SETS US<br><span class="accent-text">APART</span></h2>
+  <section class="section border-top" style="background:var(--surface-1);" aria-labelledby="why-heading">
+    <p class="eyebrow">Why AppleBox</p>
+    <h2 id="why-heading" class="section-heading">WHAT SETS US<br><span class="accent-text">APART</span></h2>
+
     <div class="why-grid">
-      <div class="why-item">
+      <article class="why-item">
         <div class="why-num">01</div>
-        <div class="why-title">One Call, Everything Handled</div>
-        <div class="why-desc">
-          From prep to wrap, AppleBox manages the entire production workflow — fleet, crew, and logistics under one contract and one point of contact.
-        </div>
-      </div>
-      <div class="why-item">
+        <h3 class="why-title">One Call, Everything Handled</h3>
+        <p class="why-desc">From prep to wrap, AppleBox manages the entire production workflow — fleet, crew, and logistics under one contract and one point of contact.</p>
+      </article>
+
+      <article class="why-item">
         <div class="why-num">02</div>
-        <div class="why-title">Purpose-Built Fleet</div>
-        <div class="why-desc">
-          Our vehicles are designed for production — equipped with generators, DIT stations, coffee setups, and essential on-set infrastructure.
-        </div>
-      </div>
-      <div class="why-item">
+        <h3 class="why-title">Purpose-Built Fleet</h3>
+        <p class="why-desc">Our vehicles are designed for production — equipped with generators, DIT stations, coffee setups, and essential on-set infrastructure.</p>
+      </article>
+
+      <article class="why-item">
         <div class="why-num">03</div>
-        <div class="why-title">International Standards</div>
-        <div class="why-desc">
-          We support international productions with workflows, expectations, and execution aligned to global production standards.
-        </div>
-      </div>
-      <div class="why-item">
+        <h3 class="why-title">International Standards</h3>
+        <p class="why-desc">We support international productions with workflows, expectations, and execution aligned to global production standards.</p>
+      </article>
+
+      <article class="why-item">
         <div class="why-num">04</div>
-        <div class="why-title">Local Expertise</div>
-        <div class="why-desc">
-          Years of on-ground experience in Saudi Arabia — from permits and locations to logistics and production challenges, fully handled.
-        </div>
-      </div>
-      <div class="why-item">
+        <h3 class="why-title">Local Expertise</h3>
+        <p class="why-desc">Years of on-ground experience in Saudi Arabia — from permits and locations to logistics and production challenges, fully handled.</p>
+      </article>
+
+      <article class="why-item">
         <div class="why-num">05</div>
-        <div class="why-title">Crew-Focused Approach</div>
-        <div class="why-desc">
-          We build systems that support every department — keeping crews efficient, comfortable, and focused throughout the shoot.
-        </div>
-      </div>
-      <div class="why-item">
+        <h3 class="why-title">Crew-Focused Approach</h3>
+        <p class="why-desc">We build systems that support every department — keeping crews efficient, comfortable, and focused throughout the shoot.</p>
+      </article>
+
+      <article class="why-item">
         <div class="why-num">06</div>
-        <div class="why-title">Built for What's Next</div>
-        <div class="why-desc">
-          Positioned within Saudi Arabia's growing film industry, AppleBox is built to scale with the future of production in the region.
-        </div>
-      </div>
+        <h3 class="why-title">Built for What's Next</h3>
+        <p class="why-desc">Positioned within Saudi Arabia's growing film industry, AppleBox is built to scale with the future of production in the region.</p>
+      </article>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="section border-top">
-    <div class="eyebrow">How It Works</div>
-    <h2 class="section-heading">FROM BRIEF<br><span class="accent-text">TO SCREEN</span></h2>
+  <section class="section border-top" aria-labelledby="process-heading">
+    <p class="eyebrow">How It Works</p>
+    <h2 id="process-heading" class="section-heading">FROM BRIEF<br><span class="accent-text">TO SCREEN</span></h2>
+
     <div class="process-track">
       <div class="process-step">
         <div class="process-node">01</div>
-        <div class="process-title">Brief & Scope</div>
-        <div class="process-desc">Tell us your project — dates, locations, crew size.</div>
+        <div class="process-title">Brief &amp; Scope</div>
+        <p class="process-desc">Tell us your project — dates, locations, crew size.</p>
       </div>
       <div class="process-step">
         <div class="process-node">02</div>
         <div class="process-title">Custom Proposal</div>
-        <div class="process-desc">We build a tailored package with fleet and crew requirements.</div>
+        <p class="process-desc">We build a tailored package with fleet and crew requirements.</p>
       </div>
       <div class="process-step">
         <div class="process-node">03</div>
         <div class="process-title">Production Planning</div>
-        <div class="process-desc">Permits, logistics, crew scheduling, equipment lock.</div>
+        <p class="process-desc">Permits, logistics, crew scheduling, equipment lock.</p>
       </div>
       <div class="process-step">
         <div class="process-node">04</div>
         <div class="process-title">On-Set Execution</div>
-        <div class="process-desc">Fleet deployed. Crew on standby. Full support call to wrap.</div>
+        <p class="process-desc">Fleet deployed. Crew on standby. Full support call to wrap.</p>
       </div>
       <div class="process-step">
         <div class="process-node">05</div>
-        <div class="process-title">Wrap & Debrief</div>
-        <div class="process-desc">Clean breakdown, DIT handoff, readiness for next shoot.</div>
+        <div class="process-title">Wrap &amp; Debrief</div>
+        <p class="process-desc">Clean breakdown, DIT handoff, readiness for next shoot.</p>
       </div>
     </div>
   </section>
 
   <!-- WHO WE WORK WITH -->
- <section class="section border-top" style="background: var(--surface-1);">
-    <div class="eyebrow">Who We Work With</div>
-    <h2 class="section-heading">PRODUCTION<br><span class="accent-text">TEAMS WE SUPPORT</span></h2>
+  <section class="section border-top" style="background:var(--surface-1);" aria-labelledby="audience-heading">
+    <p class="eyebrow">Who We Work With</p>
+    <h2 id="audience-heading" class="section-heading">PRODUCTION<br><span class="accent-text">TEAMS WE SUPPORT</span></h2>
+
     <div class="audience-grid">
-      <div class="audience-card">
-        <div class="audience-title">Production Houses (Local & International)</div>
-        <div class="audience-desc">
-          We operate as your execution arm on the ground — deploying fleet, crew, and infrastructure on demand.
+      <article class="audience-card">
+        <h3 class="audience-title">Production Houses (Local &amp; International)</h3>
+        <p class="audience-desc">We operate as your execution arm on the ground — deploying fleet, crew, and infrastructure on demand.</p>
+      </article>
+
+      <article class="audience-card">
+        <h3 class="audience-title">Agencies</h3>
+        <p class="audience-desc">Seamless support for TVCs, campaigns, and branded content from brief to final wrap.</p>
+      </article>
+
+      <article class="audience-card">
+        <h3 class="audience-title">Freelancers</h3>
+        <p class="audience-desc">Flexible production support tailored for independent professionals and small teams.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY — LOGO MARQUEE -->
+  <section class="section border-bottom" aria-labelledby="clients-heading">
+    <p class="eyebrow">Trusted By</p>
+    <h2 id="clients-heading" class="section-heading">BRANDS &amp; PRODUCTIONS<br><span class="accent-text">WE'VE WORKED WITH</span></h2>
+
+    <div style="margin-left:calc(-1 * var(--pad-x)); margin-right:calc(-1 * var(--pad-x));">
+      <div class="logo-marquee" style="border-top:0.5px solid var(--white-line); border-bottom:0.5px solid var(--white-line);">
+
+        <!-- ROW 1 — right -->
+        <div class="logo-track track-right" aria-label="Client logos row 1">
+          <a href="http://hproduction.sa/"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/1.svg"  alt="HiProduction"         loading="lazy"></a>
+          <a href="https://yellow-camel.com/"                target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/2.svg"  alt="Yellow Camel"         loading="lazy"></a>
+          <a href="https://worldedge.sa"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/3.svg"  alt="World Edge"           loading="lazy"></a>
+          <a href="https://twotales.film"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/4.svg"  alt="Two Tales"            loading="lazy"></a>
+          <a href="https://www.madeinsaudifilms.com"         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/5.svg"  alt="Made in Saudi"        loading="lazy"></a>
+          <a href="https://neareast.pro"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg"  alt="Neareast Production"  loading="lazy"></a>
+          <a href="https://www.whizzfilm.com/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg"  alt="Whizz Production"     loading="lazy"></a>
+          <a href="https://www.musco.com"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg"  alt="Musco Sports"         loading="lazy"></a>
+          <a href="https://storyman.studio"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg"  alt="Storyman Studio"      loading="lazy" class="logo-lg"></a>
+          <a href="https://filim.tv"                         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv"              loading="lazy"></a>
+          <a href="https://leapstudios.net/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio"          loading="lazy"></a>
+          <a href="https://www.filmpudding.com"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding"         loading="lazy" class="logo-lg"></a>
+          <!-- duplicate for seamless loop -->
+          <a href="http://hproduction.sa/"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/1.svg"  alt="HiProduction"         loading="lazy"></a>
+          <a href="https://yellow-camel.com/"                target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/2.svg"  alt="Yellow Camel"         loading="lazy"></a>
+          <a href="https://worldedge.sa"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/3.svg"  alt="World Edge"           loading="lazy"></a>
+          <a href="https://twotales.film"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/4.svg"  alt="Two Tales"            loading="lazy"></a>
+          <a href="https://www.madeinsaudifilms.com"         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/5.svg"  alt="Made in Saudi"        loading="lazy"></a>
+          <a href="https://neareast.pro"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg"  alt="Neareast Production"  loading="lazy"></a>
+          <a href="https://www.whizzfilm.com/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg"  alt="Whizz Production"     loading="lazy"></a>
+          <a href="https://www.musco.com"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg"  alt="Musco Sports"         loading="lazy"></a>
+          <a href="https://storyman.studio"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg"  alt="Storyman Studio"      loading="lazy" class="logo-lg"></a>
+          <a href="https://filim.tv"                         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv"              loading="lazy"></a>
+          <a href="https://leapstudios.net/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio"          loading="lazy"></a>
+          <a href="https://www.filmpudding.com"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding"         loading="lazy" class="logo-lg"></a>
         </div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-title">Agencies</div>
-        <div class="audience-desc">
-          Seamless support for TVCs, campaigns, and branded content from brief to final wrap.
+
+        <!-- ROW 2 — left -->
+        <div class="logo-track track-left" aria-label="Client logos row 2">
+          <a href="https://theindustryfilm.com"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films"       loading="lazy"></a>
+          <a href="https://vimeo.com/flyingcamel"            target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel"         loading="lazy"></a>
+          <a href="https://vimeo.com/hokufilms"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films"           loading="lazy"></a>
+          <a href="https://purplebrain.co"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain"         loading="lazy" class="logo-lg"></a>
+          <a href="https://jaco.live"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live"            loading="lazy"></a>
+          <a href="https://www.verve-ksa.com/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa"            loading="lazy" class="logo-lg"></a>
+          <a href="https://clandestino.film/"                target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino"          loading="lazy" class="logo-lg"></a>
+          <a href="https://sixtyseconds.cc/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds"         loading="lazy" class="logo-lg"></a>
+          <a href="https://www.daw-sa.co/"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production"       loading="lazy"></a>
+          <a href="https://www.goodstills.com/"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills"           loading="lazy" class="logo-lg"></a>
+          <a href="https://lettergray.com/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray"           loading="lazy"></a>
+          <a href="https://vimeo.com/scarstudios"            target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios"         loading="lazy"></a>
+          <!-- duplicate for seamless loop -->
+          <a href="https://theindustryfilm.com"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films"       loading="lazy"></a>
+          <a href="https://vimeo.com/flyingcamel"            target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel"         loading="lazy"></a>
+          <a href="https://vimeo.com/hokufilms"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films"           loading="lazy"></a>
+          <a href="https://purplebrain.co"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain"         loading="lazy" class="logo-lg"></a>
+          <a href="https://jaco.live"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live"            loading="lazy"></a>
+          <a href="https://www.verve-ksa.com/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa"            loading="lazy" class="logo-lg"></a>
+          <a href="https://clandestino.film/"                target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino"          loading="lazy" class="logo-lg"></a>
+          <a href="https://sixtyseconds.cc/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds"         loading="lazy" class="logo-lg"></a>
+          <a href="https://www.daw-sa.co/"                   target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production"       loading="lazy"></a>
+          <a href="https://www.goodstills.com/"              target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills"           loading="lazy" class="logo-lg"></a>
+          <a href="https://lettergray.com/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray"           loading="lazy"></a>
+          <a href="https://vimeo.com/scarstudios"            target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios"         loading="lazy"></a>
         </div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-title">Freelancers</div>
-        <div class="audience-desc">
-          Flexible production support tailored for independent professionals and small teams.
+
+        <!-- ROW 3 — right -->
+        <div class="logo-track track-right" aria-label="Client logos row 3">
+          <a href="https://vimeo.com/gazzazproductions"      target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production"    loading="lazy"></a>
+          <a href="http://www.aflamproductions.com/"          target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://vimeo.com/bawra"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://80s.sa/"                          target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production"       loading="lazy"></a>
+          <a href="https://www.melt.me/"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio"          loading="lazy"></a>
+          <a href="https://dnamedia.tv/"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio"           loading="lazy" class="logo-lg"></a>
+          <a href="https://mala.sa/"                         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio"          loading="lazy" class="logo-lg"></a>
+          <a href="https://digitect.com/home/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech"             loading="lazy" class="logo-lg"></a>
+          <a href="https://napafilms.fi/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films"           loading="lazy"></a>
+          <a href="https://www.bgshah.film/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha"               loading="lazy"></a>
+          <a href="https://bigfootfilms.tv/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films"        loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/36.svg" alt="Client" loading="lazy"></a>
+          <!-- duplicate for seamless loop -->
+          <a href="https://vimeo.com/gazzazproductions"      target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production"    loading="lazy"></a>
+          <a href="http://www.aflamproductions.com/"          target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://vimeo.com/bawra"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://80s.sa/"                          target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production"       loading="lazy"></a>
+          <a href="https://www.melt.me/"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio"          loading="lazy"></a>
+          <a href="https://dnamedia.tv/"                     target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio"           loading="lazy" class="logo-lg"></a>
+          <a href="https://mala.sa/"                         target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio"          loading="lazy" class="logo-lg"></a>
+          <a href="https://digitect.com/home/"               target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech"             loading="lazy" class="logo-lg"></a>
+          <a href="https://napafilms.fi/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films"           loading="lazy"></a>
+          <a href="https://www.bgshah.film/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha"               loading="lazy"></a>
+          <a href="https://bigfootfilms.tv/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films"        loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/36.svg" alt="Client" loading="lazy"></a>
         </div>
+
+        <!-- ROW 4 — left -->
+        <div class="logo-track track-left" aria-label="Client logos row 4">
+          <a href="https://qomra.co/"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://www.albrand.co/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand"              loading="lazy" class="logo-lg"></a>
+          <a href="https://naf.plus/"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus"              loading="lazy" class="logo-lg"></a>
+          <a href="https://telfaz.com/"                      target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz"               loading="lazy" class="logo-lg"></a>
+          <a href="https://trescontent.tv/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="Tres Content"         loading="lazy"></a>
+          <a href="https://www.wprod.tv/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
+          <a href="https://www.movingstills.me/"             target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills"        loading="lazy" class="logo-lg"></a>
+          <a href="https://socialclinic.sa/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic"        loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/45.svg" alt="Client" loading="lazy" class="logo-lg"></a>
+          <a href="https://www.goodam.com/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production"    loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/47.svg" alt="Client" loading="lazy"></a>
+          <a href="https://mrktx.agency/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX"                loading="lazy" class="logo-lg"></a>
+          <!-- duplicate for seamless loop -->
+          <a href="https://qomra.co/"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production"     loading="lazy" class="logo-lg"></a>
+          <a href="https://www.albrand.co/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand"              loading="lazy" class="logo-lg"></a>
+          <a href="https://naf.plus/"                        target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus"              loading="lazy" class="logo-lg"></a>
+          <a href="https://telfaz.com/"                      target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz"               loading="lazy" class="logo-lg"></a>
+          <a href="https://trescontent.tv/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="Tres Content"         loading="lazy"></a>
+          <a href="https://www.wprod.tv/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
+          <a href="https://www.movingstills.me/"             target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills"        loading="lazy" class="logo-lg"></a>
+          <a href="https://socialclinic.sa/"                 target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic"        loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/45.svg" alt="Client" loading="lazy" class="logo-lg"></a>
+          <a href="https://www.goodam.com/"                  target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production"    loading="lazy" class="logo-lg"></a>
+          <a><img src="pages/homepage/clientlogos/47.svg" alt="Client" loading="lazy"></a>
+          <a href="https://mrktx.agency/"                    target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX"                loading="lazy" class="logo-lg"></a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TRUSTED BY -->
-<section class="section border-bottom">
-    <div class="eyebrow">Trusted By</div>
-    <h2 class="section-heading">BRANDS & PRODUCTIONS<br><span class="accent-text">WE'VE WORKED WITH</span></h2>
-    <div style="margin-left: calc(-1 * var(--pad-x)); margin-right: calc(-1 * var(--pad-x));">
-    <div class="logo-marquee" style="border-top: 0.5px solid var(--white-line); border-bottom: 0.5px solid var(--white-line);">
-
-      <!-- ROW 1 -->
-      <div class="logo-track track-right">
-        <a href="http://hproduction.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/1.svg" alt="HiProduction" loading="lazy"></a>
-<a href="https://yellow-camel.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/2.svg" alt="Yellow Camel" loading="lazy"></a>
-<a href="https://worldedge.sa" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/3.svg" alt="World Edge" loading="lazy"></a>
-<a href="https://twotales.film" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/4.svg" alt="Two Tales" loading="lazy"></a>
-<a href="https://www.madeinsaudifilms.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/5.svg" alt="Made in Saudi" loading="lazy"></a>
-<a href="https://neareast.pro" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg" alt="Neareast Production" loading="lazy"></a>
-<a href="https://www.whizzfilm.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg" alt="Whizz Production" loading="lazy"></a>
-<a href="https://www.musco.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg" alt="Musco Sports" loading="lazy"></a>
-<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://filim.tv" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv" loading="lazy"></a>
-<a href="https://leapstudios.net/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio" loading="lazy"></a>
-<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy" class="logo-lg"></a>
-
-        <!-- duplicate for seamless loop -->
-        <a href="http://hproduction.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/1.svg" alt="HiProduction" loading="lazy"></a>
-<a href="https://yellow-camel.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/2.svg" alt="Yellow Camel" loading="lazy"></a>
-<a href="https://worldedge.sa" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/3.svg" alt="World Edge" loading="lazy"></a>
-<a href="https://twotales.film" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/4.svg" alt="Two Tales" loading="lazy"></a>
-<a href="https://www.madeinsaudifilms.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/5.svg" alt="Made in Saudi" loading="lazy"></a>
-<a href="https://neareast.pro" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/6.svg" alt="Neareast Production" loading="lazy"></a>
-<a href="https://www.whizzfilm.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/7.svg" alt="Whizz Production" loading="lazy"></a>
-<a href="https://www.musco.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/8.svg" alt="Musco Sports" loading="lazy"></a>
-<a href="https://storyman.studio" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/9.svg" alt="Storyman Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://filim.tv" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/10.svg" alt="Film Tv" loading="lazy"></a>
-<a href="https://leapstudios.net/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/11.svg" alt="Leap Studio" loading="lazy"></a>
-<a href="https://www.filmpudding.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/12.svg" alt="Film Pudding" loading="lazy" class="logo-lg"></a>
-      </div>
-
-      <!-- ROW 2 -->
-      <div class="logo-track track-left">
-        <a href="https://theindustryfilm.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films" loading="lazy"></a>
-<a href="https://vimeo.com/flyingcamel" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel" loading="lazy"></a>
-<a href="https://vimeo.com/hokufilms" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films" loading="lazy"></a>
-<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy" class="logo-lg"></a>
-<a href="https://jaco.live" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live" loading="lazy"></a>
-<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy" class="logo-lg"></a>
-<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy" class="logo-lg"></a>
-<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy" class="logo-lg"></a>
-<a href="https://www.daw-sa.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production" loading="lazy"></a>
-<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy" class="logo-lg"></a>
-<a href="https://lettergray.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray" loading="lazy"></a>
-<a href="https://vimeo.com/scarstudios" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios" loading="lazy"></a>
-        <!-- duplicate for seamless loop -->
-               <a href="https://theindustryfilm.com" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/13.svg" alt="Industry Films" loading="lazy"></a>
-<a href="https://vimeo.com/flyingcamel" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/14.svg" alt="Flying Camel" loading="lazy"></a>
-<a href="https://vimeo.com/hokufilms" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/15.svg" alt="Hoku Films" loading="lazy"></a>
-<a href="https://purplebrain.co" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/16.svg" alt="Purple Brain" loading="lazy" class="logo-lg"></a>
-<a href="https://jaco.live" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/17.svg" alt="Jaco Live" loading="lazy"></a>
-<a href="https://www.verve-ksa.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/18.svg" alt="Verve Ksa" loading="lazy" class="logo-lg"></a>
-<a href="https://clandestino.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/19.svg" alt="Clandestino" loading="lazy" class="logo-lg"></a>
-<a href="https://sixtyseconds.cc/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/20.svg" alt="Sixtyseconds" loading="lazy" class="logo-lg"></a>
-<a href="https://www.daw-sa.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/21.svg" alt="Daw Production" loading="lazy"></a>
-<a href="https://www.goodstills.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/22.svg" alt="Goodstills" loading="lazy" class="logo-lg"></a>
-<a href="https://lettergray.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/23.svg" alt="Lettergray" loading="lazy"></a>
-<a href="https://vimeo.com/scarstudios" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/24.svg" alt="Scar Studios" loading="lazy"></a>
-      </div>
-
-      <!-- ROW 3 -->
-      <div class="logo-track track-right">
-      <a href="https://vimeo.com/gazzazproductions" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production" loading="lazy"></a>
-<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy" class="logo-lg"></a>
-<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy" class="logo-lg"></a>
-<a href="https://80s.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production" loading="lazy"></a>
-<a href="https://www.melt.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio" loading="lazy"></a>
-<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy" class="logo-lg"></a>
-<a href="https://napafilms.fi/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films" loading="lazy"></a>
-<a href="https://www.bgshah.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha" loading="lazy"></a>
-<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/36.svg" alt="Client logo 36" loading="lazy"></a>
-        <!-- duplicate for seamless loop -->
-       <a href="https://vimeo.com/gazzazproductions" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/25.svg" alt="Gazzaz Production" loading="lazy"></a>
-<a href="http://www.aflamproductions.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/26.svg" alt="Aflam Production" loading="lazy" class="logo-lg"></a>
-<a href="https://vimeo.com/bawra" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/27.svg" alt="Bawra Production" loading="lazy" class="logo-lg"></a>
-<a href="https://80s.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/28.svg" alt="80s Production" loading="lazy"></a>
-<a href="https://www.melt.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/29.svg" alt="Melt Studio" loading="lazy"></a>
-<a href="https://dnamedia.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/30.svg" alt="DNA Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://mala.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/31.svg" alt="Mala Studio" loading="lazy" class="logo-lg"></a>
-<a href="https://digitect.com/home/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/32.svg" alt="Digitech" loading="lazy" class="logo-lg"></a>
-<a href="https://napafilms.fi/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/33.svg" alt="Napa Films" loading="lazy"></a>
-<a href="https://www.bgshah.film/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/34.svg" alt="Bogsha" loading="lazy"></a>
-<a href="https://bigfootfilms.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/35.svg" alt="BigFoot Films" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/36.svg" alt="Client logo 36" loading="lazy"></a>
-        <!-- duplicate for seamless loop -->
-      </div>
-
-      <!-- ROW 4 -->
-      <div class="logo-track track-left">
-       <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy" class="logo-lg"></a>
-<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy" class="logo-lg"></a>
-<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy" class="logo-lg"></a>
-<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy" class="logo-lg"></a>
-<a href="https://trescontent.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="tres Content" loading="lazy"></a>
-<a href="https://www.wprod.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
-<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy" class="logo-lg"></a>
-<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy" class="logo-lg"></a>
-<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/47.svg" alt="Client logo 47" loading="lazy"></a>
-<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy" class="logo-lg"></a>
-        <!-- duplicate for seamless loop -->
-     <a href="https://qomra.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/37.svg" alt="Qomra Production" loading="lazy" class="logo-lg"></a>
-<a href="https://www.albrand.co/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/38.svg" alt="Albrand" loading="lazy" class="logo-lg"></a>
-<a href="https://naf.plus/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/39.svg" alt="NAFplus" loading="lazy" class="logo-lg"></a>
-<a href="https://telfaz.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/40.svg" alt="Telfaz" loading="lazy" class="logo-lg"></a>
-<a href="https://trescontent.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/41.svg" alt="tres Content" loading="lazy"></a>
-<a href="https://www.wprod.tv/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/42.svg" alt="Wonderful Production" loading="lazy"></a>
-<a href="https://www.movingstills.me/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/43.svg" alt="Moving Stills" loading="lazy" class="logo-lg"></a>
-<a href="https://socialclinic.sa/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/44.svg" alt="Social Clinic" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/45.svg" alt="Client logo 45" loading="lazy" class="logo-lg"></a>
-<a href="https://www.goodam.com/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/46.svg" alt="Goodam Production" loading="lazy" class="logo-lg"></a>
-<a><img src="pages/homepage/clientlogos/47.svg" alt="Client logo 47" loading="lazy"></a>
-<a href="https://mrktx.agency/" target="_blank" rel="noopener noreferrer"><img src="pages/homepage/clientlogos/48.svg" alt="MRKTX" loading="lazy" class="logo-lg"></a>
-      </div>
-
-    </div>
-  </section>
-
- <!-- FINAL CTA -->
-  <div class="final-cta border-top" style="background: var(--surface-1);">
-    <div class="final-cta-glow"></div>
+  <!-- FINAL CTA -->
+  <div class="final-cta border-top" style="background:var(--surface-1);">
+    <div class="final-cta-glow" aria-hidden="true"></div>
     <h2 class="final-cta-h">PLAN YOUR<br><span class="accent-text">PRODUCTION</span></h2>
     <p class="final-cta-sub">Tell us what you're shooting — we'll handle the execution from start to wrap.</p>
     <div class="final-cta-actions">
       <button class="btn btn-primary" onclick="showPage('contact')">Start a Project</button>
-      <button class="btn btn-ghost" onclick="openModal()">Download Company Profile</button>
+      <button class="btn btn-ghost"   onclick="openModal()">Download Company Profile</button>
     </div>
   </div>
 
   <!-- EMAIL MODAL -->
-  <div id="emailModal" class="email-modal">
+  <div id="emailModal" class="email-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="email-modal-content">
-      <h3>Download Company Profile</h3>
+      <h3 id="modal-title">Download Company Profile</h3>
       <p>Enter your email to continue</p>
-      <input type="email" id="userEmail" placeholder="Enter your email">
+      <input type="email" id="userEmail" placeholder="Enter your email" aria-label="Email address">
       <div class="modal-actions">
         <button onclick="submitEmail()">Download</button>
         <button onclick="closeModal()" class="cancel">Cancel</button>
@@ -483,7 +499,7 @@
     </div>
   </div>
 
-</div>
+</main>
 <!-- END page-home -->
 
 <!-- ═══════════════════════════════════════════
@@ -491,175 +507,103 @@
 ═══════════════════════════════════════════ -->
 <div id="page-services" class="page">
 
-  <div class="page-hero">
-    <div class="eyebrow">Our Services</div>
+  <header class="page-hero">
+    <p class="eyebrow">Our Services</p>
     <h1>WHAT WE<br><span class="accent-text">OFFER.</span></h1>
-    <p>
-      Four ways to work with AppleBox — from complete production management
-      to standalone equipment rentals. Every service is available independently
-      or combined into a full production setup.
-    </p>
-  </div>
+    <p>Four ways to work with AppleBox — from complete production management to standalone equipment rentals. Every service is available independently or combined into a full production setup.</p>
+  </header>
 
-<div class="section" style="padding-top: 0; padding-bottom: 0;">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
 
-<!-- 01 FULL PRODUCTION -->
-<div class="service-block" id="full-production" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
-    <source src="pages/servicepage/fullproductionbg.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
-  <div class="service-block-num">FULL<br>PRODUCTION<br>SERVICE</div>
-  <div class="service-block-content" style="padding-top: 60px; padding-left: 60px;">
-    <p>AppleBox manages the entire production from first brief to final wrap. We plan every step before cameras roll — budgeting, scheduling, crew setup, art direction, and logistics — then run every shoot day with precision and clarity. One partner, one system, zero gaps. Built for production houses and international crews who need a complete, reliable setup in Saudi Arabia.</p>
-    <div style="margin-top: 36px; position: relative; z-index: 2;" class="process-track">
-      <div class="process-step">
-        <div class="process-node">01</div>
-        <div class="process-title">Prep</div>
-        <div class="process-tooltip">Script breakdown, budgeting, crew hiring, department setup and scheduling.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">02</div>
-        <div class="process-title">Pre-Production</div>
-        <div class="process-tooltip">Permits secured, locations locked, fleet booked, call sheets prepared.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">03</div>
-        <div class="process-title">Recce</div>
-        <div class="process-tooltip">HODs visit locations to assess power, access, space and on-ground logistics.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">04</div>
-        <div class="process-title">Shoot</div>
-        <div class="process-tooltip">Fleet deployed, crew on standby, catering running, full on-set support all day.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">05</div>
-        <div class="process-title">Wrap</div>
-        <div class="process-tooltip">Set breakdown, DIT handoff, equipment returned, production closed cleanly.</div>
+    <!-- 01 FULL PRODUCTION -->
+    <div class="service-block" id="full-production" style="position:relative; overflow:hidden;">
+      <video autoplay muted loop playsinline preload="none" aria-hidden="true"
+             style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.20; z-index:0;">
+        <source src="pages/servicepage/fullproductionbg.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;" aria-hidden="true"></div>
+
+      <div class="service-block-num">FULL<br>PRODUCTION<br>SERVICE</div>
+
+      <div class="service-block-content">
+        <p>AppleBox manages the entire production from first brief to final wrap. We plan every step before cameras roll — budgeting, scheduling, crew setup, art direction, and logistics — then run every shoot day with precision and clarity. One partner, one system, zero gaps. Built for production houses and international crews who need a complete, reliable setup in Saudi Arabia.</p>
+        <div class="process-track" style="margin-top:36px; position:relative; z-index:2;">
+          <div class="process-step"><div class="process-node">01</div><div class="process-title">Prep</div><div class="process-tooltip">Script breakdown, budgeting, crew hiring, department setup and scheduling.</div></div>
+          <div class="process-step"><div class="process-node">02</div><div class="process-title">Pre-Production</div><div class="process-tooltip">Permits secured, locations locked, fleet booked, call sheets prepared.</div></div>
+          <div class="process-step"><div class="process-node">03</div><div class="process-title">Recce</div><div class="process-tooltip">HODs visit locations to assess power, access, space and on-ground logistics.</div></div>
+          <div class="process-step"><div class="process-node">04</div><div class="process-title">Shoot</div><div class="process-tooltip">Fleet deployed, crew on standby, catering running, full on-set support all day.</div></div>
+          <div class="process-step"><div class="process-node">05</div><div class="process-title">Wrap</div><div class="process-tooltip">Set breakdown, DIT handoff, equipment returned, production closed cleanly.</div></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- 02 UNIT PRODUCTION -->
-<div class="service-block" id="unit-production" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
-    <source src="pages/servicepage/unitproductionbg.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
-  <div class="service-block-num">UNIT<br>PRODUCTION<br>SERVICE</div>
-  <div class="service-block-content" style="padding-top: 60px; padding-left: 60px;">
-    <p>Local execution support for international and regional productions working in Saudi Arabia. AppleBox integrates directly into your existing structure, providing crew, permits, fleet, and logistics while keeping your workflow intact. Ideal for teams that lead their own creative and technical direction but need a strong and experienced local unit on the ground.</p>
-    <div style="margin-top: 36px; position: relative; z-index: 2;" class="process-track">
-      <div class="process-step">
-        <div class="process-node">01</div>
-        <div class="process-title">Integrate</div>
-        <div class="process-tooltip">We embed into your existing structure, learning your workflow and requirements.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">02</div>
-        <div class="process-title">Logistics</div>
-        <div class="process-tooltip">Fleet coordination, location logistics, and on-ground movement managed end to end.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">03</div>
-        <div class="process-title">Crew</div>
-        <div class="process-tooltip">Local crew deployed and briefed to match your production standards and pace.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">04</div>
-        <div class="process-title">Fleet</div>
-        <div class="process-tooltip">Production vehicles dispatched and managed daily across all shoot locations.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">05</div>
-        <div class="process-title">Support</div>
-        <div class="process-tooltip">Full on-ground logistics support from first day to final wrap and demob.</div>
+    <!-- 02 UNIT PRODUCTION -->
+    <div class="service-block" id="unit-production" style="position:relative; overflow:hidden;">
+      <video autoplay muted loop playsinline preload="none" aria-hidden="true"
+             style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.20; z-index:0;">
+        <source src="pages/servicepage/unitproductionbg.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;" aria-hidden="true"></div>
+
+      <div class="service-block-num">UNIT<br>PRODUCTION<br>SERVICE</div>
+
+      <div class="service-block-content">
+        <p>Local execution support for international and regional productions working in Saudi Arabia. AppleBox integrates directly into your existing structure, providing crew, permits, fleet, and logistics while keeping your workflow intact. Ideal for teams that lead their own creative and technical direction but need a strong and experienced local unit on the ground.</p>
+        <div class="process-track" style="margin-top:36px; position:relative; z-index:2;">
+          <div class="process-step"><div class="process-node">01</div><div class="process-title">Integrate</div><div class="process-tooltip">We embed into your existing structure, learning your workflow and requirements.</div></div>
+          <div class="process-step"><div class="process-node">02</div><div class="process-title">Logistics</div><div class="process-tooltip">Fleet coordination, location logistics, and on-ground movement managed end to end.</div></div>
+          <div class="process-step"><div class="process-node">03</div><div class="process-title">Crew</div><div class="process-tooltip">Local crew deployed and briefed to match your production standards and pace.</div></div>
+          <div class="process-step"><div class="process-node">04</div><div class="process-title">Fleet</div><div class="process-tooltip">Production vehicles dispatched and managed daily across all shoot locations.</div></div>
+          <div class="process-step"><div class="process-node">05</div><div class="process-title">Support</div><div class="process-tooltip">Full on-ground logistics support from first day to final wrap and demob.</div></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- 03 RENTALS -->
-<div class="service-block" id="rentals" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
-    <source src="pages/servicepage/rentalsbg.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
-  <div class="service-block-num">RENTALS<br>SERVICE</div>
-  <div class="service-block-content" style="padding-top: 60px; padding-left: 60px;">
-    <p>Production vehicles, equipment, and technical units available on demand, either standalone or as part of a full setup. The fleet includes production vans, unit trucks, DIT stations, generators, wardrobe trucks, crew transport, and catering units. Every asset is production ready, well maintained, and operated by experienced on set drivers and crew.</p>
-    <div style="margin-top: 36px; position: relative; z-index: 2;" class="process-track">
-      <div class="process-step">
-        <div class="process-node">01</div>
-        <div class="process-title">Request</div>
-        <div class="process-tooltip">Tell us what you need — vehicles, equipment, or technical units — and your dates.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">02</div>
-        <div class="process-title">Quote</div>
-        <div class="process-tooltip">We build a clear rental package with availability confirmed and pricing locked.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">03</div>
-        <div class="process-title">Prep</div>
-        <div class="process-tooltip">Every asset is inspected, stocked, and ready before it leaves the yard.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">04</div>
-        <div class="process-title">Deploy</div>
-        <div class="process-tooltip">Fleet delivered on time to your location with experienced drivers and crew.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">05</div>
-        <div class="process-title">Return</div>
-        <div class="process-tooltip">Clean collection and return handled by our team at end of rental period.</div>
+    <!-- 03 RENTALS -->
+    <div class="service-block" id="rentals" style="position:relative; overflow:hidden;">
+      <video autoplay muted loop playsinline preload="none" aria-hidden="true"
+             style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.20; z-index:0;">
+        <source src="pages/servicepage/rentalsbg.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;" aria-hidden="true"></div>
+
+      <div class="service-block-num">RENTALS<br>SERVICE</div>
+
+      <div class="service-block-content">
+        <p>Production vehicles, equipment, and technical units available on demand, either standalone or as part of a full setup. The fleet includes production vans, unit trucks, DIT stations, generators, wardrobe trucks, crew transport, and catering units. Every asset is production ready, well maintained, and operated by experienced on-set drivers and crew.</p>
+        <div class="process-track" style="margin-top:36px; position:relative; z-index:2;">
+          <div class="process-step"><div class="process-node">01</div><div class="process-title">Request</div><div class="process-tooltip">Tell us what you need — vehicles, equipment, or technical units — and your dates.</div></div>
+          <div class="process-step"><div class="process-node">02</div><div class="process-title">Quote</div><div class="process-tooltip">We build a clear rental package with availability confirmed and pricing locked.</div></div>
+          <div class="process-step"><div class="process-node">03</div><div class="process-title">Prep</div><div class="process-tooltip">Every asset is inspected, stocked, and ready before it leaves the yard.</div></div>
+          <div class="process-step"><div class="process-node">04</div><div class="process-title">Deploy</div><div class="process-tooltip">Fleet delivered on time to your location with experienced drivers and crew.</div></div>
+          <div class="process-step"><div class="process-node">05</div><div class="process-title">Return</div><div class="process-tooltip">Clean collection and return handled by our team at end of rental period.</div></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- 04 CATERING -->
-<div class="service-block" id="catering" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.20; z-index: 0;">
-    <source src="pages/servicepage/cateringbg.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute; inset:0; background: rgba(8,8,8,0.6); z-index:1;"></div>
-  <div class="service-block-num">CATERING<br>SERVICE</div>
-  <div class="service-block-content" style="padding-top: 60px; padding-left: 60px;">
-    <p>On set catering, craft services, and coffee stations designed to keep cast and crew running efficiently throughout the day. AppleBox delivers hot meals, dietary aware menus, craft service setups, and professional barista stations. Available as a standalone service or part of a full production setup, with a dedicated team handling service from setup to breakdown.</p>
-    <div style="margin-top: 36px; position: relative; z-index: 2;" class="process-track">
-      <div class="process-step">
-        <div class="process-node">01</div>
-        <div class="process-title">Menu Plan</div>
-        <div class="process-tooltip">We build a menu around crew size, dietary needs, and shoot schedule.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">02</div>
-        <div class="process-title">Setup</div>
-        <div class="process-tooltip">Catering unit, coffee station, and craft services set up before crew arrives.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">03</div>
-        <div class="process-title">Service</div>
-        <div class="process-tooltip">Hot meals, snacks, and barista coffee served throughout the shoot day.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">04</div>
-        <div class="process-title">Restock</div>
-        <div class="process-tooltip">Craft services restocked continuously so crew never runs out on long days.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-node">05</div>
-        <div class="process-title">Breakdown</div>
-        <div class="process-tooltip">Full cleanup and breakdown handled by our team at end of shoot day.</div>
+    <!-- 04 CATERING -->
+    <div class="service-block" id="catering" style="position:relative; overflow:hidden;">
+      <video autoplay muted loop playsinline preload="none" aria-hidden="true"
+             style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.20; z-index:0;">
+        <source src="pages/servicepage/cateringbg.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;" aria-hidden="true"></div>
+
+      <div class="service-block-num">CATERING<br>SERVICE</div>
+
+      <div class="service-block-content">
+        <p>On-set catering, craft services, and coffee stations designed to keep cast and crew running efficiently throughout the day. AppleBox delivers hot meals, dietary-aware menus, craft service setups, and professional barista stations. Available as a standalone service or part of a full production setup, with a dedicated team handling service from setup to breakdown.</p>
+        <div class="process-track" style="margin-top:36px; position:relative; z-index:2;">
+          <div class="process-step"><div class="process-node">01</div><div class="process-title">Menu Plan</div><div class="process-tooltip">We build a menu around crew size, dietary needs, and shoot schedule.</div></div>
+          <div class="process-step"><div class="process-node">02</div><div class="process-title">Setup</div><div class="process-tooltip">Catering unit, coffee station, and craft services set up before crew arrives.</div></div>
+          <div class="process-step"><div class="process-node">03</div><div class="process-title">Service</div><div class="process-tooltip">Hot meals, snacks, and barista coffee served throughout the shoot day.</div></div>
+          <div class="process-step"><div class="process-node">04</div><div class="process-title">Restock</div><div class="process-tooltip">Craft services restocked continuously so crew never runs out on long days.</div></div>
+          <div class="process-step"><div class="process-node">05</div><div class="process-title">Breakdown</div><div class="process-tooltip">Full cleanup and breakdown handled by our team at end of shoot day.</div></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-</div>
+  </div>
 </div>
 <!-- END page-services -->
 
@@ -668,48 +612,48 @@
 ═══════════════════════════════════════════ -->
 <div id="page-fleet" class="page">
 
-  <!-- FLEET HERO -->
-  <div class="fleet-page-hero">
+  <header class="fleet-page-hero">
     <div class="fleet-page-header">
       <div>
-        <div class="eyebrow">The Fleet</div>
+        <p class="eyebrow">The Fleet</p>
         <h1>BUILT FOR<br><span class="accent-text">PRODUCTION.</span><br>READY TO DEPLOY.</h1>
       </div>
       <div class="fleet-page-intro">
-  <p>AppleBox operates a purpose-built fleet engineered for real production demands. From unit support and wardrobe to hygiene, talent facilities, and crew transport, every vehicle is fully equipped, production-ready, and backed by experienced on-set teams to ensure seamless execution at every stage.</p>
+        <p>AppleBox operates a purpose-built fleet engineered for real production demands. From unit support and wardrobe to hygiene, talent facilities, and crew transport, every vehicle is fully equipped, production-ready, and backed by experienced on-set teams to ensure seamless execution at every stage.</p>
         <div class="fleet-tags">
-<span class="fleet-tag" onclick="document.getElementById('fs-unit-van').scrollIntoView({behavior:'smooth'})">Unit Van</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-unit-truck').scrollIntoView({behavior:'smooth'})">Unit Truck</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-support-van').scrollIntoView({behavior:'smooth'})">Support Van</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-wardrobe-5m').scrollIntoView({behavior:'smooth'})">Wardrobe Trucks</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-toilet-truck').scrollIntoView({behavior:'smooth'})">Toilet Truck</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-caravan').scrollIntoView({behavior:'smooth'})">VIP Caravan</span>
-<span class="fleet-tag" onclick="document.getElementById('fs-transport').scrollIntoView({behavior:'smooth'})">Crew Transport</span>
-</div>
+          <span class="fleet-tag" onclick="document.getElementById('fs-unit-van').scrollIntoView({behavior:'smooth'})">Unit Van</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-unit-truck').scrollIntoView({behavior:'smooth'})">Unit Truck</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-support-van').scrollIntoView({behavior:'smooth'})">Support Van</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-wardrobe-5m').scrollIntoView({behavior:'smooth'})">Wardrobe Trucks</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-toilet-truck').scrollIntoView({behavior:'smooth'})">Toilet Truck</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-caravan').scrollIntoView({behavior:'smooth'})">VIP Caravan</span>
+          <span class="fleet-tag" onclick="document.getElementById('fs-transport').scrollIntoView({behavior:'smooth'})">Crew Transport</span>
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- 01 — FULLY EQUIPPED UNIT PRODUCTION VAN -->
-  <div class="fleet-section" id="fs-unit-van" style="background: var(--surface-1);">
+  <!-- 01 — UNIT PRODUCTION VAN -->
+  <div class="fleet-section" id="fs-unit-van" style="background:var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Unit Production Support</div>
-        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION VAN</span></div>
-<div class="fleet-vehicle-desc">A self-contained mobile production hub designed to keep every department connected and operational. Built for reliability and efficiency, it delivers power, connectivity, and essential crew support from first call to final wrap, regardless of location.</div>        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> 25KW generator &amp; portable backup power</div>
-          <div class="fleet-feature"><i class="fas fa-wifi"></i> Built-in Wi-Fi &amp; on-set mesh connectivity</div>
-          <div class="fleet-feature"><i class="fas fa-desktop"></i> Air-conditioned DIT workspace</div>
-          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Italian barista coffee machine &amp; grinder</div>
-          <div class="fleet-feature"><i class="fas fa-snowflake"></i> Fridge, ice maker &amp; cold storage</div>
-          <div class="fleet-feature"><i class="fas fa-kit-medical"></i> Health &amp; safety kit on board</div>
-        </div>
-        <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-          <a href="pages/fleets/unit-van/Unit Van Brouchure.pdf" download class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px;">
-            <i class="fas fa-download"></i> Unit Van Brochure
+        <p class="fleet-vehicle-tag">Unit Production Support</p>
+        <h2 class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION VAN</span></h2>
+        <p class="fleet-vehicle-desc">A self-contained mobile production hub designed to keep every department connected and operational. Built for reliability and efficiency, it delivers power, connectivity, and essential crew support from first call to final wrap, regardless of location.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-bolt"        aria-hidden="true"></i> 25KW generator &amp; portable backup power</li>
+          <li class="fleet-feature"><i class="fas fa-wifi"        aria-hidden="true"></i> Built-in Wi-Fi &amp; on-set mesh connectivity</li>
+          <li class="fleet-feature"><i class="fas fa-desktop"     aria-hidden="true"></i> Air-conditioned DIT workspace</li>
+          <li class="fleet-feature"><i class="fas fa-mug-hot"     aria-hidden="true"></i> Italian barista coffee machine &amp; grinder</li>
+          <li class="fleet-feature"><i class="fas fa-snowflake"   aria-hidden="true"></i> Fridge, ice maker &amp; cold storage</li>
+          <li class="fleet-feature"><i class="fas fa-kit-medical" aria-hidden="true"></i> Health &amp; safety kit on board</li>
+        </ul>
+        <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+          <a href="pages/fleets/unit-van/Unit Van Brouchure.pdf" download class="btn btn-ghost">
+            <i class="fas fa-download" aria-hidden="true"></i> Unit Van Brochure
           </a>
-          <a href="pages/fleets/unit-van/Unit Van Catalogue.pdf" download class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px;">
-            <i class="fas fa-download"></i> Equipment Catalogue
+          <a href="pages/fleets/unit-van/Unit Van Catalogue.pdf" download class="btn btn-ghost">
+            <i class="fas fa-download" aria-hidden="true"></i> Equipment Catalogue
           </a>
         </div>
       </div>
@@ -721,12 +665,12 @@
               <div class="fleet-thumb-label">UNIT VAN</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/unit-van/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/unit-van/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-van/exterior.png" class="gallery-item" alt="Unit Van exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-van/interior.png" class="gallery-item" alt="Unit Van interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Unit Van walkthrough">
               <source src="pages/fleets/unit-van/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -735,26 +679,27 @@
     </div>
   </div>
 
-  <!-- 02 — FULLY EQUIPPED UNIT PRODUCTION TRUCK -->
+  <!-- 02 — UNIT PRODUCTION TRUCK -->
   <div class="fleet-section" id="fs-unit-truck">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Unit Production Truck</div>
-        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION TRUCK</span></div>
-<div class="fleet-vehicle-desc">A centralized on-set operations unit that brings power, catering, and infrastructure together in one system. Designed for large-scale productions, it supports high crew volumes while maintaining smooth and efficient workflow across departments.</div>        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> Inbuilt 27KVA generator &amp; portable backup</div>
-          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> External catering &amp; coffee station</div>
-          <div class="fleet-feature"><i class="fas fa-snowflake"></i> Fridge, ice cooler &amp; cold food storage</div>
-          <div class="fleet-feature"><i class="fas fa-wifi"></i> Built-in Wi-Fi &amp; on-set mesh connectivity</div>
-          <div class="fleet-feature"><i class="fas fa-droplet"></i> 400L fresh water &amp; 200L waste tank</div>
-          <div class="fleet-feature"><i class="fas fa-kit-medical"></i> Full health &amp; safety kit on board</div>
-        </div>
-        <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-          <a href="pages/fleets/unit-truck/Unit Truck Brochure.pdf" download class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px;">
-            <i class="fas fa-download"></i> Truck Brochure
+        <p class="fleet-vehicle-tag">Unit Production Truck</p>
+        <h2 class="fleet-vehicle-name">FULLY EQUIPPED <span>UNIT PRODUCTION TRUCK</span></h2>
+        <p class="fleet-vehicle-desc">A centralized on-set operations unit that brings power, catering, and infrastructure together in one system. Designed for large-scale productions, it supports high crew volumes while maintaining smooth and efficient workflow across departments.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-bolt"        aria-hidden="true"></i> Inbuilt 27KVA generator &amp; portable backup</li>
+          <li class="fleet-feature"><i class="fas fa-mug-hot"     aria-hidden="true"></i> External catering &amp; coffee station</li>
+          <li class="fleet-feature"><i class="fas fa-snowflake"   aria-hidden="true"></i> Fridge, ice cooler &amp; cold food storage</li>
+          <li class="fleet-feature"><i class="fas fa-wifi"        aria-hidden="true"></i> Built-in Wi-Fi &amp; on-set mesh connectivity</li>
+          <li class="fleet-feature"><i class="fas fa-droplet"     aria-hidden="true"></i> 400L fresh water &amp; 200L waste tank</li>
+          <li class="fleet-feature"><i class="fas fa-kit-medical" aria-hidden="true"></i> Full health &amp; safety kit on board</li>
+        </ul>
+        <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+          <a href="pages/fleets/unit-truck/Unit Truck Brochure.pdf" download class="btn btn-ghost">
+            <i class="fas fa-download" aria-hidden="true"></i> Truck Brochure
           </a>
-          <a href="pages/fleets/unit-truck/Unit Truck Catalogue.pdf" download class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px;">
-            <i class="fas fa-list"></i> Full Equipment List
+          <a href="pages/fleets/unit-truck/Unit Truck Catalogue.pdf" download class="btn btn-ghost">
+            <i class="fas fa-list" aria-hidden="true"></i> Full Equipment List
           </a>
         </div>
       </div>
@@ -766,12 +711,12 @@
               <div class="fleet-thumb-label">UNIT TRUCK</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/exterior.png" class="gallery-item" alt="Truck exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/unit-truck/interior.png" class="gallery-item" alt="Truck interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Unit Truck walkthrough">
               <source src="pages/fleets/unit-truck/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -781,19 +726,20 @@
   </div>
 
   <!-- 03 — SUPPORT VAN -->
-  <div class="fleet-section" id="fs-support-van" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-support-van" style="background:var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Crafties &amp; Equipment Support</div>
-        <div class="fleet-vehicle-name">SUPPORT <span>VAN</span></div>
-<div class="fleet-vehicle-desc">A flexible support vehicle built to keep production moving. From craft services to equipment overflow, it adapts to changing on-set needs and ensures every department stays supplied without interrupting the main unit.</div>        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-box-open"></i> Flexible cargo space for any department</div>
-          <div class="fleet-feature"><i class="fas fa-mug-hot"></i> Crafties &amp; catering supply ready</div>
-          <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Partitioned driver's cabin</div>
-          <div class="fleet-feature"><i class="fas fa-layer-group"></i> Durable wooden flooring</div>
-          <div class="fleet-feature"><i class="fas fa-cubes"></i> Multi-department cargo use</div>
-          <div class="fleet-feature"><i class="fas fa-truck-fast"></i> Fast, reliable on-set mobility</div>
-        </div>
+        <p class="fleet-vehicle-tag">Crafties &amp; Equipment Support</p>
+        <h2 class="fleet-vehicle-name">SUPPORT <span>VAN</span></h2>
+        <p class="fleet-vehicle-desc">A flexible support vehicle built to keep production moving. From craft services to equipment overflow, it adapts to changing on-set needs and ensures every department stays supplied without interrupting the main unit.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-box-open"     aria-hidden="true"></i> Flexible cargo space for any department</li>
+          <li class="fleet-feature"><i class="fas fa-mug-hot"      aria-hidden="true"></i> Crafties &amp; catering supply ready</li>
+          <li class="fleet-feature"><i class="fas fa-shield-halved" aria-hidden="true"></i> Partitioned driver's cabin</li>
+          <li class="fleet-feature"><i class="fas fa-layer-group"  aria-hidden="true"></i> Durable wooden flooring</li>
+          <li class="fleet-feature"><i class="fas fa-cubes"        aria-hidden="true"></i> Multi-department cargo use</li>
+          <li class="fleet-feature"><i class="fas fa-truck-fast"   aria-hidden="true"></i> Fast, reliable on-set mobility</li>
+        </ul>
       </div>
       <div class="fleet-media-col">
         <div class="fleet-media-grid">
@@ -803,12 +749,12 @@
               <div class="fleet-thumb-label">SUPPORT VAN</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/support-van/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/support-van/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/exterior.png" class="gallery-item" alt="Support Van exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/support-van/interior.png" class="gallery-item" alt="Support Van interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Support Van walkthrough">
               <source src="pages/fleets/support-van/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -821,18 +767,19 @@
   <div class="fleet-section" id="fs-wardrobe-5m">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling</div>
-        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 5M</span></div>
-<div class="fleet-vehicle-desc">A fully equipped mobile wardrobe space designed for comfort, organization, and efficiency. It provides a controlled environment where styling teams can operate seamlessly throughout long shoot days.</div>        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
-          <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
-          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> 7KW silent generator</div>
-          <div class="fleet-feature"><i class="fas fa-soap"></i> On-set washer &amp; dryer units</div>
-          <div class="fleet-feature"><i class="fas fa-lock"></i> Secure overnight storage</div>
-        </div>
-        <a href="pages/fleets/wardrobe-truck1/Wardrobe Truck brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
-          <i class="fas fa-download"></i> Download Brochure
+        <p class="fleet-vehicle-tag">Wardrobe &amp; Styling</p>
+        <h2 class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 5M</span></h2>
+        <p class="fleet-vehicle-desc">A fully equipped mobile wardrobe space designed for comfort, organization, and efficiency. It provides a controlled environment where styling teams can operate seamlessly throughout long shoot days.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-shirt"            aria-hidden="true"></i> Professional steamers &amp; ironing stations</li>
+          <li class="fleet-feature"><i class="fas fa-bars"             aria-hidden="true"></i> Multiple wardrobe rails &amp; storage</li>
+          <li class="fleet-feature"><i class="fas fa-temperature-half" aria-hidden="true"></i> Climate-controlled interior</li>
+          <li class="fleet-feature"><i class="fas fa-bolt"             aria-hidden="true"></i> 7KW silent generator</li>
+          <li class="fleet-feature"><i class="fas fa-soap"             aria-hidden="true"></i> On-set washer &amp; dryer units</li>
+          <li class="fleet-feature"><i class="fas fa-lock"             aria-hidden="true"></i> Secure overnight storage</li>
+        </ul>
+        <a href="pages/fleets/wardrobe-truck1/Wardrobe Truck brochure.pdf" download class="btn btn-ghost" style="margin-top:24px;">
+          <i class="fas fa-download" aria-hidden="true"></i> Download Brochure
         </a>
       </div>
       <div class="fleet-media-col">
@@ -843,12 +790,12 @@
               <div class="fleet-thumb-label">WARDROBE 5M</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/exterior.png" class="gallery-item" alt="Wardrobe Truck exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck1/interior.png" class="gallery-item" alt="Wardrobe Truck interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Wardrobe Truck 5M walkthrough">
               <source src="pages/fleets/wardrobe-truck1/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -858,20 +805,20 @@
   </div>
 
   <!-- 05 — WARDROBE TRUCK 3M -->
-  <div class="fleet-section" id="fs-wardrobe-3m" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-wardrobe-3m" style="background:var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Wardrobe &amp; Styling</div>
-        <div class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 3M</span></div>
-<div class="fleet-vehicle-desc">A compact wardrobe solution designed for smaller productions and tighter locations. It delivers the same core functionality in a more agile footprint while maintaining smooth styling workflow from prep to wrap.</div>
-        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-shirt"></i> Professional steamers &amp; ironing stations</div>
-          <div class="fleet-feature"><i class="fas fa-bars"></i> Multiple wardrobe rails &amp; storage</div>
-          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Climate-controlled interior</div>
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> 15KW silent generator</div>
-          <div class="fleet-feature"><i class="fas fa-soap"></i> On-set washer &amp; dryer units</div>
-          <div class="fleet-feature"><i class="fas fa-lock"></i> Secure overnight storage</div>
-        </div>
+        <p class="fleet-vehicle-tag">Wardrobe &amp; Styling</p>
+        <h2 class="fleet-vehicle-name">FULLY EQUIPPED <span>WARDROBE TRUCK · 3M</span></h2>
+        <p class="fleet-vehicle-desc">A compact wardrobe solution designed for smaller productions and tighter locations. It delivers the same core functionality in a more agile footprint while maintaining smooth styling workflow from prep to wrap.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-shirt"            aria-hidden="true"></i> Professional steamers &amp; ironing stations</li>
+          <li class="fleet-feature"><i class="fas fa-bars"             aria-hidden="true"></i> Multiple wardrobe rails &amp; storage</li>
+          <li class="fleet-feature"><i class="fas fa-temperature-half" aria-hidden="true"></i> Climate-controlled interior</li>
+          <li class="fleet-feature"><i class="fas fa-bolt"             aria-hidden="true"></i> 15KW silent generator</li>
+          <li class="fleet-feature"><i class="fas fa-soap"             aria-hidden="true"></i> On-set washer &amp; dryer units</li>
+          <li class="fleet-feature"><i class="fas fa-lock"             aria-hidden="true"></i> Secure overnight storage</li>
+        </ul>
       </div>
       <div class="fleet-media-col">
         <div class="fleet-media-grid">
@@ -881,12 +828,12 @@
               <div class="fleet-thumb-label">WARDROBE 3M</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck2/exterior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck2/interior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck2/exterior.png" class="gallery-item" alt="Wardrobe Truck 3M exterior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/wardrobe-truck2/interior.png" class="gallery-item" alt="Wardrobe Truck 3M interior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Wardrobe Truck 3M walkthrough">
               <source src="pages/fleets/wardrobe-truck2/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -899,19 +846,19 @@
   <div class="fleet-section" id="fs-toilet-truck">
     <div class="fleet-layout">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Hygiene & Sanitation</div>
-        <div class="fleet-vehicle-name">4 CABIN <span>TOILET TRUCK</span></div>
-<div class="fleet-vehicle-desc">A premium hygiene solution designed to maintain comfort and cleanliness on set. Fully self-sufficient and equipped for long production days, it ensures a reliable and elevated experience for cast and crew.</div>        
-<div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-venus-mars"></i> 4 private cabins — 2 male &amp; 2 female</div>
-          <div class="fleet-feature"><i class="fas fa-droplet"></i> Vacuum-compressed toilets &amp; running water</div>
-          <div class="fleet-feature"><i class="fas fa-hands-bubbles"></i> In-cabin sink &amp; well-lit mirrors</div>
-          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned interior</div>
-          <div class="fleet-feature"><i class="fas fa-bolt"></i> 15KW silent generator</div>
-          <div class="fleet-feature"><i class="fas fa-droplet"></i> 3,000L fresh water &amp; 900L waste tank</div>
-        </div>
-        <a href="pages/fleets/toilet-truck/Toilet Truck Brochure.pdf" download class="btn btn-ghost" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
-          <i class="fas fa-download"></i> Download Brochure
+        <p class="fleet-vehicle-tag">Hygiene &amp; Sanitation</p>
+        <h2 class="fleet-vehicle-name">4 CABIN <span>TOILET TRUCK</span></h2>
+        <p class="fleet-vehicle-desc">A premium hygiene solution designed to maintain comfort and cleanliness on set. Fully self-sufficient and equipped for long production days, it ensures a reliable and elevated experience for cast and crew.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-venus-mars"    aria-hidden="true"></i> 4 private cabins — 2 male &amp; 2 female</li>
+          <li class="fleet-feature"><i class="fas fa-droplet"       aria-hidden="true"></i> Vacuum-compressed toilets &amp; running water</li>
+          <li class="fleet-feature"><i class="fas fa-hands-bubbles" aria-hidden="true"></i> In-cabin sink &amp; well-lit mirrors</li>
+          <li class="fleet-feature"><i class="fas fa-temperature-half" aria-hidden="true"></i> Air-conditioned interior</li>
+          <li class="fleet-feature"><i class="fas fa-bolt"          aria-hidden="true"></i> 15KW silent generator</li>
+          <li class="fleet-feature"><i class="fas fa-droplet"       aria-hidden="true"></i> 3,000L fresh water &amp; 900L waste tank</li>
+        </ul>
+        <a href="pages/fleets/toilet-truck/Toilet Truck Brochure.pdf" download class="btn btn-ghost" style="margin-top:24px;">
+          <i class="fas fa-download" aria-hidden="true"></i> Download Brochure
         </a>
       </div>
       <div class="fleet-media-col">
@@ -922,12 +869,12 @@
               <div class="fleet-thumb-label">TOILET TRUCK</div>
             </div>
             <div class="fleet-thumbs-row">
-              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/interior.png" class="gallery-item" alt="Exterior"></div>
-              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/exterior.png" class="gallery-item" alt="Interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/interior.png" class="gallery-item" alt="Toilet Truck interior"></div>
+              <div class="fleet-thumb"><img src="pages/fleets/toilet-truck/exterior.png" class="gallery-item" alt="Toilet Truck exterior"></div>
             </div>
           </div>
           <div class="fleet-video-col">
-            <video autoplay muted loop playsinline preload="none" class="gallery-item">
+            <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Toilet Truck walkthrough">
               <source src="pages/fleets/toilet-truck/video.mp4" type="video/mp4">
             </video>
           </div>
@@ -937,28 +884,28 @@
   </div>
 
   <!-- 07 — VIP CARAVAN -->
-  <div class="fleet-section" id="fs-caravan" style="background: var(--surface-1);">
+  <div class="fleet-section" id="fs-caravan" style="background:var(--surface-1);">
     <div class="fleet-layout reverse">
       <div class="fleet-text-col">
-        <div class="fleet-vehicle-tag">Talent &amp; Client Facilities</div>
-        <div class="fleet-vehicle-name">VIP <span>CARAVAN</span></div>
-<div class="fleet-vehicle-desc">A private and fully equipped space designed for talent and client comfort on set. Built to support long shooting days, it offers a calm, controlled environment for rest, preparation, wardrobe adjustments, and downtime between takes, ensuring talent remains focused and production runs smoothly.</div>
-        <div class="fleet-features">
-          <div class="fleet-feature"><i class="fas fa-expand"></i> Expandable slide-out rooms</div>
-          <div class="fleet-feature"><i class="fas fa-temperature-half"></i> Air-conditioned lounge &amp; private areas</div>
-          <div class="fleet-feature"><i class="fas fa-couch"></i> Premium furnishing &amp; lighting</div>
-          <div class="fleet-feature"><i class="fas fa-shower"></i> Private bathroom facilities</div>
-          <div class="fleet-feature"><i class="fas fa-tv"></i> Entertainment system &amp; connectivity</div>
-          <div class="fleet-feature"><i class="fas fa-star"></i> Additional caravan types available on request</div>
-        </div>
+        <p class="fleet-vehicle-tag">Talent &amp; Client Facilities</p>
+        <h2 class="fleet-vehicle-name">VIP <span>CARAVAN</span></h2>
+        <p class="fleet-vehicle-desc">A private and fully equipped space designed for talent and client comfort on set. Built to support long shooting days, it offers a calm, controlled environment for rest, preparation, wardrobe adjustments, and downtime between takes.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-expand"          aria-hidden="true"></i> Expandable slide-out rooms</li>
+          <li class="fleet-feature"><i class="fas fa-temperature-half" aria-hidden="true"></i> Air-conditioned lounge &amp; private areas</li>
+          <li class="fleet-feature"><i class="fas fa-couch"           aria-hidden="true"></i> Premium furnishing &amp; lighting</li>
+          <li class="fleet-feature"><i class="fas fa-shower"          aria-hidden="true"></i> Private bathroom facilities</li>
+          <li class="fleet-feature"><i class="fas fa-tv"              aria-hidden="true"></i> Entertainment system &amp; connectivity</li>
+          <li class="fleet-feature"><i class="fas fa-star"            aria-hidden="true"></i> Additional caravan types available on request</li>
+        </ul>
       </div>
       <div class="fleet-media-col">
         <div class="caravan-grid">
           <div class="caravan-unit">
-            <div class="caravan-label">NORTH TRAIL</div>
+            <p class="caravan-label">NORTH TRAIL</p>
             <div class="caravan-pair">
               <div class="caravan-cell">
-                <video autoplay muted loop playsinline preload="none" class="gallery-item">
+                <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="North Trail caravan video">
                   <source src="pages/fleets/caravan/north-trail-video.mp4" type="video/mp4">
                 </video>
               </div>
@@ -968,10 +915,10 @@
             </div>
           </div>
           <div class="caravan-unit">
-            <div class="caravan-label">JAYCO</div>
+            <p class="caravan-label">JAYCO</p>
             <div class="caravan-pair">
               <div class="caravan-cell">
-                <video autoplay muted loop playsinline preload="none" class="gallery-item">
+                <video autoplay muted loop playsinline preload="none" class="gallery-item" aria-label="Jayco caravan video">
                   <source src="pages/fleets/caravan/jayco-video.mp4" type="video/mp4">
                 </video>
               </div>
@@ -985,42 +932,38 @@
     </div>
   </div>
 
-<!-- 08 — CREW & CLIENT TRANSPORT -->
-<div class="fleet-section" id="fs-transport">
-  <div class="fleet-layout">
-    <div class="fleet-text-col">
-      <div class="fleet-vehicle-tag">Logistics &amp; Movement</div>
-      <div class="fleet-vehicle-name">
-        CREW &amp; CLIENT <span>TRANSPORT</span>
+  <!-- 08 — CREW & CLIENT TRANSPORT -->
+  <div class="fleet-section" id="fs-transport">
+    <div class="fleet-layout">
+      <div class="fleet-text-col">
+        <p class="fleet-vehicle-tag">Logistics &amp; Movement</p>
+        <h2 class="fleet-vehicle-name">CREW &amp; CLIENT <span>TRANSPORT</span></h2>
+        <p class="fleet-vehicle-desc">Seamless and reliable transport across every stage of production. From VIP talent movements to full crew logistics, our fleet ensures comfort, efficiency, and precise coordination on set, in transit, and across cities.</p>
+        <ul class="fleet-features" aria-label="Features">
+          <li class="fleet-feature"><i class="fas fa-shield-halved"  aria-hidden="true"></i> Luxury SUVs for clients and talent</li>
+          <li class="fleet-feature"><i class="fas fa-van-shuttle"     aria-hidden="true"></i> Passenger vans for crew mobility</li>
+          <li class="fleet-feature"><i class="fas fa-car"             aria-hidden="true"></i> Dedicated sedans for unit transport</li>
+          <li class="fleet-feature"><i class="fas fa-bus"             aria-hidden="true"></i> Coasters and buses for large-scale movement</li>
+          <li class="fleet-feature"><i class="fas fa-location-dot"   aria-hidden="true"></i> Inter-city and remote location coverage</li>
+          <li class="fleet-feature"><i class="fas fa-plus"            aria-hidden="true"></i> Additional vehicle sourcing on request</li>
+        </ul>
       </div>
-      <div class="fleet-vehicle-desc">
-        Seamless and reliable transport across every stage of production. From VIP talent movements to full crew logistics, our fleet ensures comfort, efficiency, and precise coordination on set, in transit, and across cities.
-      </div>
-      <div class="fleet-features">
-        <div class="fleet-feature"><i class="fas fa-shield-halved"></i> Luxury SUVs for clients and talent</div>
-        <div class="fleet-feature"><i class="fas fa-van-shuttle"></i> Passenger vans for crew mobility</div>
-        <div class="fleet-feature"><i class="fas fa-car"></i> Dedicated sedans for unit transport</div>
-        <div class="fleet-feature"><i class="fas fa-bus"></i> Coasters and buses for large scale movement</div>
-        <div class="fleet-feature"><i class="fas fa-location-dot"></i> Inter-city and remote location coverage</div>
-        <div class="fleet-feature"><i class="fas fa-plus"></i> Additional vehicle sourcing on request</div>
-      </div>
-    </div>
-    <div class="fleet-media-col">
-      <div class="transport-photo-grid">
-        <div class="transport-photo"><img src="pages/fleets/transport/yukon.png" class="gallery-item" alt="GMC Yukon"></div>
-        <div class="transport-photo"><img src="pages/fleets/transport/staria.png" class="gallery-item" alt="Hyundai Staria"></div>
-        <div class="transport-photo"><img src="pages/fleets/transport/hiace.png" class="gallery-item" alt="Toyota Hiace"></div>
-        <div class="transport-photo"><img src="pages/fleets/transport/camry.png" class="gallery-item" alt="Toyota Camry"></div>
-        <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" class="gallery-item" alt="Coaster Bus"></div>
-        <div class="transport-photo"><img src="pages/fleets/transport/bus.png" class="gallery-item" alt="32-Seater Bus"></div>
+      <div class="fleet-media-col">
+        <div class="transport-photo-grid">
+          <div class="transport-photo"><img src="pages/fleets/transport/yukon.png"   class="gallery-item" alt="GMC Yukon"></div>
+          <div class="transport-photo"><img src="pages/fleets/transport/staria.png"  class="gallery-item" alt="Hyundai Staria"></div>
+          <div class="transport-photo"><img src="pages/fleets/transport/hiace.png"   class="gallery-item" alt="Toyota Hiace"></div>
+          <div class="transport-photo"><img src="pages/fleets/transport/camry.png"   class="gallery-item" alt="Toyota Camry"></div>
+          <div class="transport-photo"><img src="pages/fleets/transport/coaster.png" class="gallery-item" alt="Coaster Bus"></div>
+          <div class="transport-photo"><img src="pages/fleets/transport/bus.png"     class="gallery-item" alt="32-Seater Bus"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- FLEET CTA -->
   <div class="final-cta border-top">
-    <div class="final-cta-glow"></div>
+    <div class="final-cta-glow" aria-hidden="true"></div>
     <h2 class="final-cta-h">DEPLOY THE FLEET<br><span class="accent-text">ON YOUR NEXT SHOOT</span></h2>
     <p class="final-cta-sub">Tell us your production dates and locations. We'll build the right fleet package.</p>
     <div class="final-cta-actions">
@@ -1037,10 +980,10 @@
 <div id="page-about" class="page">
 
   <!-- INTRO HERO -->
-<div class="page-hero" style="padding-bottom: 0;">
+  <div class="page-hero" style="padding-bottom:0;">
     <div class="about-intro-grid">
       <div>
-        <div class="eyebrow">About AppleBox</div>
+        <p class="eyebrow">About AppleBox</p>
         <h1>THE<br><span class="accent-text">PRODUCTION</span><br>PARTNER</h1>
       </div>
       <div>
@@ -1049,183 +992,166 @@
       </div>
     </div>
 
-<div class="about-portrait-gallery" style="margin-top: 0;">
-      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg1.png" alt=""></div>
-      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg2.png" alt=""></div>
-      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg3.png" alt=""></div>
-      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg4.png" alt=""></div>
-      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg5.png" alt=""></div>
+    <div class="about-portrait-gallery" style="margin-top:0;">
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg1.png" alt="AppleBox team on set"></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg2.png" alt="Production in action"></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg3.png" alt="Fleet deployment"></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg4.png" alt="Crew coordination"></div>
+      <div class="about-portrait-item"><img src="pages/aboutpage/aboutimg5.png" alt="On-set catering"></div>
     </div>
   </div>
 
   <!-- OUR STORY -->
-<div class="section" style="padding-top: 0; padding-bottom: 0;">
-  <div class="about-story-grid">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="about-story-grid">
       <div>
-  <div class="about-story-label">Our Story</div>
-  <h2 style="font-family:'Bebas Neue',sans-serif; font-size: clamp(32px,3.5vw,52px); line-height:0.93; letter-spacing:0.02em; margin-top:16px; color:var(--white);">BUILT<br>FROM<br>THE<br><span class="accent-text">GROUND<br>UP.</span></h2>
-</div>
+        <p class="about-story-label">Our Story</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,3.5vw,52px); line-height:0.93; letter-spacing:0.02em; margin-top:16px; color:var(--white);">
+          BUILT<br>FROM<br>THE<br><span class="accent-text">GROUND<br>UP.</span>
+        </h2>
+      </div>
       <div class="about-story-text">
         <blockquote>"We didn't set out to be a production company. We set out to be the reason productions don't fail."</blockquote>
         <p>It started with a single production van and a belief that Saudi Arabia deserved world-class production infrastructure. From those early shoots, AppleBox grew year after year, adding vehicles, crew, capabilities, and clients who trusted us to deliver.</p>
-        <p style="margin-top: 18px;">Today we operate one of the largest dedicated production fleets in Saudi Arabia. We support international and regional productions across the Kingdom, providing everything from pre-production and crew coordination to fleet deployment and on-set catering. Our team of line producers, production managers, coordinators, drivers, and on-set specialists handles the full production workflow under one roof.</p>
-        <p style="margin-top: 18px;">As Saudi Arabia's creative economy grows under Vision 2030, AppleBox is not catching up. We were already here, building the infrastructure that makes great productions possible.</p>
+        <p style="margin-top:18px;">Today we operate one of the largest dedicated production fleets in Saudi Arabia. We support international and regional productions across the Kingdom, providing everything from pre-production and crew coordination to fleet deployment and on-set catering. Our team of line producers, production managers, coordinators, drivers, and on-set specialists handles the full production workflow under one roof.</p>
+        <p style="margin-top:18px;">As Saudi Arabia's creative economy grows under Vision 2030, AppleBox is not catching up. We were already here, building the infrastructure that makes great productions possible.</p>
       </div>
     </div>
   </div>
 
   <!-- PILLARS -->
- <div class="pillars-video-section">
-  <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="fas fa-crosshairs"></i></div>
-        <div class="pillar-title">Precision</div>
-        <div class="pillar-desc">Every van stocked the same way. Every call time met. Every piece of equipment checked before it leaves the yard. Precision is not a value. It is how we operate.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="fas fa-handshake"></i></div>
-        <div class="pillar-title">Accountability</div>
-        <div class="pillar-desc">One point of contact. Fast answers. Problems solved before you notice them. From first brief to final wrap, we take full ownership of the production so you never have to chase anyone.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
-        <div class="pillar-title">Scale</div>
-        <div class="pillar-desc">From a single crew van for a one-day shoot to a full fleet deployment for a 60-day feature, we scale up or down without compromising quality, speed, or crew experience.</div>
-      </div>
+  <div class="pillars-video-section">
+    <div class="pillars-grid">
+      <article class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
+        <h3 class="pillar-title">Precision</h3>
+        <p class="pillar-desc">Every van stocked the same way. Every call time met. Every piece of equipment checked before it leaves the yard. Precision is not a value. It is how we operate.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+        <h3 class="pillar-title">Accountability</h3>
+        <p class="pillar-desc">One point of contact. Fast answers. Problems solved before you notice them. From first brief to final wrap, we take full ownership of the production so you never have to chase anyone.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+        <h3 class="pillar-title">Scale</h3>
+        <p class="pillar-desc">From a single crew van for a one-day shoot to a full fleet deployment for a 60-day feature, we scale up or down without compromising quality, speed, or crew experience.</p>
+      </article>
     </div>
   </div>
 
 </div>
 <!-- END page-about -->
+
 <!-- ═══════════════════════════════════════════
      PAGE: PROJECTS
 ═══════════════════════════════════════════ -->
 <div id="page-projects" class="page">
 
-  <div class="page-hero">
-    <div class="eyebrow">Selected Work</div>
+  <header class="page-hero">
+    <p class="eyebrow">Selected Work</p>
     <h1>PROJECTS</h1>
     <p>From international feature films to local TVCs — a selection of productions AppleBox has powered across Saudi Arabia.</p>
-  </div>
+  </header>
 
   <div class="projects-list">
 
-    <div class="project-row" onclick="openYT('JfMbboNYWX8')">
+    <article class="project-row" onclick="openYT('JfMbboNYWX8')" role="button" tabindex="0" aria-label="Watch Visit Saudi campaign on YouTube">
       <img src="pages/projectpage/grid/clan-visitsaudi.png" alt="Visit Saudi Campaign" class="project-row-bg">
-      <div class="project-row-overlay"></div>
+      <div class="project-row-overlay" aria-hidden="true"></div>
       <div class="project-row-info">
-        <div class="project-row-cat">Celebrity Campaign Production</div>
-        <div class="project-row-title">Visit Saudi – Stayed For More</div>
-        <div class="project-row-meta">Riyadh · 2 Shoot Days · 100+ Crew</div>
-        <div class="project-row-desc">
-          Full unit production support for a high-profile campaign shoot in Riyadh. 
-          Deployed complete production fleet including unit production van, production truck, 
-          wardrobe truck, toilet truck, catering van, and ambulance support. 
-          Delivered full production staffing including unit manager, assistants, logistics crew, 
-          medics, and on-set support teams. 
-          Catering services provided for 100+ crew, cast, and VIP talent across 2 shoot days, 
-          ensuring seamless on-ground execution from setup to wrap.
-        </div>
+        <p class="project-row-cat">Celebrity Campaign Production</p>
+        <h2 class="project-row-title">Visit Saudi – Stayed For More</h2>
+        <p class="project-row-meta">Riyadh · 2 Shoot Days · 100+ Crew</p>
+        <p class="project-row-desc">Full unit production support for a high-profile campaign shoot in Riyadh. Deployed complete production fleet including unit production van, production truck, wardrobe truck, toilet truck, catering van, and ambulance support. Catering services provided for 100+ crew, cast, and VIP talent across 2 shoot days, ensuring seamless on-ground execution from setup to wrap.</p>
       </div>
-      <div class="project-row-arrow"><i class="fas fa-arrow-right"></i></div>
-    </div>
+      <div class="project-row-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+    </article>
 
-    <div class="project-row" onclick="openYT('a_MQNKHWXw4')">
+    <article class="project-row" onclick="openYT('a_MQNKHWXw4')" role="button" tabindex="0" aria-label="Watch Hijra film on YouTube">
       <img src="pages/projectpage/grid/industry-hijra.png" alt="Hijra Film" class="project-row-bg">
-      <div class="project-row-overlay"></div>
+      <div class="project-row-overlay" aria-hidden="true"></div>
       <div class="project-row-info">
-        <div class="project-row-cat">Feature Film Production</div>
-        <div class="project-row-title">Hijra</div>
-        <div class="project-row-meta">Saudi Arabia · 55 Shoot Days · 90+ Crew</div>
-        <div class="project-row-desc">
-          Full unit production support across a 3-month shoot, delivering production fleet, crew, and catering services across multiple locations including AlUla, Tabuk, Riyadh, and Jeddah. 
-          Deployed unit production truck, wardrobe, toilet, and art trucks, alongside production coordinator, assistants, runners, and full on-ground support teams.
-        </div>
+        <p class="project-row-cat">Feature Film Production</p>
+        <h2 class="project-row-title">Hijra</h2>
+        <p class="project-row-meta">Saudi Arabia · 55 Shoot Days · 90+ Crew</p>
+        <p class="project-row-desc">Full unit production support across a 3-month shoot, delivering production fleet, crew, and catering services across multiple locations including AlUla, Tabuk, Riyadh, and Jeddah. Deployed unit production truck, wardrobe, toilet, and art trucks, alongside production coordinator, assistants, runners, and full on-ground support teams.</p>
       </div>
-      <div class="project-row-arrow"><i class="fas fa-arrow-right"></i></div>
-    </div>
+      <div class="project-row-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+    </article>
 
-    <div class="project-row" style="cursor: default;">
+    <article class="project-row" style="cursor:default;">
       <img src="pages/projectpage/grid/goodam-yyb.png" alt="Yellah Yellah Beenah" class="project-row-bg">
-      <div class="project-row-overlay"></div>
+      <div class="project-row-overlay" aria-hidden="true"></div>
       <div class="project-row-info">
-        <div class="project-row-cat">Drama Series Production</div>
-        <div class="project-row-title">Yellah Yellah Beenah</div>
-        <div class="project-row-meta">Jeddah & AlUla · 8 Shoot Days · 40+ Crew</div>
-        <div class="project-row-desc">
-          Full unit production support for a multi-episode drama series, delivering production fleet, crew logistics, and on-ground execution across Jeddah and AlUla. 
-          Deployed unit production van, toilet truck, catering van, alongside unit manager, production assistants, runners, and support crew. 
-          Catering services provided throughout the shoot.
-        </div>
+        <p class="project-row-cat">Drama Series Production</p>
+        <h2 class="project-row-title">Yellah Yellah Beenah</h2>
+        <p class="project-row-meta">Jeddah &amp; AlUla · 8 Shoot Days · 40+ Crew</p>
+        <p class="project-row-desc">Full unit production support for a multi-episode drama series, delivering production fleet, crew logistics, and on-ground execution across Jeddah and AlUla. Deployed unit production van, toilet truck, catering van, alongside unit manager, production assistants, runners, and support crew. Catering services provided throughout the shoot.</p>
       </div>
       <div class="project-row-arrow" style="font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); border:0.5px solid var(--accent-line); padding:8px 16px; white-space:nowrap;">
         Coming Soon
       </div>
-    </div>
+    </article>
 
-    <div class="project-row" onclick="openYT('HU_i544FYOU')">
+    <article class="project-row" onclick="openYT('HU_i544FYOU')" role="button" tabindex="0" aria-label="Watch music video on YouTube">
       <img src="pages/projectpage/grid/musicvideo.png" alt="Music Video Production" class="project-row-bg">
-      <div class="project-row-overlay"></div>
+      <div class="project-row-overlay" aria-hidden="true"></div>
       <div class="project-row-info">
-        <div class="project-row-cat">Music Video Production</div>
-        <div class="project-row-title">Cinematic Music Video – Jeddah</div>
-        <div class="project-row-meta">Jeddah · 1 Shoot Day · 50+ Crew</div>
-        <div class="project-row-desc">
-          Delivered unit production support for a high-energy music video, supplying a fully equipped unit van and catering van. 
-          Supported a 50+ crew production with efficient on-ground logistics and seamless execution.
-        </div>
+        <p class="project-row-cat">Music Video Production</p>
+        <h2 class="project-row-title">Cinematic Music Video – Jeddah</h2>
+        <p class="project-row-meta">Jeddah · 1 Shoot Day · 50+ Crew</p>
+        <p class="project-row-desc">Delivered unit production support for a high-energy music video, supplying a fully equipped unit van and catering van. Supported a 50+ crew production with efficient on-ground logistics and seamless execution.</p>
       </div>
-      <div class="project-row-arrow"><i class="fas fa-arrow-right"></i></div>
-    </div>
+      <div class="project-row-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+    </article>
 
-    <div class="project-row" onclick="openYT('hiUJELgnN14')">
+    <article class="project-row" onclick="openYT('hiUJELgnN14')" role="button" tabindex="0" aria-label="Watch Saudi National Day campaign on YouTube">
       <img src="pages/projectpage/grid/dna-snd.png" alt="National Day Campaign" class="project-row-bg">
-      <div class="project-row-overlay"></div>
+      <div class="project-row-overlay" aria-hidden="true"></div>
       <div class="project-row-info">
-        <div class="project-row-cat">National Day Campaign</div>
-        <div class="project-row-title">MONG – Saudi National Day Film</div>
-        <div class="project-row-meta">Riyadh · Multiple Locations · 6 Shoot Days · Large Crew</div>
-        <div class="project-row-desc">
-          Delivered full-scale production support for a Saudi National Day campaign, including unit production van, 
-          wardrobe and toilet trucks, catering van, and extensive crew deployment. Provided production management, 
-          assistants, runners, cleaners, and helpers, alongside heavy equipment such as generators and cranes. 
-          Managed high-intensity shoot days exceeding 18–24 hours across multiple locations in Riyadh.
-        </div>
+        <p class="project-row-cat">National Day Campaign</p>
+        <h2 class="project-row-title">MONG – Saudi National Day Film</h2>
+        <p class="project-row-meta">Riyadh · Multiple Locations · 6 Shoot Days · Large Crew</p>
+        <p class="project-row-desc">Delivered full-scale production support for a Saudi National Day campaign, including unit production van, wardrobe and toilet trucks, catering van, and extensive crew deployment. Managed high-intensity shoot days exceeding 18–24 hours across multiple locations in Riyadh.</p>
       </div>
-      <div class="project-row-arrow"><i class="fas fa-arrow-right"></i></div>
-    </div>
+      <div class="project-row-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+    </article>
 
   </div>
 
-  <!-- instagram button + bts carousel -->
-  <div style="padding: 48px var(--pad-x) 0; border-top: 0.5px solid var(--white-line); display:flex; justify-content:flex-end;">
-    <a href="https://www.instagram.com/appleboxksa/" target="_blank" class="btn btn-ghost">
-      <i class="fab fa-instagram"></i> more on instagram
+  <!-- Instagram link -->
+  <div style="padding:48px var(--pad-x) 0; border-top:0.5px solid var(--white-line); display:flex; justify-content:flex-end;">
+    <a href="https://www.instagram.com/appleboxksa/" target="_blank" rel="noopener" class="btn btn-ghost">
+      <i class="fab fa-instagram" aria-hidden="true"></i> More on Instagram
     </a>
   </div>
 
   <!-- BTS VIDEO CAROUSEL -->
   <div class="bts-section">
-    <div class="eyebrow" style="padding: 0 var(--pad-x); margin-top: 48px;">Behind The Scenes</div>
-    <h2 class="section-heading" style="padding: 0 var(--pad-x); margin-bottom: 32px;">ON SET <span class="accent-text">BTS</span></h2>
-
+    <p class="eyebrow" style="padding:0 var(--pad-x); margin-top:48px;">Behind The Scenes</p>
+    <h2 class="section-heading" style="padding:0 var(--pad-x); margin-bottom:32px;">ON SET <span class="accent-text">BTS</span></h2>
     <div class="bts-track-wrapper">
       <div class="bts-track" id="bts-track"></div>
     </div>
   </div>
+
 </div>
 <!-- END page-projects -->
 
-<!-- Start page-contact -->
+<!-- ═══════════════════════════════════════════
+     PAGE: CONTACT
+═══════════════════════════════════════════ -->
 <div id="page-contact" class="page">
 
   <div class="contact-layout">
 
-    <!-- LEFT — DETAILS & QUICK CONTACT -->
+    <!-- LEFT — DETAILS -->
     <div class="contact-left">
-
       <div style="position:relative; z-index:2;">
-        <div class="eyebrow">Get in Touch</div>
+        <p class="eyebrow">Get in Touch</p>
         <h1>LET'S<br>BUILD<br><span class="accent-text">SOMETHING.</span></h1>
         <p>Tell us about your production. A brief overview is enough. We'll respond within 24 hours with an initial proposal.</p>
         <p style="font-size:12px; font-weight:300; color:var(--accent); margin-top:14px; letter-spacing:0.04em;">Need only rentals or transport? Just mention it — we'll respond fast.</p>
@@ -1247,32 +1173,32 @@
         <div class="contact-detail-item">
           <div class="contact-detail-label">Phone</div>
           <div class="contact-detail-value">
-            <a href="tel:+966570804181"><i class="fas fa-phone"></i> +966 57 080 4181</a><br>
-            <a href="tel:+966507828256" style="margin-top:4px; display:inline-flex;"><i class="fas fa-phone"></i> +966 50 782 8256</a>
+            <a href="tel:+966570804181"><i class="fas fa-phone" aria-hidden="true"></i> +966 57 080 4181</a><br>
+            <a href="tel:+966507828256" style="margin-top:4px; display:inline-flex;"><i class="fas fa-phone" aria-hidden="true"></i> +966 50 782 8256</a>
           </div>
         </div>
 
         <div class="contact-detail-item">
           <div class="contact-detail-label">Email</div>
           <div class="contact-detail-value">
-            <a href="mailto:hello@applebox.sa"><i class="fas fa-envelope"></i> hello@applebox.sa</a>
+            <a href="mailto:hello@applebox.sa"><i class="fas fa-envelope" aria-hidden="true"></i> hello@applebox.sa</a>
           </div>
         </div>
 
-        <!-- DUAL WHATSAPP BUTTONS -->
-        <div class="contact-detail-item" style="border-bottom: none; padding-bottom: 0;">
+        <div class="contact-detail-item" style="border-bottom:none; padding-bottom:0;">
           <div class="contact-detail-label">WhatsApp</div>
-          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
-            <a href="https://wa.me/966570804181?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
-              target="_blank" class="btn btn-whatsapp" style="margin-top: 0;">
-              <i class="fab fa-whatsapp"></i> +966 57 080 4181
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+            <a href="https://wa.me/966570804181?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement."
+               target="_blank" rel="noopener" class="btn btn-whatsapp" style="margin-top:0;">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> +966 57 080 4181
             </a>
-            <a href="https://wa.me/966507828256?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement.%20Here%20are%20the%20details%3A"
-              target="_blank" class="btn btn-whatsapp" style="margin-top: 0;">
-              <i class="fab fa-whatsapp"></i> +966 50 782 8256
+            <a href="https://wa.me/966507828256?text=Hi%20AppleBox%2C%20I%20have%20a%20production%20requirement."
+               target="_blank" rel="noopener" class="btn btn-whatsapp" style="margin-top:0;">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> +966 50 782 8256
             </a>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -1280,40 +1206,40 @@
     <div class="contact-right">
 
       <div class="contact-form-title">
-        <div class="eyebrow">Start a Project</div>
+        <p class="eyebrow">Start a Project</p>
         <h2>TELL US ABOUT<br><span class="accent-text">YOUR SHOOT.</span></h2>
       </div>
 
-      <!-- SUCCESS / ERROR MESSAGES -->
-      <div id="form-success" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid var(--accent); background:var(--accent-dim); font-size:13px; color:var(--white);">
-        <i class="fas fa-circle-check" style="color:var(--accent); margin-right:8px;"></i>
+      <!-- Form feedback -->
+      <div id="form-success" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid var(--accent); background:var(--accent-dim); font-size:13px; color:var(--white);" role="alert">
+        <i class="fas fa-circle-check" style="color:var(--accent); margin-right:8px;" aria-hidden="true"></i>
         Request sent successfully. We'll be in touch within 24 hours.
       </div>
-      <div id="form-error" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid #e05252; background:rgba(224,82,82,0.1); font-size:13px; color:var(--white);">
-        <i class="fas fa-circle-exclamation" style="color:#e05252; margin-right:8px;"></i>
+      <div id="form-error" style="display:none; margin-bottom:20px; padding:16px 20px; border-left:2px solid #e05252; background:rgba(224,82,82,0.1); font-size:13px; color:var(--white);" role="alert">
+        <i class="fas fa-circle-exclamation" style="color:#e05252; margin-right:8px;" aria-hidden="true"></i>
         <span id="form-error-text">Something went wrong. Please try again or reach us via WhatsApp.</span>
       </div>
 
       <form id="contactForm" novalidate>
 
-        <div class="form-row" id="cf-crew-row">
-          <div class="form-group" id="cf-type-group">
-            <label for="cf-name">Your Name <span style="color:var(--accent);">*</span></label>
-            <input id="cf-name" type="text" name="name" placeholder="Full name" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Your Name <span style="color:var(--accent);" aria-hidden="true">*</span></label>
+            <input id="cf-name" type="text" name="name" placeholder="Full name" required autocomplete="name">
           </div>
-          <div class="form-group" id="cf-type-group">
+          <div class="form-group">
             <label for="cf-company">Company</label>
-            <input id="cf-company" type="text" name="company" placeholder="Production company or agency">
+            <input id="cf-company" type="text" name="company" placeholder="Production company or agency" autocomplete="organization">
           </div>
         </div>
 
-        <div class="form-group" id="cf-type-group">
-          <label for="cf-email">Email <span style="color:var(--accent);">*</span></label>
-          <input id="cf-email" type="email" name="email" placeholder="you@company.com" required>
+        <div class="form-group">
+          <label for="cf-email">Email <span style="color:var(--accent);" aria-hidden="true">*</span></label>
+          <input id="cf-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
         </div>
 
-        <div class="form-group" id="cf-type-group">
-          <label for="cf-support">Support Type <span style="color:var(--accent);">*</span></label>
+        <div class="form-group">
+          <label for="cf-support">Support Type <span style="color:var(--accent);" aria-hidden="true">*</span></label>
           <select id="cf-support" name="supportType" required>
             <option value="" disabled selected>What do you need?</option>
             <option value="Full Production Support">Full Production Service</option>
@@ -1323,7 +1249,7 @@
           </select>
         </div>
 
-        <div class="form-group" id="cf-type-group">
+        <div class="form-group">
           <label for="cf-type">Project Type</label>
           <select id="cf-type" name="projectType">
             <option value="" disabled selected>Select project type</option>
@@ -1337,18 +1263,18 @@
           </select>
         </div>
 
-        <div class="form-row" id="cf-crew-row">
-          <div class="form-group" id="cf-type-group">
+        <div class="form-row">
+          <div class="form-group">
             <label for="cf-dates">Shoot Dates</label>
             <input id="cf-dates" type="text" name="shootDates" placeholder="Approx. dates or period">
           </div>
-          <div class="form-group" id="cf-type-group">
+          <div class="form-group">
             <label for="cf-crew">Crew Size</label>
             <input id="cf-crew" type="text" name="crewSize" placeholder="Estimated crew count">
           </div>
         </div>
 
-        <div class="form-group" id="cf-type-group">
+        <div class="form-group">
           <label for="cf-brief">Project Brief</label>
           <textarea id="cf-brief" name="projectBrief" placeholder="Tell us about your production, location, key requirements, and anything else that helps us understand the scope."></textarea>
         </div>
@@ -1377,7 +1303,6 @@
       </div>
 
     </div>
-
   </div>
 
 </div>
@@ -1386,44 +1311,40 @@
 <!-- ═══════════════════════════════════════════
      GALLERY MODAL (GLOBAL)
 ═══════════════════════════════════════════ -->
-<div id="galleryModal" class="gallery-modal">
-  <span class="gallery-close">&times;</span>
-  <img id="galleryModalImg" class="gallery-modal-img" alt="Gallery image">
+<div id="galleryModal" class="gallery-modal" role="dialog" aria-modal="true" aria-label="Image gallery">
+  <button class="gallery-close" aria-label="Close gallery">&times;</button>
+  <img id="galleryModalImg" class="gallery-modal-img" alt="">
   <video id="galleryModalVideo" class="gallery-modal-video" controls></video>
-  <div class="gallery-nav left">&#10094;</div>
-  <div class="gallery-nav right">&#10095;</div>
+  <button class="gallery-nav left"  aria-label="Previous">&#10094;</button>
+  <button class="gallery-nav right" aria-label="Next">&#10095;</button>
 </div>
 
 <!-- ═══════════════════════════════════════════
-     FOOTER (GLOBAL — OUTSIDE ALL PAGES)
+     FOOTER (GLOBAL)
 ═══════════════════════════════════════════ -->
 <footer class="site-footer" style="position:relative; overflow:hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.35; z-index:0;">
+  <video autoplay muted loop playsinline preload="none" aria-hidden="true"
+         style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.35; z-index:0;">
     <source src="pages/brandimage/footer-bg.mp4" type="video/mp4">
   </video>
-  <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;"></div>
+  <div style="position:absolute; inset:0; background:rgba(8,8,8,0.6); z-index:1;" aria-hidden="true"></div>
 
   <div class="footer-left" style="position:relative; z-index:2;">
-    <img src="pages/brandimage/footerlogo.png"
-         data-logo-en="images/brandimage/logo.png"
-         data-logo-ar="images/brandimage/logo-ar.png"
-         alt="AppleBox">
+    <img src="pages/brandimage/footerlogo.png" alt="AppleBox">
   </div>
 
   <div class="footer-center" style="position:relative; z-index:2;">
-    <div class="footer-copy">
-      © 2026 AppleBox Production Services · Saudi Arabia
-    </div>
+    <p class="footer-copy">© 2026 AppleBox Production Services · Saudi Arabia</p>
   </div>
 
   <div class="footer-right" style="position:relative; z-index:2;">
-    <a href="https://www.instagram.com/appleboxksa/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/company/appleboxproductionservices" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.facebook.com/appleboxksa" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.youtube.com/@abalienksa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitter.com/appleboxksa" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.snapchat.com/add/applebox.sa" target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
-    <a href="https://vimeo.com/appleboxksa" target="_blank" aria-label="Vimeo"><i class="fab fa-vimeo"></i></a>
+    <a href="https://www.instagram.com/appleboxksa/"                          target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"  aria-hidden="true"></i></a>
+    <a href="https://www.linkedin.com/company/appleboxproductionservices"     target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"   aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/appleboxksa"                            target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"   aria-hidden="true"></i></a>
+    <a href="https://www.youtube.com/@abalienksa"                             target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"    aria-hidden="true"></i></a>
+    <a href="https://twitter.com/appleboxksa"                                 target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.snapchat.com/add/applebox.sa"                        target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"  aria-hidden="true"></i></a>
+    <a href="https://vimeo.com/appleboxksa"                                   target="_blank" rel="noopener" aria-label="Vimeo"><i class="fab fa-vimeo"      aria-hidden="true"></i></a>
   </div>
 </footer>
 
