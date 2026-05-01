@@ -541,6 +541,11 @@ window.showPage = function (id) {
   document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) {
     a.classList.toggle('nav-active', a.getAttribute('data-page') === id);
   });
+    if (id === 'projects') {
+    document.querySelectorAll('#page-projects .bts-video').forEach(function(v) {
+      v.load();
+    });
+  }
 };
 
 window.goToService = function (sectionId) {
@@ -858,7 +863,7 @@ window.addEventListener('load', () => {
     // 💻 DESKTOP
     setTimeout(() => {
       document.getElementById('loader').classList.add('hidden');
-    }, 2500); // ← was 5000
+    }, 1500); // ← was 5000
 
   } else {
     // 📱 MOBILE
@@ -872,7 +877,7 @@ window.addEventListener('load', () => {
         loader.style.display = "none";
       }, 500);
 
-    }, 2500); // ← was 5000
+    }, 1500); // ← was 5000
   }
 
 });
@@ -894,61 +899,79 @@ document.addEventListener('DOMContentLoaded', function() {
   var modal = document.getElementById('yt-modal');
   if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeYT(); });
 });
-/* ── BTS CAROUSEL HOVER PLAY ── */
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.bts-card').forEach(function(card) {
-    var video = card.querySelector('.bts-video');
-    if (!video) return;
+
+/* ── BTS FULLSCREEN MODAL ── */
+const btsVideos = [
+  { src: 'pages/projectpage/bts/Adidas - Big Foot X Elephant Labs.mp4', label: 'JEDDAH', client: 'ELEPHANT LAB', name: 'ADIDAS – BIG FOOT' },
+  { src: 'pages/projectpage/bts/Adidas - Two Plus One.mp4', label: 'RIYADH', client: 'ADIDAS', name: 'TWO PLUS ONE' },
+  { src: 'pages/projectpage/bts/Asliyah - Alternative Everything.mp4', label: 'JEDDAH', client: 'ASLIYAH', name: 'ALTERNATIVE EVERYTHING' },
+  { src: 'pages/projectpage/bts/Flyadeal - Telfaz.mp4', label: 'JEDDAH', client: 'TELFAZ', name: 'FLYADEAL CAMPAIGN' },
+  { src: 'pages/projectpage/bts/Maadan Snd - Purple Brain.mp4', label: 'RIYADH', client: 'PURPLE BRAIN', name: 'MAADAN SAUDI NATIONAL DAY' },
+  { src: 'pages/projectpage/bts/Keeta - Digitech.mp4', label: 'JEDDAH', client: 'DIGITECH', name: 'KEETA CAMPAIGN' },
+  { src: 'pages/projectpage/bts/National Cybersecurity Authority - Salham.mp4', label: 'RIYADH', client: 'SALHAM', name: 'NATIONAL CYBERSECURITY AUTHORITY' },
+  { src: 'pages/projectpage/bts/Diriyah Gate Development Authrity - Two Tales.mp4', label: 'RIYADH', client: 'TWO TALES', name: 'DIRIYAH GATE DEVELOPMENT AUTHORITY' },
+  { src: 'pages/projectpage/bts/Tres Content - Toyota Ad Shoot.mp4', label: 'JEDDAH', client: 'TRÈS CONTENT', name: 'TOYOTA AD SHOOT' },
+  { src: 'pages/projectpage/bts/Two Tales - Toyota Ad.mp4', label: 'DAMMAM', client: 'TWO TALES', name: 'TOYOTA AD SHOOT' },
+  { src: 'pages/projectpage/bts/Dna Studio - Ministry Of National Guard.mp4', label: 'RIYADH', client: 'DNA STUDIO', name: 'MINISTRY OF NATIONAL GUARD' },
+  { src: 'pages/projectpage/bts/Scar Studio - Nescafe.mp4', label: 'RIYADH', client: 'SCAR STUDIO', name: 'NESCAFE' },
+  { src: 'pages/projectpage/bts/Clandestino - Goat Shoot , Riyadh.mp4', label: 'RIYADH', client: 'CLANDESTINO', name: 'VISIT SAUDI' },
+];
+
+function buildBTSTrack() {
+  const track = document.getElementById('bts-track');
+  if (!track) return;
+
+  [...btsVideos, ...btsVideos].forEach(function(item, index) {
+    const card = document.createElement('div');
+    card.className = 'bts-card';
+    card.innerHTML = `
+      <div class="bts-thumb">
+        <video muted loop playsinline preload="none" class="bts-video">
+          <source src="${item.src}" type="video/mp4">
+        </video>
+        <div class="bts-overlay"></div>
+        <div class="bts-label">${item.label}</div>
+      </div>
+      <div class="bts-info">
+        <div class="bts-client">${item.client}</div>
+        <div class="bts-name">${item.name}</div>
+      </div>
+    `;
+
+    const video = card.querySelector('.bts-video');
     card.addEventListener('mouseenter', function() { video.play().catch(function(){}); });
     card.addEventListener('mouseleave', function() { video.pause(); video.currentTime = 0; });
-  });
-});
-/* ── BTS FULLSCREEN MODAL ── */
-document.addEventListener('DOMContentLoaded', function() {
-  var btsCards = Array.from(document.querySelectorAll('.bts-card'));
-  var btsVideos = btsCards.map(function(card) {
-    var video = card.querySelector('.bts-video source');
-    return video ? video.src : null;
-  }).filter(Boolean);
 
-  var currentBTS = 0;
-
-  function openBTS(index) {
-    currentBTS = index;
-    var modal = document.getElementById('galleryModal');
-    var modalVid = document.getElementById('galleryModalVideo');
-    var modalImg = document.getElementById('galleryModalImg');
-    if (!modal || !modalVid) return;
-    modalVid.src = btsVideos[currentBTS];
-    modalVid.style.display = 'block';
-    modalImg.style.display = 'none';
-    modal.classList.add('active');
-    modalVid.play().catch(function(){});
-    document.body.style.overflow = 'hidden';
-
-    // Override next/prev to cycle only BTS videos
-    var nextBtn = modal.querySelector('.gallery-nav.right');
-    var prevBtn = modal.querySelector('.gallery-nav.left');
-
-    nextBtn.onclick = function() {
-      currentBTS = (currentBTS + 1) % btsVideos.length;
-      modalVid.src = btsVideos[currentBTS];
-      modalVid.play().catch(function(){});
-    };
-    prevBtn.onclick = function() {
-      currentBTS = (currentBTS - 1 + btsVideos.length) % btsVideos.length;
-      modalVid.src = btsVideos[currentBTS];
-      modalVid.play().catch(function(){});
-    };
-  }
-
-  btsCards.forEach(function(card, i) {
-    card.style.cursor = 'pointer';
     card.addEventListener('click', function() {
-      openBTS(i % (btsVideos.length / 2)); // account for duplicates
+      const modal = document.getElementById('galleryModal');
+      const modalVid = document.getElementById('galleryModalVideo');
+      const modalImg = document.getElementById('galleryModalImg');
+      if (!modal || !modalVid) return;
+      let current = index % btsVideos.length;
+      modalVid.src = btsVideos[current].src;
+      modalVid.style.display = 'block';
+      modalImg.style.display = 'none';
+      modal.classList.add('active');
+      modalVid.play().catch(function(){});
+      document.body.style.overflow = 'hidden';
+
+      modal.querySelector('.gallery-nav.right').onclick = function() {
+        current = (current + 1) % btsVideos.length;
+        modalVid.src = btsVideos[current].src;
+        modalVid.play().catch(function(){});
+      };
+      modal.querySelector('.gallery-nav.left').onclick = function() {
+        current = (current - 1 + btsVideos.length) % btsVideos.length;
+        modalVid.src = btsVideos[current].src;
+        modalVid.play().catch(function(){});
+      };
     });
+
+    track.appendChild(card);
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', buildBTSTrack);
 /* ── MOBILE NAV ── */
 function openMobileNav() {
   document.getElementById('mobile-nav-overlay').classList.add('active');
