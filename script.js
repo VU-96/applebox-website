@@ -524,7 +524,11 @@ function switchLanguage(lang) {
    (attached to window for inline onclick)
 ───────────────────────────────────────── */
 
-window.showPage = function (id) {
+window.showPage = function (id, pushHistory) {
+  if (pushHistory !== false) {
+    history.pushState({ page: id }, '', '#' + id);
+  }
+
   var pages = document.querySelectorAll('.page');
   pages.forEach(function (p) {
     p.classList.remove('active');
@@ -541,12 +545,24 @@ window.showPage = function (id) {
   document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) {
     a.classList.toggle('nav-active', a.getAttribute('data-page') === id);
   });
-    if (id === 'projects') {
+  if (id === 'projects') {
     document.querySelectorAll('#page-projects .bts-video').forEach(function(v) {
       v.load();
     });
   }
 };
+
+// Handle back/forward buttons
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.page) {
+    showPage(e.state.page, false);
+  } else {
+    showPage('home', false);
+  }
+});
+
+// Set initial history state
+history.replaceState({ page: 'home' }, '', window.location.href);
 
 window.goToService = function (sectionId) {
   showPage('services');
@@ -858,26 +874,25 @@ function openGallery() {
 
 // LOADING SCREEN 
 window.addEventListener('load', () => {
+  document.body.classList.add('loading');
 
   if (window.innerWidth > 768) {
-    // 💻 DESKTOP
     setTimeout(() => {
       document.getElementById('loader').classList.add('hidden');
-    }, 1500); // ← was 5000
+      document.body.classList.remove('loading');
+    }, 1500);
 
   } else {
-    // 📱 MOBILE
     const loader = document.getElementById("loader-mobile");
-
     setTimeout(() => {
       loader.style.opacity = "0";
       loader.style.transition = "opacity 0.5s ease";
-
+      loader.style.pointerEvents = "none";
       setTimeout(() => {
         loader.style.display = "none";
+        document.body.classList.remove('loading');
       }, 500);
-
-    }, 1500); // ← was 5000
+    }, 1500);
   }
 
 });
@@ -974,11 +989,15 @@ function buildBTSTrack() {
 document.addEventListener('DOMContentLoaded', buildBTSTrack);
 /* ── MOBILE NAV ── */
 function openMobileNav() {
-  document.getElementById('mobile-nav-overlay').classList.add('active');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  overlay.classList.add('active');
+  overlay.style.pointerEvents = 'all';
   document.body.style.overflow = 'hidden';
 }
 function closeMobileNav() {
-  document.getElementById('mobile-nav-overlay').classList.remove('active');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  overlay.classList.remove('active');
+  overlay.style.pointerEvents = 'none';
   document.body.style.overflow = '';
 }
 document.addEventListener('DOMContentLoaded', function() {
