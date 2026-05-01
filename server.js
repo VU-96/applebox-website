@@ -21,6 +21,14 @@ const app  = express();
 const PORT = process.env.PORT || 4000;
 
 /* ─────────────────────────────────────────
+   LOGGING UTILITY
+───────────────────────────────────────── */
+function log() {}
+log.info  = (...a) => console.log( `[${new Date().toISOString()}] [INFO] `,  ...a);
+log.warn  = (...a) => console.warn( `[${new Date().toISOString()}] [WARN] `,  ...a);
+log.error = (...a) => console.error(`[${new Date().toISOString()}] [ERROR]`, ...a);
+
+/* ─────────────────────────────────────────
    STARTUP ENV CHECKS
    Warn loudly if required vars are missing
 ───────────────────────────────────────── */
