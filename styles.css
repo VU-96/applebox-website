@@ -1455,6 +1455,22 @@ body.loading { overflow: hidden; }
   #rentals .process-step:last-child,
   #catering .process-step:last-child { grid-column: span 2 !important; max-width: 50% !important; margin: 0 auto !important; }
 
+  /* Fix orphaned 3rd step in 2-col process grid */
+.process-track > .process-step:nth-child(3):nth-last-child(3) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#full-production .process-track .process-step:nth-child(3),
+#unit-production .process-track .process-step:nth-child(3),
+#rentals .process-track .process-step:nth-child(3),
+#catering .process-track .process-step:nth-child(3) {
+  grid-column: 1 / -1 !important;
+  max-width: 50% !important;
+  margin: 0 auto !important;
+}
+
   /* Audience */
   .audience-grid { grid-template-columns: 1fr; }
 
