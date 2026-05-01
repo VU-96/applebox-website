@@ -854,7 +854,7 @@ function openGallery() {
       if (err) { showError(err.msg); highlightField(err.field); return; }
       setLoading(true);
       try {
-        var response = await fetch('http://localhost:4000/send-email', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+        var response = await fetch('https://applebox-api.onrender.com/send-email', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
         var result   = await response.json();
         if (response.ok && result.success) { showSuccess(); form.reset(); updateFormMode(); }
         else { showError((result.message||'Error')+(currentLang==='ar'?' أو تواصل عبر واتساب.':" Or reach us on WhatsApp.")); }
