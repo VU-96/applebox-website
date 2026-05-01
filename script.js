@@ -881,11 +881,37 @@ function buildBTSTrack() {
       '</div>';
 
     var video = card.querySelector('.bts-video');
-    card.addEventListener('mouseenter', function () { video.play().catch(function () {}); });
-    card.addEventListener('mouseleave', function () { video.pause(); video.load(); });
+    var isPlaying = false;
+
+    card.addEventListener('mouseenter', function () {
+      if (window.matchMedia('(hover: hover)').matches) {
+        video.play().catch(function () {});
+        isPlaying = true;
+      }
+    });
+
+    card.addEventListener('mouseleave', function () {
+      if (window.matchMedia('(hover: hover)').matches) {
+        video.pause();
+        video.load();
+        isPlaying = false;
+      }
+    });
 
     card.addEventListener('click', function () {
-      if (window._openBTSGallery) window._openBTSGallery(realIndex, BTS_VIDEOS);
+      if (!window.matchMedia('(hover: hover)').matches) {
+        if (!isPlaying) {
+          video.play().catch(function () {});
+          isPlaying = true;
+        } else {
+          video.pause();
+          video.load();
+          isPlaying = false;
+          if (window._openBTSGallery) window._openBTSGallery(realIndex, BTS_VIDEOS);
+        }
+      } else {
+        if (window._openBTSGallery) window._openBTSGallery(realIndex, BTS_VIDEOS);
+      }
     });
 
     track.appendChild(card);

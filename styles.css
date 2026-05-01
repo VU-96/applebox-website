@@ -1508,7 +1508,9 @@ body.loading { overflow: hidden; }
   .about-divider-image { height: 280px; }
 
   /* Projects */
-  .project-row  { height: 220px; padding: 0 20px !important; }
+  .project-row { height: 140px; padding: 0 20px !important; }
+  .project-row .project-row-bg { object-fit: contain; object-position: center center; background: #080808; }
+  .projects-list { display: flex; flex-direction: column; gap: 0; }
   .project-row-cat   { font-size: 9px; }
   .project-row-title { font-size: 16px; }
   .project-row-meta  { font-size: 10px; }
