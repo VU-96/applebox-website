@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: true, limit: '50kb' }));
 ───────────────────────────────────────── */
 const rateLimitMap = new Map();
 const RATE_WINDOW_MS  = 10 * 60 * 1000; /* 10 minutes */
-const RATE_MAX_HITS   = 5;
+const RATE_MAX_HITS   = 10;
 
 function rateLimit(req, res, next) {
   const ip  = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
