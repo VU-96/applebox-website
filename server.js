@@ -285,18 +285,21 @@ const mailOptions = {
   html: buildHtml(d),
 };
 
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    log.info('Email sent', { messageId: info.messageId, to: mailOptions.to });
-    return res.status(200).json({ success: true, message: 'Request sent successfully.' });
-  } catch (err) {
-    log.error('Email send failed', { error: err.message, code: err.code });
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to send your request. Please try again or contact us via WhatsApp.',
-    });
-  }
+// ✅ respond instantly
+res.status(200).json({
+  success: true,
+  message: 'Request sent successfully.'
 });
+
+// ✅ send email in background (no waiting)
+transporter.sendMail(mailOptions)
+  .then(info => {
+    log.info('Email sent', { messageId: info.messageId });
+  })
+  .catch(err => {
+    log.error('Email send failed', { error: err.message });
+  });
+  });
 
 /* ─────────────────────────────────────────
    ROUTE — GET /health
