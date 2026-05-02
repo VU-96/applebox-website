@@ -824,7 +824,7 @@ function initContactForm() {
 
     setLoading(true);
     try {
-      var response = await fetch('https://applebox-backend.onrender.com/send-email', {
+      var response = await fetch('https://applebox-api.onrender.com/send-email', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(data),
