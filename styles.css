@@ -1052,19 +1052,18 @@ button { font-family: inherit; }
 
 /* BTS Carousel */
 .bts-section { padding-bottom: var(--sp-xl); overflow: hidden; }
-.bts-track-wrapper { overflow-x: auto; overflow-y: visible; padding: 0 var(--pad-x); scrollbar-width: none; -ms-overflow-style: none; cursor: grab; }
-.bts-track-wrapper::-webkit-scrollbar { display: none; }
+.bts-track-wrapper { overflow: hidden; padding: 0 var(--pad-x); scrollbar-width: none; -ms-overflow-style: none; cursor: grab; transform: translateZ(0); -webkit-transform: translateZ(0); }
 .bts-track-wrapper.dragging { cursor: grabbing; }
-.bts-track { display: flex; gap: 16px; width: max-content; padding-bottom: 8px; animation: btScrollLeft 20s linear infinite; }
+.bts-track { display: flex; gap: 16px; width: max-content; padding-bottom: 8px; animation: btScrollLeft 40s linear infinite; will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .bts-track:hover { animation-play-state: paused; }
-@keyframes btScrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes btScrollLeft { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
 .bts-card  { flex-shrink: 0; width: 220px; }
 .bts-thumb { position: relative; width: 220px; height: 390px; overflow: hidden; background: var(--surface-1); border: 0.5px solid var(--white-line); }
 .bts-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity var(--dur-m), transform var(--dur-l) var(--ease); }
 .bts-card:hover .bts-video { opacity: 1; transform: scale(1.04); }
 .bts-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 50%); pointer-events: none; }
-.bts-label   { position: absolute; bottom: 12px; left: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.18em; color: var(--accent); background: rgba(8,8,8,0.65); padding: 4px 10px; border-left: 2px solid var(--accent); backdrop-filter: blur(4px); z-index: 1; }
+.bts-label { position: absolute; bottom: 90px; left: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.18em; color: var(--accent); background: rgba(8,8,8,0.65); padding: 4px 10px; border-left: 2px solid var(--accent); backdrop-filter: blur(4px); z-index: 1; }
 .bts-info    { padding: 12px 4px 0; }
 .bts-client  { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
 .bts-name    { font-size: 13px; font-weight: 500; color: var(--white); line-height: 1.4; text-transform: uppercase; }
