@@ -503,7 +503,7 @@ window.closeModal = function () {
   if (modal) modal.style.display = 'none';
 };
 
-window.submitEmail = function () {
+window.submitEmail = async function () {
   var input = document.getElementById('userEmail');
   if (!input) return;
   var email = input.value.trim();
@@ -511,7 +511,27 @@ window.submitEmail = function () {
     _shakeElement(input);
     return;
   }
-  window.open('files/company-profile.pdf', '_blank');
+
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec';
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ email: email }),
+    });
+  } catch (err) {
+    console.error('Sheet save failed:', err);
+  }
+
+  // trigger PDF download
+  var link = document.createElement('a');
+  link.href = 'pages/brandimage/company-profile.pdf';
+  link.download = 'AppleBox Company Profile.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
   closeModal();
   input.value = '';
 };
