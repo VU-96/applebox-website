@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://applebox-website.vercel.app/sitemap.xml
