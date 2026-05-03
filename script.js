@@ -470,6 +470,11 @@ window.showPage = function (id, pushHistory) {
   if (id === 'projects') {
     document.querySelectorAll('#page-projects .bts-video').forEach(function (v) { v.load(); });
   }
+
+  gtag('event', 'page_view', {
+  page_title: id,
+  page_location: window.location.href
+});
 };
 
 window.addEventListener('popstate', function (e) {
