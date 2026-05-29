@@ -760,7 +760,7 @@ button { font-family: inherit; }
   padding: calc(var(--nav-h) + 80px) var(--pad-x) 72px;
   border-bottom: 0.5px solid var(--white-line);
 }
-.page-hero h1 {
+.page-hero h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(52px, 7.5vw, 112px);
   line-height: 0.91; letter-spacing: 0.02em;
@@ -856,7 +856,7 @@ button { font-family: inherit; }
   border-bottom: 0.5px solid var(--white-line);
 }
 .fleet-page-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
-.fleet-page-hero h1 {
+.fleet-page-hero h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(52px, 7.5vw, 112px);
   line-height: 0.91; letter-spacing: 0.02em;
@@ -1098,7 +1098,7 @@ button { font-family: inherit; }
   gap: 48px;
   border-right: 0.5px solid var(--white-line);
 }
-.contact-left h1   { font-family: 'Bebas Neue', sans-serif; font-size: clamp(46px, 5.5vw, 80px); line-height: 0.91; letter-spacing: 0.02em; }
+.contact-left h2   { font-family: 'Bebas Neue', sans-serif; font-size: clamp(46px, 5.5vw, 80px); line-height: 0.91; letter-spacing: 0.02em; }
 .contact-left > p  { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--white-mute); margin-top: 22px; max-width: 360px; }
 
 .contact-detail-item  { padding: 20px 0; border-bottom: 0.5px solid var(--white-line); }
@@ -1471,7 +1471,7 @@ body.loading { overflow: hidden; }
   /* Fleet */
   .fleet-page-hero   { padding: calc(var(--nav-h) + 40px) 20px 48px; }
   .fleet-page-header { grid-template-columns: 1fr; gap: 24px; }
-  .fleet-page-hero h1 { font-size: clamp(42px, 10vw, 72px); }
+  .fleet-page-hero h2 { font-size: clamp(42px, 10vw, 72px); }
   .fleet-section     { padding: 56px 20px; }
   .fleet-layout,
   .fleet-layout.reverse { display: flex !important; flex-direction: column !important; }
@@ -1500,7 +1500,7 @@ body.loading { overflow: hidden; }
 
   /* About */
   .page-hero  { padding: calc(var(--nav-h) + 40px) 20px 48px; }
-  .page-hero h1 { font-size: clamp(42px, 10vw, 72px); }
+  .page-hero h2 { font-size: clamp(42px, 10vw, 72px); }
   .about-intro-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
   .about-portrait-gallery { gap: 4px; margin-top: 24px; }
   .about-portrait-item    { aspect-ratio: 9 / 14; }
@@ -1536,7 +1536,7 @@ body.loading { overflow: hidden; }
   .contact-layout { grid-template-columns: 1fr; }
   .contact-left   { padding: calc(var(--nav-h) + 40px) 20px 40px; min-height: auto; gap: 32px; }
   .contact-right  { padding: 40px 20px; }
-  .contact-left h1 { font-size: clamp(38px, 9vw, 60px); }
+  .contact-left h2 { font-size: clamp(38px, 9vw, 60px); }
   .contact-form-title h2 { font-size: clamp(24px, 7vw, 34px); }
   .contact-next-label { font-size: 9px; }
   .contact-next-num   { font-size: 11px; }

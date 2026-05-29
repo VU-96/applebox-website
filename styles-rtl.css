@@ -71,9 +71,9 @@ body.rtl .service-num,
 body.rtl .process-node,
 body.rtl .fleet-thumb-label,
 body.rtl .fleet-placeholder-label,
-body.rtl .contact-left h1,
-body.rtl .page-hero h1,
-body.rtl .fleet-page-hero h1,
+body.rtl .contact-left h2,
+body.rtl .page-hero h2,
+body.rtl .fleet-page-hero h2,
 body.rtl .about-story-grid h2,
 body.rtl .about-story-text blockquote,
 body.rtl .accent-text {
@@ -397,7 +397,7 @@ body.rtl .page-hero {
   text-align: right;
 }
 
-body.rtl .page-hero h1 {
+body.rtl .page-hero h2 {
   text-align: right;
 }
 
@@ -671,7 +671,7 @@ body.rtl .contact-left {
   direction: rtl;
 }
 
-body.rtl .contact-left h1 {
+body.rtl .contact-left h2 {
   text-align: right;
 }
 

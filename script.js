@@ -813,16 +813,25 @@ function initContactForm() {
     hideMessages();
 
     var data = {
-      name:         getVal('cf-name'),
-      company:      getVal('cf-company'),
-      email:        getVal('cf-email'),
-      supportType:  getVal('cf-support'),
-      projectType:  getVal('cf-type'),
-      shootDates:   getVal('cf-dates'),
-      crewSize:     getVal('cf-crew'),
-      projectBrief: getVal('cf-brief'),
+      name:           getVal('cf-name'),
+      company:        getVal('cf-company'),
+      email:          getVal('cf-email'),
+      supportType:    getVal('cf-support'),
+      projectType:    getVal('cf-type'),
+      shootDates:     getVal('cf-dates'),
+      crewSize:       getVal('cf-crew'),
+      projectBrief:   getVal('cf-brief'),
+      companyWebsite: getVal('cf-company-url'), /* honeypot — must stay empty */
     };
     data.priority = _calcPriority(data);
+
+    /* Honeypot: if filled, it's almost certainly a bot. Fake success, send nothing. */
+    if (data.companyWebsite) {
+      showSuccess();
+      form.reset();
+      updateFormMode();
+      return;
+    }
 
     var err = validate(data);
     if (err) { showError(err.msg); highlightField(err.field); return; }
