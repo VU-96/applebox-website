@@ -542,10 +542,7 @@ window.submitEmail = async function () {
 };
 
 window.openYT = function (videoId) {
-  if (!videoId || videoId.startsWith('YOUTUBE_ID')) {
-    alert('YouTube link not set yet.');
-    return;
-  }
+  if (!videoId || videoId.startsWith('YOUTUBE_ID')) return;
   window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
 };
 
@@ -853,7 +850,6 @@ function initContactForm() {
         showError((result.message || 'Error') + (currentLang === 'ar' ? ' أو تواصل عبر واتساب.' : ' Or reach us on WhatsApp.'));
       }
     } catch (fetchErr) {
-      console.error('[AppleBox Form]', fetchErr);
       showError(currentLang === 'ar'
         ? 'تعذّر الاتصال. تواصل معنا مباشرةً عبر واتساب.'
         : 'Unable to connect. Please contact us via WhatsApp.');
