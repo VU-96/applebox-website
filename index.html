@@ -581,6 +581,8 @@
       <h3 id="modal-title">Download Company Profile</h3>
       <p>Enter your email to continue</p>
       <input type="email" id="userEmail" placeholder="Enter your email" aria-label="Email address">
+      <!-- Honeypot: hidden from users, bots tend to fill it. Do not remove. -->
+      <input type="text" id="lead-company-url" name="companyWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
       <div class="modal-actions">
         <button onclick="submitEmail()">Download</button>
         <button onclick="closeModal()" class="cancel">Cancel</button>

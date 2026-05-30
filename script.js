@@ -517,17 +517,19 @@ window.submitEmail = async function () {
     return;
   }
 
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec';
+  var hp = document.getElementById('lead-company-url');
+  var payload = { email: email, source: 'Company Profile Download', companyWebsite: hp ? hp.value : '' };
 
+  /* Best-effort lead capture — fire-and-forget, never blocks the download.
+     keepalive lets the request complete even if the page navigates away. */
   try {
-    await fetch(SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify({ email: email }),
-    });
-  } catch (err) {
-    console.error('Sheet save failed:', err);
-  }
+    fetch('https://applebox-backend.onrender.com/lead', {
+      method:    'POST',
+      headers:   { 'Content-Type': 'application/json' },
+      body:      JSON.stringify(payload),
+      keepalive: true,
+    }).catch(function () {});
+  } catch (e) {}
 
   // trigger PDF download
   var link = document.createElement('a');
