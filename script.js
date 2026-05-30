@@ -555,8 +555,10 @@ function _captureLead(email, honeypot) {
     } catch (e) {}
   }
 
-  /* If /lead is slow or unreachable, still log the lead to the sheet (no location). */
-  var fallback = setTimeout(function () { toSheet(''); }, 4000);
+  /* If /lead is slow or unreachable, still log the lead to the sheet (no location).
+     8s gives a cold-started Render instance time to respond so the location
+     still reaches the sheet; runs in the background and never affects download. */
+  var fallback = setTimeout(function () { toSheet(''); }, 8000);
 
   try {
     fetch(LEAD_URL, {
