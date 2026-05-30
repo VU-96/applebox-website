@@ -520,13 +520,26 @@ window.submitEmail = async function () {
   var hp = document.getElementById('lead-company-url');
   var payload = { email: email, source: 'Company Profile Download', companyWebsite: hp ? hp.value : '' };
 
-  /* Best-effort lead capture — fire-and-forget, never blocks the download.
-     keepalive lets the request complete even if the page navigates away. */
+  /* Lead capture — both calls are fire-and-forget and fully independent.
+     Neither one blocks or gates the PDF download; if either (or both) fail,
+     the download still proceeds. keepalive lets requests finish across nav. */
+
+  /* Primary: hardened backend /lead route. */
   try {
     fetch('https://applebox-backend.onrender.com/lead', {
       method:    'POST',
       headers:   { 'Content-Type': 'application/json' },
       body:      JSON.stringify(payload),
+      keepalive: true,
+    }).catch(function () {});
+  } catch (e) {}
+
+  /* Secondary: legacy Google Apps Script sheet logging (no-cors, opaque). */
+  try {
+    fetch('https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec', {
+      method:    'POST',
+      mode:      'no-cors',
+      body:      JSON.stringify({ email: email }),
       keepalive: true,
     }).catch(function () {});
   } catch (e) {}
