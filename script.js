@@ -518,33 +518,9 @@ window.submitEmail = async function () {
   }
 
   var hp = document.getElementById('lead-company-url');
-  var payload = { email: email, source: 'Company Profile Download', companyWebsite: hp ? hp.value : '' };
+  var honeypot = hp ? hp.value : '';
 
-  /* Lead capture — both calls are fire-and-forget and fully independent.
-     Neither one blocks or gates the PDF download; if either (or both) fail,
-     the download still proceeds. keepalive lets requests finish across nav. */
-
-  /* Primary: hardened backend /lead route. */
-  try {
-    fetch('https://applebox-backend.onrender.com/lead', {
-      method:    'POST',
-      headers:   { 'Content-Type': 'application/json' },
-      body:      JSON.stringify(payload),
-      keepalive: true,
-    }).catch(function () {});
-  } catch (e) {}
-
-  /* Secondary: legacy Google Apps Script sheet logging (no-cors, opaque). */
-  try {
-    fetch('https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec', {
-      method:    'POST',
-      mode:      'no-cors',
-      body:      JSON.stringify({ email: email }),
-      keepalive: true,
-    }).catch(function () {});
-  } catch (e) {}
-
-  // trigger PDF download
+  /* 1) Trigger the PDF download immediately — never blocked by anything below. */
   var link = document.createElement('a');
   link.href = 'pages/brandimage/company-profile.pdf';
   link.download = 'AppleBox Company Profile.pdf';
@@ -554,7 +530,49 @@ window.submitEmail = async function () {
 
   closeModal();
   input.value = '';
+
+  /* 2) Capture the lead in the background (best-effort; never affects download). */
+  _captureLead(email, honeypot);
 };
+
+/* Lead capture: /lead (primary, resolves approx. location server-side) then
+   relays the SAME location to the Apps Script sheet. Both fire-and-forget. */
+function _captureLead(email, honeypot) {
+  var LEAD_URL  = 'https://applebox-backend.onrender.com/lead';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec';
+
+  var sheetDone = false;
+  function toSheet(location) {
+    if (sheetDone) return;
+    sheetDone = true;
+    try {
+      fetch(SHEET_URL, {
+        method:    'POST',
+        mode:      'no-cors',
+        body:      JSON.stringify({ email: email, location: location || '' }),
+        keepalive: true,
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  /* If /lead is slow or unreachable, still log the lead to the sheet (no location). */
+  var fallback = setTimeout(function () { toSheet(''); }, 4000);
+
+  try {
+    fetch(LEAD_URL, {
+      method:    'POST',
+      headers:   { 'Content-Type': 'application/json' },
+      body:      JSON.stringify({ email: email, source: 'Company Profile Download', companyWebsite: honeypot }),
+      keepalive: true,
+    })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (j) { clearTimeout(fallback); toSheet(j && j.location ? j.location : ''); })
+      .catch(function () { clearTimeout(fallback); toSheet(''); });
+  } catch (e) {
+    clearTimeout(fallback);
+    toSheet('');
+  }
+}
 
 window.openYT = function (videoId) {
   if (!videoId || videoId.startsWith('YOUTUBE_ID')) return;
