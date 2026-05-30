@@ -539,7 +539,7 @@ window.submitEmail = async function () {
    relays the SAME location to the Apps Script sheet. Both fire-and-forget. */
 function _captureLead(email, honeypot) {
   var LEAD_URL  = 'https://applebox-backend.onrender.com/lead';
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz1F6YIZWDBt10eogbCCBw1Nf7itSa-xuhiSqbgU5j8O63vnSjIlCjazm9pbrDMNIdBLw/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwwsPwe0wgzwCUwlmuKd5WeYdM3clp1Q-LSKo-XWNJAPH0al7KfThfKz5bOfT5uEsrybQ/exec';
 
   var sheetDone = false;
   function toSheet(location) {
