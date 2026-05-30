@@ -29,7 +29,7 @@ var TRANSLATIONS = {
     navServices:  'Services',
     navFleet:     'Fleet',
     navProjects:  'Projects',
-    navCta:       'Start a Project',
+    navCta:       'Get in Touch',
     navDropFull:  'Full Production Service',
     navDropUnit:  'Unit Production Service',
     navDropRent:  'Rentals',
@@ -101,7 +101,7 @@ var TRANSLATIONS = {
     ctaHeading:   'PLAN YOUR',
     ctaHeadingAc: 'PRODUCTION',
     ctaSub:       "Tell us what you're shooting — we'll handle the execution from start to wrap.",
-    ctaBtn:       'Start a Project',
+    ctaBtn:       'Get in Touch',
     ctaBtnGhost:  'Download Company Profile',
 
     /* EMAIL MODAL */
