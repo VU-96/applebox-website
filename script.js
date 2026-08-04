@@ -444,10 +444,89 @@ function switchLanguage(lang) {
 
 /* ─────────────────────────────────────────
    3. PAGE NAVIGATION
+
+   Every section has a real URL. Vercel serves a pre-built document per route
+   (see build.js + vercel.json), so a direct visit or refresh on /about returns
+   HTTP 200 with that section already active in the markup. This block keeps
+   in-site clicks client-side — same instant section swap as before — while
+   keeping the address bar, document title and History API honest.
+
+   NOTE: titles/descriptions below must stay in sync with ROUTES in build.js.
+   build.js writes them into the served HTML; these are for client-side nav.
 ───────────────────────────────────────── */
-window.showPage = function (id, pushHistory) {
+var ROUTES = {
+  home: {
+    path: '/',
+    title: 'AppleBox Production Services | Film & TVC Production Saudi Arabia',
+    description: 'AppleBox provides full film and TVC production services in Saudi Arabia, including crew, fleet, rentals, and on-set execution for commercial and film productions.'
+  },
+  about: {
+    path: '/about',
+    title: 'About AppleBox | Production Partner in Saudi Arabia',
+    description: 'For 7+ years AppleBox has been the production partner behind some of the most demanding shoots in Saudi Arabia — from planning to on-set execution.'
+  },
+  services: {
+    path: '/services',
+    title: 'Production Services in Saudi Arabia | AppleBox',
+    description: 'Full production management, unit production, equipment and fleet rentals, and on-set catering — available independently or as one complete setup.'
+  },
+  fleet: {
+    path: '/fleet',
+    title: 'Production Fleet Rental in Saudi Arabia | AppleBox',
+    description: 'A purpose-built fleet for real production demands: unit vans and trucks, wardrobe trucks, support vans, hygiene units and crew transport.'
+  },
+  projects: {
+    path: '/projects',
+    title: 'Projects | Film & TVC Productions in Saudi Arabia',
+    description: 'From international feature films to local TVCs — a selection of productions AppleBox has powered across Saudi Arabia.'
+  },
+  contact: {
+    path: '/contact',
+    title: 'Contact AppleBox | Production Services Saudi Arabia',
+    description: "Tell us about your production — a brief overview is enough. We'll respond within 24 hours with an initial proposal. Riyadh-based, operating Saudi Arabia-wide."
+  }
+};
+
+/* Map a URL path back to a route id. Tolerates trailing slashes and the
+   .html suffix so hand-typed or legacy URLs still resolve. */
+function routeFromPath(pathname) {
+  var clean = String(pathname || '/')
+    .replace(/\.html$/, '')
+    .replace(/\/+$/, '');
+
+  if (clean === '' || clean === '/index') return 'home';
+
+  var id = clean.replace(/^\//, '');
+  return Object.prototype.hasOwnProperty.call(ROUTES, id) ? id : null;
+}
+
+function applyRouteMeta(id) {
+  var route = ROUTES[id];
+  if (!route) return;
+
+  document.title = route.title;
+
+  var desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.setAttribute('content', route.description);
+
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    canonical.setAttribute('href', 'https://www.applebox.sa' + (route.path === '/' ? '/' : route.path));
+  }
+}
+
+/**
+ * Activate a section.
+ *
+ * @param {string}  id           route id — home | about | services | fleet | projects | contact
+ * @param {boolean} pushHistory  false to skip the history entry (popstate / initial paint)
+ * @param {string}  hash         optional element id to scroll to instead of the top
+ */
+window.showPage = function (id, pushHistory, hash) {
+  if (!ROUTES[id]) return;
+
   if (pushHistory !== false) {
-    history.pushState({ page: id }, '', '#' + id);
+    history.pushState({ page: id }, '', ROUTES[id].path + (hash ? '#' + hash : ''));
   }
 
   document.querySelectorAll('.page').forEach(function (p) {
@@ -460,7 +539,8 @@ window.showPage = function (id, pushHistory) {
 
   target.classList.add('active');
   target.removeAttribute('aria-hidden');
-  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  applyRouteMeta(id);
 
   document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) {
     a.classList.toggle('nav-active', a.getAttribute('data-page') === id);
@@ -471,20 +551,22 @@ window.showPage = function (id, pushHistory) {
     document.querySelectorAll('#page-projects .bts-video').forEach(function (v) { v.load(); });
   }
 
-  gtag('event', 'page_view', {
-  page_title: id,
-  page_location: window.location.href
-});
+  if (hash) {
+    scrollToSection(hash);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'page_view', {
+      page_title: id,
+      page_location: window.location.href
+    });
+  }
 };
 
-window.addEventListener('popstate', function (e) {
-  showPage(e.state && e.state.page ? e.state.page : 'home', false);
-});
-
-history.replaceState({ page: 'home' }, '', window.location.href);
-
-window.goToService = function (sectionId) {
-  showPage('services');
+function scrollToSection(sectionId) {
+  /* Wait a frame so the newly activated section has laid out before measuring. */
   setTimeout(function () {
     var section = document.getElementById(sectionId);
     var nav     = document.getElementById('main-nav');
@@ -493,6 +575,98 @@ window.goToService = function (sectionId) {
     var top    = section.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: top, behavior: 'smooth' });
   }, 80);
+}
+
+/**
+ * Deep-link scroll for a URL such as /services#full-production on FIRST load.
+ *
+ * The intro loader adds `body.loading` on the window load event and holds it
+ * for ~1.5s, during which the page is scroll-locked. Scrolling before that
+ * clears is silently discarded, so wait the lock out before measuring.
+ */
+function scrollToSectionAfterLoad(sectionId) {
+  function waitForLoader() {
+    var tries = 0;
+    (function poll() {
+      if (document.body.classList.contains('loading') && tries++ < 40) {
+        return setTimeout(poll, 100);
+      }
+      scrollToSection(sectionId);
+    })();
+  }
+
+  if (document.readyState === 'complete') {
+    waitForLoader();
+  } else {
+    window.addEventListener('load', function () {
+      /* Defer past the loader's own load handler, which is what sets the lock. */
+      setTimeout(waitForLoader, 0);
+    }, { once: true });
+  }
+}
+
+/* ── Initial paint ─────────────────────────────────────────────
+   build.js stamps <html data-route="..."> and pre-activates the matching
+   section, so the correct page is already on screen before this runs. Only
+   step in when the served document and the URL disagree — which happens for
+   legacy hash links such as /#fleet that are still out there in the wild. */
+(function initRoute() {
+  var served  = document.documentElement.getAttribute('data-route') || 'home';
+  var current = routeFromPath(window.location.pathname);
+
+  /* Legacy /#fleet style links — upgrade them to the real URL. */
+  var legacyHash = (window.location.hash || '').replace(/^#/, '');
+  if (current === 'home' && ROUTES[legacyHash]) {
+    history.replaceState({ page: legacyHash }, '', ROUTES[legacyHash].path);
+    showPage(legacyHash, false);
+    return;
+  }
+
+  var resolved = current || served;
+  history.replaceState({ page: resolved }, '', window.location.href);
+
+  if (resolved !== served) {
+    showPage(resolved, false);
+  } else {
+    /* Already correct in the markup — just sync the nav highlight. */
+    document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) {
+      a.classList.toggle('nav-active', a.getAttribute('data-page') === resolved);
+    });
+    if (legacyHash) scrollToSectionAfterLoad(legacyHash);
+  }
+})();
+
+window.addEventListener('popstate', function (e) {
+  var id = (e.state && e.state.page) || routeFromPath(window.location.pathname) || 'home';
+  showPage(id, false);
+});
+
+/* ── Client-side navigation ────────────────────────────────────
+   Real hrefs mean the links work with no JS, open in a new tab on
+   middle-click, and are followable by crawlers. Intercepting plain
+   left-clicks keeps the in-site feel identical to before. */
+document.addEventListener('click', function (e) {
+  if (e.defaultPrevented || e.button !== 0) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+  var link = e.target.closest ? e.target.closest('a') : null;
+  if (!link) return;
+
+  /* Leave downloads, new-tab links and anything cross-origin alone. */
+  if (link.target && link.target !== '_self') return;
+  if (link.hasAttribute('download')) return;
+  if (link.origin !== window.location.origin) return;
+
+  var id = routeFromPath(link.pathname);
+  if (!id) return;
+
+  e.preventDefault();
+  showPage(id, true, (link.hash || '').replace(/^#/, ''));
+}, false);
+
+/* Retained for any inline handler still calling it. */
+window.goToService = function (sectionId) {
+  showPage('services', true, sectionId);
 };
 
 window.openModal = function () {
