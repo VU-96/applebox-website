@@ -850,6 +850,7 @@ function initGallery() {
 
   var items   = [];
   var current = 0;
+  var btsMode = false; /* BTS videos own the modal; photo nav must stand down */
 
   function refreshItems() {
     var activePage = document.querySelector('.page.active');
@@ -867,6 +868,9 @@ function initGallery() {
     document.body.style.overflow = '';
     if (modalVid) { modalVid.pause(); modalVid.src = ''; modalVid.style.display = 'none'; }
     if (modalImg) { modalImg.src = ''; modalImg.style.display = 'none'; }
+    btsMode = false;
+    if (nextBtn) nextBtn.onclick = null;
+    if (prevBtn) prevBtn.onclick = null;
   }
 
   function showItem(index) {
@@ -909,8 +913,8 @@ function initGallery() {
   if (closeBtn) closeBtn.addEventListener('click', closeGallery);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeGallery(); });
 
-  if (nextBtn) nextBtn.addEventListener('click', function () { current = (current + 1) % items.length; showItem(current); });
-  if (prevBtn) prevBtn.addEventListener('click', function () { current = (current - 1 + items.length) % items.length; showItem(current); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { if (btsMode) return; current = (current + 1) % items.length; showItem(current); });
+  if (prevBtn) prevBtn.addEventListener('click', function () { if (btsMode) return; current = (current - 1 + items.length) % items.length; showItem(current); });
 
   /* Keyboard nav */
   document.addEventListener('keydown', function (e) {
@@ -931,6 +935,7 @@ function initGallery() {
   /* BTS gallery override — navigates through btsVideos array */
   window._openBTSGallery = function (startIndex, btsVideos) {
     var current = startIndex;
+    btsMode = true;
     if (modalImg) modalImg.style.display = 'none';
     if (modalVid) { modalVid.src = btsVideos[current].src; modalVid.style.display = 'block'; modalVid.play().catch(function () {}); }
     openGallery();
