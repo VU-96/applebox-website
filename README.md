@@ -100,7 +100,8 @@ compression steps before any future media refresh.
 ## Deployment (Vercel)
 
 The site is served by Vercel (`server: Vercel` on the live response) from the
-repository root. `vercel.json` sets:
+repository root. **Pushing to `main` triggers a production deploy.**
+`vercel.json` sets:
 
 ```json
 { "cleanUrls": true, "trailingSlash": false }
