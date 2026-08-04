@@ -523,19 +523,22 @@ function applyRouteMeta(id) {
  * @param {string}  hash         optional element id to scroll to instead of the top
  */
 window.showPage = function (id, pushHistory, hash) {
-  if (!ROUTES[id]) return;
+  var route  = ROUTES[id];
+  var target = document.getElementById('page-' + id);
+
+  /* Resolve everything BEFORE touching history — pushing the URL and then
+     bailing out would leave the address bar pointing at a page that never
+     rendered. */
+  if (!route || !target) return;
 
   if (pushHistory !== false) {
-    history.pushState({ page: id }, '', ROUTES[id].path + (hash ? '#' + hash : ''));
+    history.pushState({ page: id }, '', route.path + (hash ? '#' + hash : ''));
   }
 
   document.querySelectorAll('.page').forEach(function (p) {
     p.classList.remove('active');
     p.setAttribute('aria-hidden', 'true');
   });
-
-  var target = document.getElementById('page-' + id);
-  if (!target) return;
 
   target.classList.add('active');
   target.removeAttribute('aria-hidden');
@@ -638,7 +641,9 @@ function scrollToSectionAfterLoad(sectionId) {
 
 window.addEventListener('popstate', function (e) {
   var id = (e.state && e.state.page) || routeFromPath(window.location.pathname) || 'home';
-  showPage(id, false);
+  /* Carry the hash through, so going back to /services#full-production
+     lands on the same section it did the first time. */
+  showPage(id, false, (window.location.hash || '').replace(/^#/, ''));
 });
 
 /* ── Client-side navigation ────────────────────────────────────
@@ -661,7 +666,18 @@ document.addEventListener('click', function (e) {
   if (!id) return;
 
   e.preventDefault();
-  showPage(id, true, (link.hash || '').replace(/^#/, ''));
+
+  var hash = (link.hash || '').replace(/^#/, '');
+
+  /* Clicking the nav link for the page you are already on must not stack a
+     second identical history entry — that makes the back button appear dead.
+     Scroll back to the top instead, which is what the click implies. */
+  if (id === routeFromPath(window.location.pathname) && !hash) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  showPage(id, true, hash);
 }, false);
 
 /* Retained for any inline handler still calling it. */
